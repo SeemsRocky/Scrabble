@@ -1,0 +1,33 @@
+Tile(String s) 
+Instance Variables
+3 arrays each for letter for certain pt value
+1 string variable for letter 
+1 int variable for value
+Methods
+getValue() get value of tile
+
+Tilerack()
+Instance Variables
+Tiles[] similar to bag
+_size int variable keep track of how many tiles
+Methods
+getsize() returns size of tilerack
+
+Inventory()
+Instance Variables
+Tile[] contains the 400 letters
+Methods
+remove() removes tiles from inventory
+getsize() returns size of inventory
+
+Board()
+Instance Variables
+Tiles[][] 20x20 board
+Methods
+
+Player(String name, int score)
+Instance Variables
+_score int variable
+_name string variable
+_Tilerack 
+Methods
