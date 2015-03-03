@@ -1,54 +1,17 @@
 package code;
 
-import java.util.Collection;
+import java.util.ArrayList;
 
-public abstract class Inventory<I> implements Collection<I> {
+public class Inventory {
 
-	private Tile[] _store;
-	private int _size;
-
-	public Inventory() {
-		clear();
-	}
-
-	@Override
-	public void clear() {
-		_store = (Tile[]) (new Object[10]);
-		_size = 400; // an empty bag has no items in it; first available
-						// position is 0
-	}
-
-	private void resize(int newSize) {
-		Tile[] temp = (Tile[]) (new Object[newSize]);
-		for (int i = 0; i < _size; i = i + 1) {
-			temp[i] = _store[i];
+	public Inventory(){
+		ArrayList<Tile> myInventory = new ArrayList<Tile>();
+		for(int i = 0; i < 29; i++){
+		String vowels = "AEIOU";
+		for(int l = 0; l<vowels.length(); l++){
+			char c = vowels.charAt(l);
+			myInventory.add(new Tile(c));
 		}
-		_store = temp;
-	}
-
-	public boolean remove(Object obj) {
-		if (obj == null) {
-			for (int i = 0; i < _size; i = i + 1) {
-				if (obj == _store[i]) {
-					_store[i] = _store[_size - 1];
-					_store[_size - 1] = null;
-					_size = _size - 1;
-					return true;
-				}
-			}
-		} else {
-			for (int i = 0; i < _size; i = i + 1) {
-				if (obj.equals(_store[i])) {
-					_store[i] = _store[_size - 1];
-					_store[_size - 1] = null;
-					_size = _size - 1;
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-	public int getsize(){
-		return _size;
+		}	
 	}
 }
