@@ -1,4 +1,4 @@
-package scrabble;
+package code;
 
 public class TileRack {
 
