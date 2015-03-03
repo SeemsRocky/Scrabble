@@ -17,7 +17,7 @@ public class Board
 	//remove tile from x,y
 	public void remove(Tile t,int x, int y)
 	{
-		//Changed from Tile[x][y] to _Board[x][y]
+	//Changed from Tile[x][y] to _Board[x][y]
 		_Board[x][y] = null;
 	}
 }
