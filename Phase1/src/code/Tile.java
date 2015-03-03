@@ -7,10 +7,10 @@ public class Tile {
 		_letter = l;
 		_value = this.getValue();
 	}
-	public char getLetter(){
+	public char getLetter(){     //returns the letter represented by the tile
 		return _letter;
 	}
-	public int getValue(){
+	public int getValue(){       //returns the value of the tile according to the rules
 		if(_letter=='Y'){
 			return 2;
 		}
