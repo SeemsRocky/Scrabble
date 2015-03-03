@@ -33,4 +33,7 @@ public class Inventory {
 	public int getSize(){
 		return _myInventory.size();
 	}
+	public void remove(int i){
+		_myInventory.remove(i);
+	}
 }
