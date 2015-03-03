@@ -26,7 +26,6 @@ public class TileRack {
       public void remove(int i){
     	  _tile.remove(i);
     	  //System.out.println("Number of tiles before refilling again is " + _tile.size());
-    	  this.refillIfNotFull();
-    	 // System.out.println("The size of the tile after refillnig is " + _tile.size());
+    	  
       }
 }
