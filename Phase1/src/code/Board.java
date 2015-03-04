@@ -20,4 +20,8 @@ public class Board
 	//Changed from Tile[x][y] to _Board[x][y]
 		_Board[x][y] = null;
 	}
+	public boolean isEmpty(int x, int y)
+	{
+		return _Board[x][y]==null;
+	}
 }
