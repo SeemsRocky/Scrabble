@@ -28,5 +28,16 @@ public class Player {
     	_myTileRack.refillIfNotFull();
    	 
     }
-    
+   /* dont think this is right for player class lol
+    * public void win()
+    {
+    	if(_myTileRack.getSize()==0 && _inventory.getSize()==0)
+    	{
+    		System.out.println("You won scrabble :D");
+    	}
+    	all the players skipped their turn?
+    	 * 
+    	
+    	 
+    }*/
 }
