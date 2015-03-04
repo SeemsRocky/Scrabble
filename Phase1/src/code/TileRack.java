@@ -9,7 +9,7 @@ public class TileRack {
       public TileRack(Inventory inv){
     	  _inventory = inv;
     	  _tile = new ArrayList<Tile>();   //creates new ArrayList for the TileRack
-    	  for(int i = 0; i < 7; i++){      //adds 12 random tiles from the inventory to the rack
+    	  for(int i = 0; i < 12; i++){      //adds 12 random tiles from the inventory to the rack
     		  _tile.add(_inventory.getTile(0));   
     		  inv.remove(0);               //removes the added tile from the inventory
     	  }
