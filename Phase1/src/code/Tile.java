@@ -23,7 +23,7 @@ public class Tile {
 		return _value;
 	}
 	@Override
-	public String toString(){
+	public String toString(){  //prints the letter of the tile
 		String s = "" + _letter;
 		return s;
 		
