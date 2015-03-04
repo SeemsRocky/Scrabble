@@ -22,6 +22,7 @@ public class Board
 	}
 	public boolean isEmpty(int x, int y)
 	{
+		// checks if position is empty
 		return _Board[x][y]==null;
 	}
 }
