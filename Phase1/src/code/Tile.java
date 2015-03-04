@@ -22,5 +22,11 @@ public class Tile {
 		}
 		return _value;
 	}
+	@Override
+	public String toString(){
+		String s = "" + _letter;
+		return s;
+		
+	}
 	
 }
