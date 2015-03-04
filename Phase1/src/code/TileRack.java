@@ -31,4 +31,8 @@ public class TileRack {
       public Tile getTile(int i){     //returns the tile at index i 
     	  return _tile.get(i);
       }
+      public int getSize()
+      {
+    	  return _tile.size();
+      }
 }
