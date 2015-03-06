@@ -32,8 +32,8 @@ public class PlayerTests {
 		t.addTile(new Tile('G'));
 		System.out.println(t.getTile(1));
 		p1.placeATileOnTheBoard(0, 2, 2);
-		p1.placeATileOnTheBoard(1, 2, 3);
-		p1.placeATileOnTheBoard(2, 2, 4);
+		p1.placeATileOnTheBoard(0, 2, 3);
+		p1.placeATileOnTheBoard(0, 2, 4);
 		p1.moveComplete();
 		int expected = 11;
 		int actual = p1.getScore();
