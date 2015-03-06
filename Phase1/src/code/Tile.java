@@ -7,6 +7,9 @@ public class Tile {
 		_letter = l;
 		_value = this.getValue();
 	}
+	public Tile() {
+		// TODO Auto-generated constructor stub
+	}
 	public char getLetter(){     //returns the letter represented by the tile
 		return _letter;
 	}
