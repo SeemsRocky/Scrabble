@@ -22,10 +22,12 @@ public class InventoryTests {
 	public void sizeAfterCreatingTileRack() {
 		Inventory i = new Inventory();
 		TileRack t = new TileRack(i);
+     	int actual = i.getSize();
 		int expected = 388;
-		int actual = i.getSize();
-		assertTrue("The expected value was " + expected + " but the value I got was " + actual, actual==expected);
-		
+		System.out.println("The size of the inventory is "+actual);
+		assertTrue( "the expected is " + expected 
+				+ "the actual is " + actual,
+				expected==actual);
 	}
 	
 	@Test
@@ -51,6 +53,4 @@ public class InventoryTests {
 		assertTrue("The expected value was " + expected + " but the value I got was " + actual, actual==expected);
 		
 	}
-	
-
 }

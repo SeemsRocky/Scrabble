@@ -26,12 +26,15 @@ public class Player {
     	_myTileRack = new TileRack(_inventory);
     	_TilesMovedByPlayer = new ArrayList<Tile>();
     }
+
     /**
      * This method returns the current score of the player.
      * 
      * @return An int representing the player's score.
      */
     public int getScore(){
+	
+    
     	return _score;
     }
     /**
