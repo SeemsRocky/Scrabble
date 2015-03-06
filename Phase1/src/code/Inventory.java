@@ -15,9 +15,9 @@ public class Inventory {
      */
 	public Inventory(){
 		
-		_myInventory = new ArrayList<Tile>(); //creates a new ArrayList for the inventory
+		_myInventory = new ArrayList<Tile>();
 		
-		for(int i = 0; i < 29; i++){   //adds the vowels 29 times
+		for(int i = 0; i < 29; i++){   
 			String vowels = "AEIOU";
 			for(int l = 0; l<vowels.length(); l++){
 				char c = vowels.charAt(l);
@@ -25,10 +25,10 @@ public class Inventory {
 			}
 		}
 	
-		for(int i = 0; i<15; i++){   //adds the letter 'Y' 15 times
+		for(int i = 0; i<15; i++){   
 			_myInventory.add(new Tile('Y'));
 		}
-		for(int i = 0; i<12; i++){   //adds the rest of the letters 12 times
+		for(int i = 0; i<12; i++){   
 			String rest = "BCDFGHJKLMNPQRSTVWXZ";
 			for(int l = 0; l<rest.length(); l++){
 				char c = rest.charAt(l);
@@ -36,7 +36,7 @@ public class Inventory {
 			}
 			
 		}
-		Collections.shuffle(_myInventory);   //shuffles the collection so that tiles can be drawn randomy
+		Collections.shuffle(_myInventory);  
 	}
 	/**
 	 * It gets a tile at position i
@@ -44,20 +44,20 @@ public class Inventory {
 	 * @return The tile at position i in the inventory
 	 */
 	public Tile getTile(int i){
-		return _myInventory.get(i);  //returns the tile at index i
+		return _myInventory.get(i);  
 	}
 	/**
 	 * It gets the size of the inventory
 	 * @return the size of the inventory
 	 */
 	public int getSize(){
-		return _myInventory.size();  //returns size of the inventory
+		return _myInventory.size();  
 	}
 	/**
 	 * It removes a tile at position i
 	 * @param i the position of the tile in the inventory
 	 */
 	public void remove(int i){
-		_myInventory.remove(i);      //removes the tile at index i
+		_myInventory.remove(i);      
 	}
 }
