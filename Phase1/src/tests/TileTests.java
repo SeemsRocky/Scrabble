@@ -9,35 +9,31 @@ import code.Tile;
 public class TileTests {
 
 	@Test
-	public void gettiletest1() {
+	public void getTileTest1() {
 		Tile t = new Tile('A');
 		char actual = t.getLetter();
 		char expected = 'A';
-		assertTrue("", actual == expected);
-
+		assertTrue("The expected value was " + expected + " but the value I got was " + actual, actual==expected);
 	}
 	
 	@Test
-	public void getvaluetest() {
+	public void getValueTest() {
 		Tile t = new Tile('A');
 		int actual = t.getValue();
 		int expected = 1;
-		assertTrue("", actual == expected);
-		
+		assertTrue("The expected value was " + expected + " but the value I got was " + actual, actual==expected);		
 	}
-	public void getvaluetest2() {
+	public void getValueTest2() {
 		Tile t = new Tile('Y');
 		int actual = t.getValue();
 		int expected = 2;
-		assertTrue("", actual == expected);
-		
+		assertTrue("The expected value was " + expected + " but the value I got was " + actual, actual==expected);		
 	}
-	public void getvaluetest3() {
+	public void getValueTest3() {
 		Tile t = new Tile('Z');
 		int actual = t.getValue();
 		int expected = 5;
-		assertTrue("", actual == expected);
-		
+		assertTrue("The expected value was " + expected + " but the value I got was " + actual, actual==expected);		
 	}
 
 }
