@@ -29,11 +29,10 @@ public class Board {
 	/**
 	 * This method takes a tile and two ints. It removes that tile from the coordinates on the board
 	 * specified by the two ints. 
-	 * @param t A tile that has to be removed from the board.
 	 * @param x An int representing the x-coordinate of the board. 
 	 * @param y An int representing the y-coordinate of the board.
 	 */
-	public void remove(Tile t,int x, int y)
+	public void remove(int x, int y)
 	{
 		_Board[x][y] = null;
 	}
@@ -55,7 +54,7 @@ public class Board {
 	 * This methods returns the tile that is placed at x and y. 
 	 * @param x An int representing the x-coordinate of the board. 
 	 * @param y An int representing the y-coordinate of the board.
-	 * @return
+	 * @return A tile that is placed at x and y. 
 	 */
 	public Tile getTileAt(int x, int y)
 	{
