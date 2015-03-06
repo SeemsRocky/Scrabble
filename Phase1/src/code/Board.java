@@ -25,5 +25,10 @@ public class Board
 		// checks if position is empty
 		return _Board[x][y]==null;
 	}
+	public Tile getTileAt(int x, int y)
+	{
+		// returns the tile @ x,y
+		return _Board[x][y];
+	}
 	
 }
