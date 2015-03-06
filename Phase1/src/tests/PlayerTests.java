@@ -47,7 +47,7 @@ public class PlayerTests {
 		Inventory inv = new Inventory();
 		Board b = new Board();
 		Player p1 = new Player("Adhish", b, inv);
-		String expected = Adhish;
+		String expected = "Adhish";
 		String actual = p1.getName();
 		assertTrue("The expected value was " + expected
 				+ " but the value I got was " + actual, actual == expected);
