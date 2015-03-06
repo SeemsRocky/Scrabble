@@ -25,4 +25,5 @@ public class Board
 		// checks if position is empty
 		return _Board[x][y]==null;
 	}
+	
 }

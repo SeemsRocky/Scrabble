@@ -7,21 +7,50 @@ import org.junit.Test;
 import code.Inventory;
 import code.TileRack;
 
+
 public class InventoryTests {
 
 	@Test
-	public void test() {
+	public void sizeOfInventory() {
 		Inventory i = new Inventory();
-		for(int l = 0; l<400; l++){
-			System.out.println(i.getTile(l));
-		}
+		int expected = 400;
+		int actual = i.getSize();
+		assertTrue("The expected value was " + expected + " but the value I got was " + actual, actual==expected);
+	}
+	
+	@Test
+	public void sizeAfterCreatingTileRack() {
+		Inventory i = new Inventory();
 		TileRack t = new TileRack(i);
-		t.remove(1);
-		t.remove(0);
-		System.out.println("The size of the inventory is " + i.getSize());
-		
-		
+		int expected = 388;
+		int actual = i.getSize();
+		assertTrue("The expected value was " + expected + " but the value I got was " + actual, actual==expected);
 		
 	}
+	
+	@Test
+	public void sizeAfterRemovingTiles() {
+		Inventory i = new Inventory();
+		TileRack t = new TileRack(i);
+		t.remove(0);
+		t.refillIfNotFull();
+		int expected = 387;
+		int actual = i.getSize();
+		assertTrue("The expected value was " + expected + " but the value I got was " + actual, actual==expected);
+		
+	}
+	@Test
+	public void sizeAfterCreatingMultipleTileRacks() {
+		Inventory i = new Inventory();
+		TileRack t = new TileRack(i);
+		TileRack t1 = new TileRack(i);
+		TileRack t2 = new TileRack(i);
+		
+		int expected = 364;
+		int actual = i.getSize();
+		assertTrue("The expected value was " + expected + " but the value I got was " + actual, actual==expected);
+		
+	}
+	
 
 }
