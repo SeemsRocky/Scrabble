@@ -93,10 +93,19 @@ public class Player {
      */
     public void moveComplete(){
         for(int i = 0; i<_TilesMovedByPlayer.size(); i++){
+        	System.out.println(_TilesMovedByPlayer.get(i));
         Tile t =	_TilesMovedByPlayer.get(i);
         _score = _score + t.getValue();
         }
-    	_myTileRack.refillIfNotFull();
+    	//_myTileRack.refillIfNotFull();
+    }
+    
+    /**
+     * This method is solely for the purpose of testing the score mechanism. 
+     * @param t TileRack that has to be set as the TileRack of the player.
+     */
+    public void setTileRack(TileRack t){
+    	_myTileRack = t;
     }
    
 }
