@@ -17,6 +17,7 @@ public class Player {
     	_myTileRack = new TileRack(_inventory);
     }
     public int score(){
+    	
     	//returns the score. not yet implemented on how to calculate the score
     	return _score;
     }
