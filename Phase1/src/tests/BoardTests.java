@@ -18,7 +18,6 @@ public class BoardTests
 		Tile expected = t;
 		assertTrue("The actual tile is " + actual+
 				"the expected tile was " +expected, actual == expected);
-
 	}
 	@Test
 	public void removeTileTest() 
@@ -31,14 +30,24 @@ public class BoardTests
 		Tile expected = null;
 		assertTrue("The actual tile is " + actual+
 				"the expected tile was " +expected, actual == expected);
-
 	}
 	@Test
 	public void checkEmptyTest() 
 	{
 		Board b = new Board();
-		Tile actual = b.getTileAt(1,1);
-		Tile expected = null;
+		boolean actual = true ;
+		boolean expected = b.isEmpty(1, 1);
+		assertTrue("The actual tile is " + actual+
+				"the expected tile was " +expected, actual == expected);
+	}
+	@Test
+	public void checkEmptyTest2() 
+	{
+		Tile t = new Tile('R');
+		Board b = new Board();
+		b.place(t, 10, 15);
+		boolean actual = false;
+		boolean expected = b.isEmpty(10, 15);
 		assertTrue("The actual tile is " + actual+
 				"the expected tile was " +expected, actual == expected);
 
