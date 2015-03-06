@@ -50,7 +50,13 @@ public class Board {
 
 		return _Board[x][y]==null;
 	}
-	// returns the tile @ x,y
+	
+	/**
+	 * This methods returns the tile that is placed at x and y. 
+	 * @param x An int representing the x-coordinate of the board. 
+	 * @param y An int representing the y-coordinate of the board.
+	 * @return
+	 */
 	public Tile getTileAt(int x, int y)
 	{
 
