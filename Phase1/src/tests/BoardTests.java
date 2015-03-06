@@ -35,8 +35,8 @@ public class BoardTests
 	public void checkEmptyTest() 
 	{
 		Board b = new Board();
-		boolean actual = true ;
-		boolean expected = b.isEmpty(1, 1);
+		boolean expected = true ;
+		boolean actual = b.isEmpty(1, 1);
 		assertTrue("The actual tile is " + actual+
 				"the expected tile was " +expected, actual == expected);
 	}
@@ -46,8 +46,8 @@ public class BoardTests
 		Tile t = new Tile('R');
 		Board b = new Board();
 		b.place(t, 10, 15);
-		boolean actual = false;
-		boolean expected = b.isEmpty(10, 15);
+		boolean expected = false;
+		boolean actual = b.isEmpty(10, 15);
 		assertTrue("The actual tile is " + actual+
 				"the expected tile was " +expected, actual == expected);
 
