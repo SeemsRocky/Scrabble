@@ -23,10 +23,13 @@ public class TileRack {
     		  }
     	  }
       }
-      public void remove(int i){      //removes tiles at index i from the rack
-    	  _tile.remove(i);
+      public void removeTile(Tile t){      //removes tiles at index i from the rack
+    	  _tile.remove(t);
     	  //System.out.println("Number of tiles before refilling again is " + _tile.size());
     	  
+      }
+      public void remove(int i){
+    	  _tile.remove(i);
       }
       public Tile getTile(int i){     //returns the tile at index i 
     	  return _tile.get(i);

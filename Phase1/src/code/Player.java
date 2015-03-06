@@ -9,7 +9,7 @@ public class Player {
     private String _name;
     
     /**
-     * A string instance variable for the board of the game.
+     * An instance variable for the board of the game.
      */
     private Board _board;
     
@@ -80,7 +80,7 @@ public class Player {
     	if(_board.isEmpty(xcoordinate, ycoordinate)){
     	_board.place(_myTileRack.getTile(indexTileRack), xcoordinate , ycoordinate);
     	_TilesMovedByPlayer.add(_myTileRack.getTile(indexTileRack));
-    	_myTileRack.remove(indexTileRack);
+    	_myTileRack.removeTile(_myTileRack.getTile(indexTileRack));
     	}
    	 
     }
@@ -93,11 +93,10 @@ public class Player {
      */
     public void moveComplete(){
         for(int i = 0; i<_TilesMovedByPlayer.size(); i++){
-        	System.out.println(_TilesMovedByPlayer.get(i));
         Tile t =	_TilesMovedByPlayer.get(i);
         _score = _score + t.getValue();
         }
-    	//_myTileRack.refillIfNotFull();
+    	_myTileRack.refillIfNotFull();
     }
     
     /**
