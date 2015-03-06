@@ -18,7 +18,7 @@ public class TileRack {
     	  if(!(_tile.size()==12)){
     		  int i = 12 - _tile.size();
     		  for(int l = 0; l < i; l++){
-    			  _tile.add(_inventory.getTile(0));
+    			 addTile(_inventory.getTile(0));
         		  _inventory.remove(0);
     		  }
     	  }
@@ -34,5 +34,8 @@ public class TileRack {
       public int getSize(){
     	  return _tile.size();
       }
+      public void addTile(Tile t){
+    	  _tile.add(t);
+      }
 }
-//hi
+
