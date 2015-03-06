@@ -1,15 +1,14 @@
 package code;
 
 public class Tile {
+	
 	private char _letter;
 	private int _value;
 	public Tile(char l){
 		_letter = l;
 		_value = this.getValue();
 	}
-	public Tile() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	public char getLetter(){     //returns the letter represented by the tile
 		return _letter;
 	}
