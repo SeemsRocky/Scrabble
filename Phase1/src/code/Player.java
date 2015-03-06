@@ -3,11 +3,29 @@ package code;
 import java.util.ArrayList;
 
 public class Player {
+	/**
+	 * A string instance variable for the name of the player.
+	 */
     private String _name;
+    /**
+     * A string instance variable for the board of the game.
+     */
     private Board _board;
+    /**
+     * An instance variable for the inventory of the game.
+     */
     private Inventory _inventory;
+    /**
+     * An instance variable for the score of the player.
+     */
     private int _score;
+    /**
+     * An int instance variable for the TileRack of the player.
+     */
     private TileRack _myTileRack;
+    /**
+     * An instance variable for the tiles moved by the player in one move.
+     */
     private ArrayList<Tile> _TilesMovedByPlayer;
     
     
@@ -33,9 +51,11 @@ public class Player {
      * @return An int representing the player's score.
      */
     public int getScore(){
-	
+	return _score;
+    }
     
-    	return _score;
+    public String getName(){
+    	return _name;
     }
     /**
      * This method places a tile from the TileRack of the player to the board. It checks whether the board
@@ -44,7 +64,7 @@ public class Player {
      * tile is removed from the player's TileRack. 
      * @param indexTileRack An int representing the index of the TileRack.
      * @param xcoordinate An int representing the x-coordinate of the board.
-     * @param ycoordinate 
+     * @param ycoordinate An int representing the y-coordinate of the board.
      */
     public void placeATileOnTheBoard(int indexTileRack, int xcoordinate, int ycoordinate){
     	if(_board.isEmpty(xcoordinate, ycoordinate)){
