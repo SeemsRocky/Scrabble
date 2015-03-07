@@ -28,8 +28,10 @@ public class TileRack {
     	  }
       }
       
-      
-      public void refillIfNotFull(){   //refills back to 12 tiles if size of the rack is not 12
+      /**
+       * This method refills the TileRack back if the TileRack does not have 12 tiles
+       */
+      public void refillIfNotFull(){   
     	  if(!(_tileRack.size()==12)){
     		  int i = 12 - _tileRack.size();
     		  for(int l = 0; l < i; l++){
@@ -38,20 +40,47 @@ public class TileRack {
     		  }
     	  }
       }
+      
+      /**
+       * This method removes a tile from the TileRack.
+       * @param t Tile which has to be removed from the TileRack.
+       */
       public void removeTile(Tile t){      //removes tiles at index i from the rack
     	  _tileRack.remove(t);
     	  //System.out.println("Number of tiles before refilling again is " + _tile.size());
     	  
       }
+      
+      /**
+       * This method removes a tile from index i of the TileRack.
+       * @param i An int that is the index of the tile that has to be removed.
+       */
       public void remove(int i){
     	  _tileRack.remove(i);
       }
-      public Tile getTile(int i){     //returns the tile at index i 
+      
+      /**
+       * This method returns the tile that is at index i.
+       * @param i An int that is the index of the TileRack.
+       * @return Tile at index i. 
+       */
+      public Tile getTile(int i){     
     	  return _tileRack.get(i);
       }
+      
+      /**
+       * This method returns the size of the TileRack. 
+       * @return An int that is the size of the TileRack. 
+       */
       public int getSize(){
     	  return _tileRack.size();
       }
+      
+      /**
+       * This method adds a tile to the TileRack. This method is used a lot of times
+       * in testing the functionality of the project. 
+       * @param t Tile that has to be added to the TileRack.
+       */
       public void addTile(Tile t){
     	  _tileRack.add(t);
       }
