@@ -41,7 +41,7 @@ public class Board {
      * This method checks whether a position on the board is empty or not. 
      * @param x An int representing the x-coordinate of the board.
      * @param y An int representing the y-coordinate of the board.
-     * @return A boolean which gives true if the board is empty at that coordinate and false otherwise.
+     * @return A boolean which returns true if the board is empty at that coordinate and false otherwise.
      * 
      */
 	public boolean isEmpty(int x, int y)

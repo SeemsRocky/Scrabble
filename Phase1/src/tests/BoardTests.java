@@ -9,7 +9,7 @@ import code.Tile;
 public class BoardTests 
 {
 	@Test
-	public void getTileTest() 
+	public void getTileTest() //This test confirms the functionality of the getTileAt test 
 	{
 		Tile t = new Tile('A');
 		Board b = new Board();
