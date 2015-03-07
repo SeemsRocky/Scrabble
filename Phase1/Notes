@@ -1,0 +1,32 @@
+Notes
+
+Meeting 1 February 29
+
+5 classes
+Board 
+Tile
+TileRack
+Player
+Inventory(Use Bag)
+
+
+Meeting 2 March 1
+
+
+6 classes 
+Board 
+Tile
+TileRack
+Player
+Location
+Inventory(Use Bag) 
+
+
+Meeting 3 March 4
+
+5 classes
+Board
+Tile - Use toString method to avoid printing memory addresses.
+TileRack(Use ArrayList)
+Player
+Inventory(Use ArrayList)- Add moveCompleted method
