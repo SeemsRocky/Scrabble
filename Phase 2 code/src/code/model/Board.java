@@ -6,12 +6,17 @@ public class Board {
 	 * 2-D array of tiles to store tiles.
 	 */
 	private Tile[][] _board;
+	
+	private int _width; 
+	private int _length;
 
 	/**
 	 * Class constructor.
 	 */
 	public Board(){
-		_board = new Tile[20][20];
+		_width = 20;
+		_length = 20;
+		_board = new Tile[_length][_width];
 	}
 
 	/**
@@ -47,6 +52,13 @@ public class Board {
 	 */
 	public Tile getTile(int x, int y){
 		return _board[x][y];
+	}
+	
+	public int getLength(){
+		return _length;
+	}
+	public int getWidth(){
+		return _width;
 	}
 
 }
