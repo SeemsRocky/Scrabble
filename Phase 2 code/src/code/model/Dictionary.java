@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 // I don't know where to put this so I'm just going to write it here and we can work on where to put it when we meet.
 public class Dictionary {
-	File dictionary = new File("/Phase 2 code/Documents/Dictionary.txt");
+	File dictionary = new File("src/code/model/Dictionary.txt");
 	public boolean isAWord(String word){
 		try {
 			Scanner scanner = new Scanner(dictionary);
