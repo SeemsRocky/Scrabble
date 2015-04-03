@@ -15,19 +15,22 @@ public class Dictionary {
 				if(next.equals(word)){
 					return true;
 				}
+				else{
+					return false;
+				}
 			}
 				
 			}
 		 catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.exit(0);
 		}
 		finally{
 			//cleanup code
 		}
 		
 		
-		return false;
+		return true;
 
 	}	
 	}	
