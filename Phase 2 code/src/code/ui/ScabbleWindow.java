@@ -26,9 +26,9 @@ public class ScabbleWindow implements Observer, Runnable{
 	public void run() {
 		JFrame window = new JFrame("Scabble");
 		JPanel p = new JPanel();
-		p.setLayout(new GridLayout(20, 20, 20, 20));
+		p.setLayout(new GridLayout(20, 20, 0, 0));
 		for (int i = 0; i < 400; i++) {
-			JButton b = new JButton("");
+			JButton b = new JButton("Letter");
 			p.add(b);
 			
 		}
