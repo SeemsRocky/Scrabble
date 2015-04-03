@@ -45,4 +45,8 @@ public class Player {
 		_score = _score + i;
 		return _score;
 	}
+	
+	public TileRack getTileRack(){
+		return _rack;
+	}
 }

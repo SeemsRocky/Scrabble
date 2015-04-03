@@ -72,4 +72,8 @@ public class Inventory {
 	public Tile getTile(int i){
 		return _tileBag.get(i);
 	}
+	
+	public ArrayList<Tile> getInventory(){
+		return _tileBag;
+	}
 }
