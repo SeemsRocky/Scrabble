@@ -12,16 +12,18 @@ public class Player {
 	 */
 	private TileRack _rack;
 	//private Inventory _inv;
+	private String _name;
 	
 	/**
 	 * Class constructor.
 	 * 
 	 * @param inv can draw Tiles from the Inventory
 	 */
-	public Player(Inventory inv){
+	public Player(Inventory inv, String name){
 		_score = 0;
 		//_inv = inv;
 		_rack = new TileRack(inv);
+		_name = name;
 	}
 	
 	/**
@@ -48,5 +50,8 @@ public class Player {
 	
 	public TileRack getTileRack(){
 		return _rack;
+	}
+	public String getName(){
+		return _name;
 	}
 }
