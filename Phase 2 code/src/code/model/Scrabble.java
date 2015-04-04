@@ -1,9 +1,10 @@
 package code.model;
 
 import java.util.ArrayList;
+import java.util.Observable;
 import java.util.Random;
 
-public class Scrabble {
+public class Scrabble extends Observable{
 	
 	/**
 	 * Stores tiles.

@@ -7,8 +7,9 @@ public class Save {
 	private Board _b;
 	private Inventory _inv;
 	
-	public Save(Board b){
+	public Save(Board b, Inventory inv){
 		_b = b;
+		_inv = inv;
 	}
 
 	public void saveToFile(String filename) {
@@ -19,8 +20,11 @@ public class Save {
 			int widthOfTheBoard = _b.getWidth();
 			String lengthOfBoard = Integer.toString(lengthOfTheBoard);
 			String widthOfBoard = " " +Integer.toString(widthOfTheBoard);
+			String filePathOfDictionary = "\nsrc/code/model/Dictionary.txt";
+			
 			stream.format(lengthOfBoard);
 			stream.format(widthOfBoard);
+			stream.format(filePathOfDictionary);
 		} catch (FileNotFoundException e) {
 			System.err.println("File not found and cannot be created: "+filename);
 		}

@@ -4,9 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-// I don't know where to put this so I'm just going to write it here and we can work on where to put it when we meet.
+
 public class Dictionary {
-	File dictionary = new File("src/code/model/Dictionary.txt");
+	private String _path = "src/code/model/Dictionary.txt";
+	File dictionary = new File(_path);
 	public boolean isAWord(String word){
 		try {
 			Scanner scanner = new Scanner(dictionary);
@@ -33,5 +34,8 @@ public class Dictionary {
 		return true;
 
 	}	
+	public String getFilePath(){
+		return _path;
+	}
 	}	
 	
