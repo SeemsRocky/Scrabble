@@ -95,15 +95,15 @@ public class Scrabble extends Observable{
             {
             	if(numLines<20)
             	{
-            		stream.format(" <\"%s\"> : <%d> %n",p.get(i).getName(),p.get(i).getScore());
+            		stream.format("<%s> : <%d> %n",p.get(i).getName(),p.get(i).getScore());
             	}
             	else
             	{
             		for(int j=0;j<p.size();j++)
             		{
-            			for(int n=0;n<al.size();n++)
+	            		if(convertInt(al.get(al.size()-1))<p.get(i).getScore())
 	            		{
-	            			if()
+	            			
 	            		}
             		}
             	}
@@ -117,6 +117,7 @@ public class Scrabble extends Observable{
             stream.close();
         }
     }
+	
 	private void sort1(ArrayList<Player> al)
 	{
 		int pos =0;
@@ -135,6 +136,10 @@ public class Scrabble extends Observable{
 			al.set(i, temp);
 		}	
 	}
+	/**
+	 * sorts the arraylist of 20 
+	 * @param as
+	 */
 	private void sort2(ArrayList<String> as)
 	{
 		int pos =0;
@@ -153,21 +158,30 @@ public class Scrabble extends Observable{
 			as.set(i, temp);
 		}	
 	}
+	/**
+	 * Takes the score from the string
+	 * @param s String with a number in it
+	 * @return The number as an int 
+	 */
 	private int convertInt(String s)
 	{
-		int num=0;
+		int begin=0;
+		int end=0;
 		int score=0;
 		String scoreString ="";
 		for(int i=0;i<s.length();i++)
 		{
-			if (s.charAt(i)== 32)
+			if (s.charAt(i)=='<')
 			{
-				num=i;
+				begin=i;
+			}
+			if(s.charAt(i)=='>')
+			{
+				end=i;
 			}
 		}
-		for(int j=num+1;j<s.length();j++)
+		for(int j=begin+1;j<end;j++)
 		{
-			
 			scoreString = scoreString + s.charAt(j);
 		}
 		score = Integer.parseInt(scoreString);
