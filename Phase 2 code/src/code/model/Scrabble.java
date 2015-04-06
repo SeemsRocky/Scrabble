@@ -31,7 +31,7 @@ public class Scrabble extends Observable{
 	public Scrabble(){
 		_inv = new Inventory();
 		_board = new Board();
-
+		_players = new ArrayList<Player>();
 	}
 
 	/**
