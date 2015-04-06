@@ -93,19 +93,30 @@ public class Scrabble extends Observable{
             sort1(p);
             for(int i=0;i<_players.size();i++)
             {
-            	if(numLines<20)
+            	if(numLines==0)
             	{
-            		stream.format("<%s> : <%d> %n",p.get(i).getName(),p.get(i).getScore());
+            		stream.format("<%s>:<%d> %n",p.get(i).getName(),p.get(i).getScore());
+            	}
+            	else if(numLines>=4 && numLines<20)
+            	{
+            		for(int x=0;x<p.size();x++)
+            		{
+            			for(int y=0;y<al.size();y++)
+            			{
+            				if(convertInt(al.get(y))<p.get(x).getScore())
+            				{
+            					al.add(y,"<"+p.get(x).getName()+">:<" +p.get(x).getScore()+">");
+            				}
+            				else
+            				{
+            					al.add("<"+p.get(x).getName()+">:<" +p.get(x).getScore()+">");
+            				}
+	            		}
+            		}
             	}
             	else
             	{
-            		for(int j=0;j<p.size();j++)
-            		{
-	            		if(convertInt(al.get(al.size()-1))<p.get(i).getScore())
-	            		{
-	            			
-	            		}
-            		}
+            		
             	}
             }
         } catch (FileNotFoundException e)
