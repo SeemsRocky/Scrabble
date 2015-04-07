@@ -295,6 +295,11 @@ public class Scrabble extends Observable{
         }
         return str;
     }
+
+	public void mark(Tile _til, int _row, int _col) {
+		
+		
+	}
 	
 	
 
