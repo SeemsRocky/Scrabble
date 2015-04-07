@@ -15,11 +15,11 @@ public class ScrabbleWindow implements Observer, Runnable {
         private Scrabble _scrabble;
         private ArrayList<JButton> _buttons;
  
-        public ScrabbleWindow() {      
-                _scrabble = new Scrabble();
-                _scrabble.addObserver(this);
-                _buttons = new ArrayList<JButton>();
-        }
+//        public ScrabbleWindow() {      
+//                _scrabble = new Scrabble();
+//                _scrabble.addObserver(this);
+//                _buttons = new ArrayList<JButton>();
+//        }
  
         @Override
         public void run() {
