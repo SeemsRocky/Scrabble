@@ -6,7 +6,11 @@ import java.util.Scanner;
 
 
 public class Dictionary {
-	private String _path = "src/code/model/Dictionary.txt";
+	private String _path;
+	public Dictionary(String path){
+		_path = path;
+	}
+	
 	File dictionary = new File(_path);
 	public boolean isAWord(String word){
 		try {

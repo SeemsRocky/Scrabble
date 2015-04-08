@@ -22,24 +22,23 @@ public class Scrabble extends Observable{
 	 * tile board to be played on
 	 */
 	private Board _board;
-	/**
-	 * Number of players
-	 */
-	private int _numberOfPlayers;
+	
 
 	private String _pathOfDictionary;
 	private String _pathOfRestoreFile;
-	private ArrayList<String> _nameOfPlayers;
+	
 
 	/**
 	 * Class constructor
 	 */
-	public Scrabble(int n, ArrayList<String> players){
+	public Scrabble(ArrayList<String> players){
 		_inv = new Inventory();
 		_board = new Board();
+		_players = new ArrayList<Player>();
 		for(int i = 0; i<players.size(); i++){
 			addNewPlayer(_inv, players.get(i));
 		}
+		Dictionary wordChecker = new Dictionary(_pathOfDictionary);
 
 
 	}
@@ -47,12 +46,12 @@ public class Scrabble extends Observable{
 	public Scrabble(){
 		_inv = new Inventory();
 		_board = new Board();
-
+		_players = new ArrayList<Player>();
 		for(int i = 1; i<3; i++){
 			addNewPlayer(_inv, "Player " + i);
 		}
 
-		_players = new ArrayList<Player>();
+		
 
 	}
 	public ArrayList<Player> getPlayers()
@@ -115,22 +114,11 @@ public class Scrabble extends Observable{
 		}
 		else{
 			_pathOfDictionary = args[0];
-			_numberOfPlayers = Integer.parseInt(args[1]);
-			String nameOfPlayers = args[2];
-			String word = "";
-			ArrayList<String> arrayOfWords = new ArrayList<String>();
-			for(int i = 0; i<nameOfPlayers.length(); i++){
-				char c = nameOfPlayers.charAt(i);
-				if(c=='\n' || c=='\t' || c == ' '){
-					arrayOfWords.add(word);
-					word = "";
-				}
-				else{
-					word = word + c;
-				}
+			ArrayList<String> nameOfPlayers = new ArrayList<String>();
+			for(int i = 1; i<args.length;i++){
+				nameOfPlayers.add(args[i]);
 			}
-			_nameOfPlayers = arrayOfWords;
-			new Scrabble(_numberOfPlayers, _nameOfPlayers);
+			new Scrabble(nameOfPlayers);
 
 		}
 
