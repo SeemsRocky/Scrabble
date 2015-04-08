@@ -125,29 +125,31 @@ public class Scrabble extends Observable{
 
 	}
 
-	/*
-	 * ROCKY'S CODE THAT DOESNT WORK AT ALL 
+	/**
+	 * It prints out the highscores and writes them onto a text file.
+	 * @param s the current scrabble game
 	 */
-	public void fileWriteHighScore(Scrabble s, String filename) {
+	public void fileWriteHighScore(Scrabble s) {
         PrintStream stream = null;
         try
         {
-            stream = new PrintStream(filename);
-            int numLines = getNumberOfLines(filename);
-            ArrayList<String> al = getHighScoreFile(filename);
+            stream = new PrintStream("src/code/model/Highscores.txt");
+            int numLines = getNumberOfLines("src/code/model/Highscores.txt"); 
+            ArrayList<String> al = getHighScoreFile("src/code/model/Highscores.txt");
             ArrayList<Player> p = s.getPlayers();
-            sort1(p);
-            for(int i=0;i<_players.size();i++)
+            sort1(p); //sorts order by score in game s
+            if(numLines==0) //if empty file just print the in order of p
             {
-            	if(numLines==0)
+            	for(int i=0; i<p.size();i++)
             	{
             		stream.format("<%s>:<%d> %n",p.get(i).getName(),p.get(i).getScore());
             	}
-            	else if(numLines>=4 && numLines<20)
+            }
+            else if(numLines>=4 && numLines<20) // if already has more than 4 but less than 20
             	{
-            		for(int x=0;x<p.size();x++)
+            		for(int x=0;x<p.size();x++) // checks player score
             		{
-            			for(int y=0;y<al.size();y++)
+            			for(int y=0;y<al.size();y++) // with current score so sorted properly
             			{
             				if(convertInt(al.get(y))<p.get(x).getScore())
             				{
@@ -159,22 +161,44 @@ public class Scrabble extends Observable{
             				}
 	            		}
             		}
+            		for(int i=0;i<al.size();i++) // print out everything added
+            		{
+            			stream.format("%s %n",p.get(i));
+            		}
             	}
-            	else
+            else // so more than 20 lines
+            {
+            	int num =0; // number of times a new score is added
+            	for(int x=0;x<p.size();x++) // checks player score
             	{
-            		
+            		for(int y=0;y<al.size();y++) // with current score so sorted properly
+            		{
+            			if(convertInt(al.get(y))<p.get(x).getScore()) // if greater add
+            			{
+            				al.add(y,"<"+p.get(x).getName()+">:<" +p.get(x).getScore()+">");
+            				++num;
+            			}
+	            	}
             	}
-            }
+            	for(int i=0;i<al.size()-num;i++) // print out everything added only 20 lines
+            	{
+            		stream.format("%s %n",p.get(i));
+            	}
+           	}
+            
         } catch (FileNotFoundException e)
         {
-            System.err.println("File not found and cannot be created: "+ filename);
+            System.err.println("File not found and cannot be created: "+ "src/code/model/Highscores.txt");
         }
         finally
         {
             stream.close();
         }
     }
-	
+	/**
+	 * sorts the Arraylist of player according to their scores
+	 * @param al Arraylist of players of scrabble game
+	 */
 	private void sort1(ArrayList<Player> al)
 	{
 		int pos =0;
@@ -191,28 +215,6 @@ public class Scrabble extends Observable{
 			Player temp = al.get(pos);
 			al.set(pos,al.get(i));
 			al.set(i, temp);
-		}	
-	}
-	/**
-	 * sorts the arraylist of 20 
-	 * @param as
-	 */
-	private void sort2(ArrayList<String> as)
-	{
-		int pos =0;
-		for(int i =0; i<as.size()-1;i++)
-		{
-			pos=i;
-			for(int j=i+1; j<as.size();j++)
-			{
-				if(convertInt(as.get(j))<convertInt(as.get(i)))
-				{
-					pos = i;
-				}
-			}
-			String temp = as.get(pos);
-			as.set(pos,as.get(i));
-			as.set(i, temp);
 		}	
 	}
 	/**
@@ -244,6 +246,11 @@ public class Scrabble extends Observable{
 		score = Integer.parseInt(scoreString);
 		return score;
 	}
+	/**
+	 * gets the number of lines of the file
+	 * @param filename name of file
+	 * @return how many lines in the file
+	 */
 	private int getNumberOfLines(String filename)
     {
         Scanner scan = new Scanner(filename);
@@ -262,18 +269,20 @@ public class Scrabble extends Observable{
         }
         return lineNumber;
     }
+	/**
+	 * Gets all the lines in the file and stores them into an arraylist
+	 * @param filename name of file
+	 * @return string arraylist of each line in the file
+	 */
 	public ArrayList<String> getHighScoreFile(String filename)
     {
         Scanner scan = null;
         ArrayList<String> str = new ArrayList<String>();
         try {
             scan = new Scanner(new File("src/code/model/Highscores.txt"));
-            int lineNumber = 0;
             while (scan.hasNextLine()) {
                 String oneLineFromFile = scan.nextLine();
                 str.add(oneLineFromFile);
-                System.out.format("%3d %s %n", lineNumber, oneLineFromFile);
-                lineNumber++;
             }
          } catch (FileNotFoundException e) {
             System.err.println("File not found: "+filename);
@@ -283,6 +292,11 @@ public class Scrabble extends Observable{
         }
         return str;
     }
+
+	public void mark(Tile _til, int _row, int _col) {
+		
+		
+	}
 	
 	
 
