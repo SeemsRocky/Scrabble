@@ -13,9 +13,9 @@ public class Board {
 	/**
 	 * Class constructor.
 	 */
-	public Board(){
-		_width = 20;
-		_length = 20;
+	public Board(int width, int length){
+		_width = width;
+		_length = length;
 		_board = new Tile[_length][_width];
 	}
 

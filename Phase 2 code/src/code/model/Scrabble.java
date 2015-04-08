@@ -33,7 +33,7 @@ public class Scrabble extends Observable{
 	 */
 	public Scrabble(ArrayList<String> players){
 		_inv = new Inventory();
-		_board = new Board();
+		_board = new Board(20,20);
 		_players = new ArrayList<Player>();
 		for(int i = 0; i<players.size(); i++){
 			addNewPlayer(_inv, players.get(i));
@@ -45,7 +45,7 @@ public class Scrabble extends Observable{
 	
 	public Scrabble(){
 		_inv = new Inventory();
-		_board = new Board();
+		_board = new Board(20,20);
 		_players = new ArrayList<Player>();
 		for(int i = 1; i<3; i++){
 			addNewPlayer(_inv, "Player " + i);
