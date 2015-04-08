@@ -292,12 +292,9 @@ public class Scrabble extends Observable{
         ArrayList<String> str = new ArrayList<String>();
         try {
             scan = new Scanner(new File("src/code/model/Highscores.txt"));
-            int lineNumber = 0;
             while (scan.hasNextLine()) {
                 String oneLineFromFile = scan.nextLine();
                 str.add(oneLineFromFile);
-                System.out.format("%3d %s %n", lineNumber, oneLineFromFile);
-                lineNumber++;
             }
          } catch (FileNotFoundException e) {
             System.err.println("File not found: "+filename);
