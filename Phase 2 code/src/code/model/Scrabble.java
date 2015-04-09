@@ -49,8 +49,6 @@ public class Scrabble extends Observable{
 		_arrayofcolor.add(Color.ORANGE);
 		_arrayofcolor.add(Color.YELLOW);
 		_arrayofcolor.add(Color.RED);
-		Collections.shuffle(_arrayofcolor);
-
 	}
 	
 	public Scrabble(){
