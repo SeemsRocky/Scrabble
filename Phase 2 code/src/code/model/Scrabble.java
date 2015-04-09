@@ -42,7 +42,7 @@ public class Scrabble extends Observable{
 		_inv = new Inventory();
 		_board = new Board(20,20);
 		_players = new ArrayList<Player>();
-		for(int i = 0; i<players.size(); i++){
+		for(int i = 0; i<_players.size(); i++){
 			addNewPlayer(_inv, players.get(i));
 		}
 		Dictionary wordChecker = new Dictionary(_pathOfDictionary);
