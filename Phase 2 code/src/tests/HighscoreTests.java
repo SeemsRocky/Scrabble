@@ -21,8 +21,8 @@ public class HighscoreTests
 		{
 			p.get(i).addScore(0,(int)(Math.random()*100)+5);
 		}
-		s.fileWriteHighScore();
+		s.fileWriteHighScore("src/code/model/Highscores.txt");
 		ArrayList<String> arrStr= s.getHighScoreFile("src/code/model/Highscores.txt");
-		assertTrue("The list is" + arrStr.get(1),1==2);
+		assertTrue("The list is" + arrStr.get(0),1==2);
 	}
 }

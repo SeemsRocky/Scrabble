@@ -170,7 +170,7 @@ public class Scrabble extends Observable{
             int numLines = getNumberOfLines(filename); 
             ArrayList<String> al = getHighScoreFile(filename);
             ArrayList<Player> p = _players;
-            sort1(p); //sorts order by score in game s
+            sort1(p); //sorts order by score in current scrabble game
             if(numLines==0) //if empty file just print the in order of p
             {
             	for(int i=0; i<p.size();i++) //highest score on top
