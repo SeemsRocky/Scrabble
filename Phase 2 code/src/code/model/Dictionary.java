@@ -13,9 +13,11 @@ public class Dictionary {
 	public Dictionary(String path){
 		_path = path;
 		_knownWords = new ArrayList<String>();
+		Scanner scanner = null;
 		try {
+			
 			File dictionary = new File(_path);
-			Scanner scanner = new Scanner(dictionary);
+			scanner = new Scanner(dictionary);
 			while(scanner.hasNextLine()){
 				String next = scanner.next().toUpperCase();
 				_knownWords.add(next);
@@ -25,6 +27,9 @@ public class Dictionary {
 		 catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.exit(0);
+		}
+		finally {
+			scanner.close();
 		}
 	}
 	

@@ -45,6 +45,7 @@ public class Scrabble extends Observable{
 		for(int i = 0; i<_players.size(); i++){
 			addNewPlayer(_inv, players.get(i));
 		}
+		_pathOfDictionary = "src/code/model/Dictionary.txt";
 		Dictionary wordChecker = new Dictionary(_pathOfDictionary);
 		_arrayOfColor = new ArrayList<Color>();
 		_arrayOfColor.add(Color.BLUE);
