@@ -313,7 +313,7 @@ public class Scrabble extends Observable{
         Scanner scan = null;
         ArrayList<String> str = new ArrayList<String>();
         try {
-            scan = new Scanner(new File("src/code/model/Highscores.txt"));
+            scan = new Scanner(new File(filename));
             while (scan.hasNextLine()) {
                 String oneLineFromFile = scan.nextLine();
                 str.add(oneLineFromFile);
