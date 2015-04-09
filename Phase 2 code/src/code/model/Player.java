@@ -8,7 +8,7 @@ public class Player {
 	
 	private ArrayList<Tile> _array;
 	
-	 Board _board;
+	private  Board _board;
 	
 	private Tile _tile;
 	
@@ -81,9 +81,28 @@ public class Player {
 	
 	public void PlacingATile(int xcoordinate, int ycoordinate, int indexTileRack){
 		if(_board.isEmpty(xcoordinate, ycoordinate)){
-	    	_board.place(_rack.getTile(indexTileRack), xcoordinate , ycoordinate);
+			_board.addTile(_rack.getTile(indexTileRack), xcoordinate, ycoordinate);
 	    	_array.add(_rack.getTile(indexTileRack));
 	    	_rack.removeTile(_rack.getTile(indexTileRack));
 		}
+	}
+	
+	public String wordToScore(Player p){
+		for(int i=0;i<20;i++){
+			for(int j=0;j<20;j++){
+				Tile left=_board.getTile(i-1, j);
+				Tile right= _board.getTile(i+1, j);
+				Tile bottom= _board.getTile(i, j+1);
+				Tile up= _board.getTile(i, j-1);
+				
+				if(_board.getTile(i, j)== _array.get(0)){
+			     
+				}
+				
+			}
+			
+		}
+		return null;
+		
 	}
 }

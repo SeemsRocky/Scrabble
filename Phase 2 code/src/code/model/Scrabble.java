@@ -330,26 +330,5 @@ public class Scrabble extends Observable{
 		
 	}
 	
-	public String wordToScore(Player p){
-		for(int i=0;i<20;i++){
-			for(int j=0;j<20;j++){
-				Tile t= _board.getTile(i, j);
-				Tile left=_board.getTile(i-1, j);
-				Tile right= _board.getTile(i+1, j);
-				Tile bottom= _board.getTile(i, j+1);
-				Tile up= _board.getTile(i, j-1);
-				
-				if(t.getChar()!=' '){
-			     t.getColor();
-			     
-				}
-				
-			}
-			
-		}
-		return _pathOfDictionary;
-		
-	}
-	
 
 }
