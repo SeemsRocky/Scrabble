@@ -66,4 +66,13 @@ public class TileRack {
 	public int getSize() {
 		return _rack.size();
 	}
+	
+	public ArrayList<Tile> gettiles(){
+		ArrayList<Tile> array = new ArrayList<Tile>();
+		for(int i=0;i<_rack.size();i++){
+			array.add(i,_rack.get(i));
+		}
+		return array;
+		
+	}
 }

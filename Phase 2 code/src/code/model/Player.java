@@ -6,6 +6,8 @@ import java.util.Collections;
 
 public class Player {
 	
+	Tile _tile;
+	
 	Color _c;
 
 	/**
@@ -29,10 +31,12 @@ public class Player {
 		_score = 0;
 		//_inv = inv;
 		_rack = new TileRack(inv);
+		for(int i=0;i<_rack.getSize();i++){
+			_rack.gettiles();
+			_tile.setcolor(_c);
+		}
 		_name = name;
 		_c=c;
-		
-		
 	}
 	
 	/**
@@ -63,4 +67,5 @@ public class Player {
 	public String getName(){
 		return _name;
 	}
+	
 }

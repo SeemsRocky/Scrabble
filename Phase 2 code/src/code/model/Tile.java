@@ -1,5 +1,7 @@
 package code.model;
 
+import java.awt.Color;
+
 public class Tile {
 
 	/**
@@ -38,5 +40,10 @@ public class Tile {
 	 */
 	public int getValue(){
 		return _pointValue;
+	}
+	
+	public Color setcolor(Color c){
+		return c;
+		
 	}
 }

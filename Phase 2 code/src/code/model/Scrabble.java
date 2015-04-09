@@ -62,8 +62,7 @@ public class Scrabble extends Observable{
 		
 
 	}
-	public ArrayList<Player> getPlayers()
-	{
+	public ArrayList<Player> getPlayers(){
 		return _players;
 	}
 	/**
