@@ -19,6 +19,7 @@ public class Dictionary {
 			while(scanner.hasNextLine()){
 				String next = scanner.next().toUpperCase();
 				_knownWords.add(next);
+				break;
 			}
 				
 			}

@@ -20,8 +20,8 @@ public class HighscoreTests
 		for(int i=0;i<p.size();i++)
 		{
 			p.get(i).addScore(0,(int)(Math.random()*100)+5);
-			System.out.println(p.get(i).getScore());
 		}
+		s.w
 		
 	}
 }
