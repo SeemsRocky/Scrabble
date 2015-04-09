@@ -41,6 +41,11 @@ public class Tile {
 	public int getValue(){
 		return _pointValue;
 	}
+	/**
+	 * This method sets the color of the Tile to the color passed in the argument of the method
+	 * @param c
+	 * @return The color that has been associated to the tile
+	 */
 	
 	public Color setcolor(Color c){
 		return c;

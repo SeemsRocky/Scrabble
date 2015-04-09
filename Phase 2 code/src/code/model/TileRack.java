@@ -66,6 +66,10 @@ public class TileRack {
 	public int getSize() {
 		return _rack.size();
 	}
+	/**
+	 * This method creates an ArrayList of all the tiles in a TileRack
+	 * @return ArrayList of all the tiles in a TileRack
+	 */
 	
 	public ArrayList<Tile> gettiles(){
 		ArrayList<Tile> array = new ArrayList<Tile>();

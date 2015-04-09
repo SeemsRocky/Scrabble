@@ -11,6 +11,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Scrabble extends Observable{
+	/**
+	 * ArrayList of colors from which a color is picked for the player to be associated with
+	 */
 	
 	private ArrayList<Color> _arrayofcolor;
 

@@ -23,3 +23,4 @@ public class DictionaryTests {
 	@Test public void test04() { commonTestCode("dasdasdasdasdasdasdasdsa", false); }
 
 }
+
