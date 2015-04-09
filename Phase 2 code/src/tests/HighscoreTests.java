@@ -1,16 +1,27 @@
 package tests;
 
 import static org.junit.Assert.*;
-
+import java.util.ArrayList;
 import org.junit.Test;
-import code.model.Board;
-import code.model.Inventory;
+import code.model.*;
 
 public class HighscoreTests 
 {
-	/*@Test
-	public void test1() 
+	@Test
+	public void testFirstGame() 
 	{
-
-	}*/
+		ArrayList<String> l= new ArrayList<String>();
+		l.add("John");
+		l.add("Jack");
+		l.add("Jorge");
+		l.add("Jeff");
+		Scrabble s = new Scrabble(l);
+		ArrayList<Player> p =s.getPlayers();
+		for(int i=0;i<p.size();i++)
+		{
+			p.get(i).addScore(0,(int)(Math.random()*100)+5);
+			System.out.println(p.get(i).getScore());
+		}
+		
+	}
 }

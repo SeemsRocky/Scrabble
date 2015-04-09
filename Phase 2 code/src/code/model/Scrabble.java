@@ -46,12 +46,12 @@ public class Scrabble extends Observable{
 			addNewPlayer(_inv, players.get(i));
 		}
 		Dictionary wordChecker = new Dictionary(_pathOfDictionary);
-		ArrayList<Color> _arrayofcolor = new ArrayList<Color>();
-		_arrayofcolor.add(Color.BLUE);
-		_arrayofcolor.add(Color.GREEN);
-		_arrayofcolor.add(Color.ORANGE);
-		_arrayofcolor.add(Color.YELLOW);
-		_arrayofcolor.add(Color.RED);
+		_arrayOfColor = new ArrayList<Color>();
+		_arrayOfColor.add(Color.BLUE);
+		_arrayOfColor.add(Color.GREEN);
+		_arrayOfColor.add(Color.ORANGE);
+		_arrayOfColor.add(Color.YELLOW);
+		_arrayOfColor.add(Color.RED);
 	}
 	
 	public Scrabble(){
