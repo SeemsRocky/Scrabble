@@ -25,7 +25,7 @@ public class ScrabbleWindow implements Observer, Runnable {
 		JPanel p1 = new JPanel();
 		JPanel p2 = new JPanel();
 		JPanel p3 = new JPanel();
-		JPanel p4 = new JPanel();
+//		JPanel p4 = new JPanel();
 
 		JPanel player1 = new JPanel();
 		JPanel player2 = new JPanel();
@@ -49,13 +49,13 @@ public class ScrabbleWindow implements Observer, Runnable {
 		
 		
 		player1.add(name1, BorderLayout.EAST);
-		player1.add(score1,BorderLayout.CENTER);
+		player1.add(score1,BorderLayout.WEST);
 		player2.add(name2, BorderLayout.EAST);
-		player2.add(score2,BorderLayout.CENTER);
+		player2.add(score2,BorderLayout.WEST);
 		player3.add(name3, BorderLayout.EAST);
-		player3.add(score3,BorderLayout.CENTER);
+		player3.add(score3,BorderLayout.WEST);
 		player4.add(name4, BorderLayout.EAST);
-		player4.add(score4,BorderLayout.CENTER);
+		player4.add(score4,BorderLayout.WEST);
 		
 		
 		p1.setSize(400, 400);
@@ -95,29 +95,28 @@ public class ScrabbleWindow implements Observer, Runnable {
 		}
 		for (int i = 0; i < 12; i++) {
 			JButton tb1 = new JButton("y");	
-			p2.add(player1, BorderLayout.WEST);
-			p2.add(tb1);
-			
+			p2.add(tb1, BorderLayout.WEST);
+			p2.add(player1);
 			tb1.addActionListener(new ButtonHandler(i, _scrabble));
 		} 	
 		for (int i = 0; i < 12; i++) {
 			JButton tb2 = new JButton("y");	
-			p2.add(player2, BorderLayout.WEST);
-			p2.add(tb2);
+			p2.add(tb2, BorderLayout.WEST);
+			p2.add(player2);
 			tb2.addActionListener(new ButtonHandler(i, _scrabble));
 		} 	
 
 		for (int i = 0; i < 12; i++) {
 			JButton tb3 = new JButton("y");	
-			p2.add(player3, BorderLayout.WEST);
-			p2.add(tb3);
+			p2.add(tb3, BorderLayout.WEST);
+			p2.add(player3);
 			tb3.addActionListener(new ButtonHandler(i, _scrabble));
 		} 	
 
 		for (int i = 0; i < 12; i++) {
 			JButton tb4 = new JButton("y");	
-			p2.add(player4, BorderLayout.WEST);
-			p2.add(tb4);
+			p2.add(tb4, BorderLayout.WEST);
+			p2.add(player4);
 			tb4.addActionListener(new ButtonHandler(i, _scrabble));
 		} 	
 
