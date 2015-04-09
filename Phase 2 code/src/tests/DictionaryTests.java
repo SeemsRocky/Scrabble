@@ -11,7 +11,6 @@ public class DictionaryTests {
 	private void commonTestCode(String input, Boolean expected) {
 		code.model.Dictionary su = new code.model.Dictionary("src/code/model/Dictionary.txt");
 		Boolean actual = su.isAWord(input);
-		System.out.println("Test");
 		assertTrue("With input "+input
 				+ " I expected the answer to be " + expected
 				+ " but the actual response I got was "+ actual,
