@@ -1,6 +1,12 @@
 package code.model;
 
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class Player {
+	
+	Color _c;
 
 	/**
 	 * Records the score.
@@ -19,11 +25,14 @@ public class Player {
 	 * 
 	 * @param inv can draw Tiles from the Inventory
 	 */
-	public Player(Inventory inv, String name){
+	public Player(Inventory inv, String name, Color c){
 		_score = 0;
 		//_inv = inv;
 		_rack = new TileRack(inv);
 		_name = name;
+		_c=c;
+		
+		
 	}
 	
 	/**

@@ -1,14 +1,18 @@
 package code.model;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Observable;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Scrabble extends Observable{
+	
+	private ArrayList<Color> _arrayofcolor;
 
 	/**
 	 * Stores tiles.
@@ -39,7 +43,13 @@ public class Scrabble extends Observable{
 			addNewPlayer(_inv, players.get(i));
 		}
 		Dictionary wordChecker = new Dictionary(_pathOfDictionary);
-
+		ArrayList<Color> _arrayofcolor = new ArrayList<Color>();
+		_arrayofcolor.add(Color.BLUE);
+		_arrayofcolor.add(Color.GREEN);
+		_arrayofcolor.add(Color.ORANGE);
+		_arrayofcolor.add(Color.YELLOW);
+		_arrayofcolor.add(Color.RED);
+		Collections.shuffle(_arrayofcolor);
 
 	}
 	
@@ -62,7 +72,9 @@ public class Scrabble extends Observable{
 	 * Adds a new player to the game.
 	 */
 	private void addNewPlayer(Inventory inv,String name){
-		_players.add(new Player(inv, name));
+		int i=0;
+		_players.add(new Player(inv, name, _arrayofcolor.get(i)));
+		i=i+1;
 	}
 
 
@@ -297,6 +309,8 @@ public class Scrabble extends Observable{
 		
 		
 	}
+	
+	
 	
 	
 
