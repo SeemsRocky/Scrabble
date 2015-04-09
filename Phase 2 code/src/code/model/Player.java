@@ -39,6 +39,7 @@ public class Player {
 		ArrayList<Tile> rack = _rack.getTiles();
 		for(int i =0; i<rack.size(); i++){
 			rack.get(i).setColor(_c);
+			rack.get(i).setPlayer(this);
 		}
 		_name = name;
 		_array= new ArrayList<Tile>();

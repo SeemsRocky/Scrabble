@@ -109,7 +109,18 @@ public class Scrabble extends Observable{
 			String board = "";
 			for(int i = 0; i<20; i++){
 				for(int j = 0; j<20; j++){
-					if()
+					if(_board.isEmpty(i, j)){
+						board = board + '-';
+					}
+					else{ 
+						char c = _board.getTile(i, j).getChar();
+						String character = "";
+						character = character + c;
+						ArrayList<String> playerLetter = new ArrayList<String>();
+						playerLetter.add(character);
+						playerLetter.add(_board.getTile(i,j).getPlayer().getName());
+						board = board + playerLetter.toString();
+					}
 				}
 			}
 
