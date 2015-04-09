@@ -19,7 +19,7 @@ public class Dictionary {
 			File dictionary = new File(_path);
 			scanner = new Scanner(dictionary);
 			while(scanner.hasNextLine()){
-				String next = scanner.next().toUpperCase();
+				String next = scanner.nextLine().toUpperCase();
 				_knownWords.add(next);
 			}
 				
