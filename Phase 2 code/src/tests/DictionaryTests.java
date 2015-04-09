@@ -20,7 +20,7 @@ public class DictionaryTests {
 	@Test public void test01() { commonTestCode("aardvark",true); }
 	@Test public void test02() { commonTestCode("ABC", true); }
 	@Test public void test03() { commonTestCode("accuracy", true); }
-	@Test public void test04() { commonTestCode("dasdasdasdasdasdasdasdsa", false); }
+	@Test public void test04() { commonTestCode("timhortonhhhhhhhhhs", false); }
 
 }
 
