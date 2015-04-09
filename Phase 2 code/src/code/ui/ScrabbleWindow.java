@@ -40,20 +40,27 @@ public class ScrabbleWindow implements Observer, Runnable {
 		JPanel sp1 = new JPanel();
 		JPanel sp2 = new JPanel();
 		JTextField name1 = new JTextField("name");
-		JTextField name2 = new JTextField();
-		JTextField name3 = new JTextField();
-		JTextField name4 = new JTextField();
+		JTextField name2 = new JTextField("name");
+		JTextField name3 = new JTextField("name");
+		JTextField name4 = new JTextField("name");
 
 		JTextField score1 = new JTextField("score");
-		JTextField score2 = new JTextField();
-		JTextField score3 = new JTextField();
-		JTextField score4 = new JTextField();
+		JTextField score2 = new JTextField("score");
+		JTextField score3 = new JTextField("score");
+		JTextField score4 = new JTextField("score");
+		JTextField highest = new JTextField("Highest Score");
 
 		JColorChooser cc = new JColorChooser();
 		
 		
 		player1.add(name1, BorderLayout.WEST);
 		player1.add(score1,BorderLayout.CENTER);
+		player2.add(name2, BorderLayout.WEST);
+		player2.add(score2,BorderLayout.CENTER);
+		player3.add(name3, BorderLayout.WEST);
+		player3.add(score3,BorderLayout.CENTER);
+		player4.add(name4, BorderLayout.WEST);
+		player4.add(score4,BorderLayout.CENTER);
 		
 		p1.setSize(400, 400);
 		p3.setSize(400, 200);
@@ -74,9 +81,10 @@ public class ScrabbleWindow implements Observer, Runnable {
 		
 
 		sp1.setBackground(Color.BLACK);
-		sp2.setBackground(Color.BLUE);
-		p3.add("WEST", sp1);
-		p3.add("CENTER", sp2);
+		sp2.setBackground(Color.GREEN);
+		sp2.add(highest, BorderLayout.SOUTH);
+		p3.add(sp1, BorderLayout.SOUTH);
+		p3.add(sp2, BorderLayout.CENTER);
 		sp1.add(save);
 		sp1.add(open);
 
@@ -90,21 +98,34 @@ public class ScrabbleWindow implements Observer, Runnable {
 			
 		}
 		for (int i = 0; i < 12; i++) {
-			JButton b2 = new JButton("y");
-			p2.add(b2);
-			b2.addActionListener(new ButtonHandler(i, _scrabble));
-		}
+			JButton tb1 = new JButton("y");
+//			JButton tb2 = new JButton("y");
+//			JButton tb3 = new JButton("y");
+//			JButton tb4 = new JButton("y");
+			
+			p2.add(tb1);
+//			p2.add(tb2);
+//			p2.add(tb3);
+//			p2.add(tb4);
+			tb1.addActionListener(new ButtonHandler(i, _scrabble));
+//			tb2.addActionListener(new ButtonHandler(i, _scrabble));
+//			tb3.addActionListener(new ButtonHandler(i, _scrabble));
+//			tb4.addActionListener(new ButtonHandler(i, _scrabble));
+		} 	
 		
 		
 //		window.setLayout(new BorderLayout());
 		p2.add(player1, BorderLayout.WEST);
+//		p2.add(player2, BorderLayout.WEST);
+//		p2.add(player3, BorderLayout.WEST);
+//		p2.add(player4, BorderLayout.WEST);
 		window.add(p1, BorderLayout.WEST);
 		window.add(p2,BorderLayout.SOUTH);
 		window.add("Center", p3);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setVisible(true);
 		window.pack();
-		window.setBackground(Color.BLACK);
+		window.setBackground(Color.RED);
 
 	}
 
