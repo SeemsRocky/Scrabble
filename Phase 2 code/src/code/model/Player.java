@@ -88,6 +88,7 @@ public class Player {
 	}
 	
 	public String wordToScore(Player p){
+		String yo="";
 		for(int i=0;i<20;i++){
 			for(int j=0;j<20;j++){
 				Tile left=_board.getTile(i-1, j);
@@ -96,7 +97,16 @@ public class Player {
 				Tile up= _board.getTile(i, j-1);
 				
 				if(_board.getTile(i, j)== _array.get(0)){
-			     
+					int currentstate=0;
+			     switch(currentstate){
+			     case 0:
+			    	 if(left!=null || right!=null){
+			    		 currentstate=1;
+			    	 }else
+			    	 if(up!=null || bottom!=null){
+			    		 currentstate=1;
+			    	 }
+			     }
 				}
 				
 			}
