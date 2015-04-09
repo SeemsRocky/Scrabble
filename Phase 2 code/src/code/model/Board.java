@@ -61,4 +61,17 @@ public class Board {
 		return _width;
 	}
 
+	public boolean isEmpty(int xcoordinate, int ycoordinate) {
+		// TODO Auto-generated method stub
+		if(_board[xcoordinate][ycoordinate]==null){
+			return true;
+		}
+		return false;
+	}
+
+	public void place(Tile tile, int xcoordinate, int ycoordinate) {
+		// TODO Auto-generated method stub
+		_board[xcoordinate][ycoordinate]=tile;
+	}
+
 }

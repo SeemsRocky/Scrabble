@@ -75,4 +75,9 @@ public class TileRack {
 		return _rack;
 		
 	}
+
+	public Tile getTile(int indexTileRack) {
+		// TODO Auto-generated method stub
+		return _rack.get(indexTileRack);
+	}
 }

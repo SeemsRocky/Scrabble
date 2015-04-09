@@ -6,9 +6,13 @@ import java.util.Collections;
 
 public class Player {
 	
-	Tile _tile;
+	private ArrayList<Tile> _array;
 	
-	Color _c;
+	 Board _board;
+	
+	private Tile _tile;
+	
+	private Color _c;
 
 	/**
 	 * Records the score.
@@ -37,6 +41,7 @@ public class Player {
 			rack.get(i).setColor(_c);
 		}
 		_name = name;
+		_array= new ArrayList<Tile>();
 		
 	}
 	
@@ -71,5 +76,13 @@ public class Player {
 	
 	public Color getColor(){
 		return _c;
+	}
+	
+	public void PlacingATile(int xcoordinate, int ycoordinate, int indexTileRack){
+		if(_board.isEmpty(xcoordinate, ycoordinate)){
+	    	_board.place(_rack.getTile(indexTileRack), xcoordinate , ycoordinate);
+	    	_array.add(_rack.getTile(indexTileRack));
+	    	_rack.removeTile(_rack.getTile(indexTileRack));
+		}
 	}
 }
