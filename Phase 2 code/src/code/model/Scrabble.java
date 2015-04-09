@@ -162,13 +162,13 @@ public class Scrabble extends Observable{
 	 * It prints out the highscores and writes them onto a text file.
 	 * @param s the current scrabble game
 	 */
-	public void fileWriteHighScore() {
+	public void fileWriteHighScore(String filename) {
         PrintStream stream = null;
         try
         {
-            stream = new PrintStream("src/code/model/Highscores.txt");
-            int numLines = getNumberOfLines("src/code/model/Highscores.txt"); 
-            ArrayList<String> al = getHighScoreFile("src/code/model/Highscores.txt");
+            stream = new PrintStream(filename);
+            int numLines = getNumberOfLines(filename); 
+            ArrayList<String> al = getHighScoreFile(filename);
             ArrayList<Player> p = _players;
             sort1(p); //sorts order by score in game s
             if(numLines==0) //if empty file just print the in order of p
@@ -221,7 +221,7 @@ public class Scrabble extends Observable{
             
         } catch (FileNotFoundException e)
         {
-            System.err.println("File not found and cannot be created: "+ "src/code/model/Highscores.txt");
+            System.err.println("File not found and cannot be created: "+ filename);
         }
         finally
         {
