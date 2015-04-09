@@ -15,7 +15,7 @@ public class Scrabble extends Observable{
 	 * ArrayList of colors from which a color is picked for the player to be associated with
 	 */
 	
-	private ArrayList<Color> _arrayofcolor;
+	private ArrayList<Color> _arrayOfColor;
 
 	/**
 	 * Stores tiles.
@@ -72,9 +72,9 @@ public class Scrabble extends Observable{
 	 * Adds a new player to the game.
 	 */
 	private void addNewPlayer(Inventory inv,String name){
-		int i=0;
-		_players.add(new Player(inv, name, _arrayofcolor.get(i)));
-		i=i+1;
+		
+		_players.add(new Player(inv, name, _arrayOfColor.get(0)));
+	_arrayOfColor.remove(0);
 	}
 
 
@@ -310,8 +310,25 @@ public class Scrabble extends Observable{
 		
 	}
 	
-	
-	
+	public String wordToScore(Player p){
+		for(int i=0;i<20;i++){
+			for(int j=0;j<20;j++){
+				Tile t= _board.getTile(i, j);
+				Tile left=_board.getTile(i-1, j);
+				Tile right= _board.getTile(i+1, j);
+				Tile bottom= _board.getTile(i, j+1);
+				Tile up= _board.getTile(i, j-1);
+				
+				if(t.getChar()!=' '){
+			     t.getColor();
+			     
+				}
+				
+			}
+		}
+		return _pathOfDictionary;
+		
+	}
 	
 
 }

@@ -31,12 +31,13 @@ public class Player {
 		_score = 0;
 		//_inv = inv;
 		_rack = new TileRack(inv);
-		for(int i=0;i<_rack.getSize();i++){
-			_rack.gettiles();
-			_tile.setcolor(_c);
+		_c=c;
+		ArrayList<Tile> rack = _rack.getTiles();
+		for(int i =0; i<rack.size(); i++){
+			rack.get(i).setColor(_c);
 		}
 		_name = name;
-		_c=c;
+		
 	}
 	
 	/**
@@ -68,4 +69,7 @@ public class Player {
 		return _name;
 	}
 	
+	public Color getColor(){
+		return _c;
+	}
 }

@@ -71,12 +71,8 @@ public class TileRack {
 	 * @return ArrayList of all the tiles in a TileRack
 	 */
 	
-	public ArrayList<Tile> gettiles(){
-		ArrayList<Tile> array = new ArrayList<Tile>();
-		for(int i=0;i<_rack.size();i++){
-			array.add(i,_rack.get(i));
-		}
-		return array;
+	public ArrayList<Tile> getTiles(){
+		return _rack;
 		
 	}
 }

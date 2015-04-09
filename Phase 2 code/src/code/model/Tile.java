@@ -13,6 +13,8 @@ public class Tile {
 	 */
 	private int _pointValue;
 	
+	private Color _color;
+	
 	/**
 	 * Class constructor.
 	 * 
@@ -47,8 +49,12 @@ public class Tile {
 	 * @return The color that has been associated to the tile
 	 */
 	
-	public Color setcolor(Color c){
-		return c;
+	public void setColor(Color c){
+		_color = c;
+	}
+	
+	public Color getColor(){
+		return _color;
 		
 	}
 }
