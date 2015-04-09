@@ -123,6 +123,7 @@ public class Scrabble extends Observable{
 					}
 				}
 			}
+			stream.format("\n" + board);
 
 		} catch (FileNotFoundException e) {
 			System.err.println("File not found and cannot be created: "+filename);
