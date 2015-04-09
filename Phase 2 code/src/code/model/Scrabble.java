@@ -162,18 +162,18 @@ public class Scrabble extends Observable{
 	 * It prints out the highscores and writes them onto a text file.
 	 * @param s the current scrabble game
 	 */
-	public void fileWriteHighScore(Scrabble s) {
+	public void fileWriteHighScore() {
         PrintStream stream = null;
         try
         {
             stream = new PrintStream("src/code/model/Highscores.txt");
             int numLines = getNumberOfLines("src/code/model/Highscores.txt"); 
             ArrayList<String> al = getHighScoreFile("src/code/model/Highscores.txt");
-            ArrayList<Player> p = s.getPlayers();
+            ArrayList<Player> p = _players;
             sort1(p); //sorts order by score in game s
             if(numLines==0) //if empty file just print the in order of p
             {
-            	for(int i=0; i<p.size();i++)
+            	for(int i=0; i<p.size();i++) //highest score on top
             	{
             		stream.format("<%s>:<%d> %n",p.get(i).getName(),p.get(i).getScore());
             	}
@@ -230,11 +230,12 @@ public class Scrabble extends Observable{
     }
 	/**
 	 * sorts the Arraylist of player according to their scores
+	 * Makes descending order of scores so highest score on top
 	 * @param al Arraylist of players of scrabble game
 	 */
-	private void sort1(ArrayList<Player> al)
+	private static void sort1(ArrayList<Player> al)
 	{
-		int pos =0;
+		int pos;
 		for(int i =0; i<al.size()-1;i++)
 		{
 			pos=i;
@@ -255,7 +256,7 @@ public class Scrabble extends Observable{
 	 * @param s String with a number in it
 	 * @return The number as an int 
 	 */
-	private int convertInt(String s)
+	private static int convertInt(String s)
 	{
 		int begin=0;
 		int end=0;
@@ -284,7 +285,7 @@ public class Scrabble extends Observable{
 	 * @param filename name of file
 	 * @return how many lines in the file
 	 */
-	private int getNumberOfLines(String filename)
+	private static int getNumberOfLines(String filename)
     {
         Scanner scan = new Scanner(filename);
         int lineNumber = 0;
