@@ -325,6 +325,7 @@ public class Scrabble extends Observable{
 				}
 				
 			}
+			
 		}
 		return _pathOfDictionary;
 		
