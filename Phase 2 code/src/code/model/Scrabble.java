@@ -239,14 +239,14 @@ public class Scrabble extends Observable{
 			pos=i;
 			for(int j=i+1; j<al.size();j++)
 			{
-				if(al.get(j).getScore()<al.get(i).getScore())
+				if(al.get(j).getScore()<al.get(pos).getScore())
 				{
 					pos = j;
 				}
 			}
-			Player temp = al.get(pos);
-			al.set(pos,al.get(i));
-			al.set(i, temp);
+			Player temp = al.get(i);
+			al.set(i,al.get(pos));
+			al.set(pos, temp);
 		}	
 	}
 	/**
