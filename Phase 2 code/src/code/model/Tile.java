@@ -15,6 +15,8 @@ public class Tile {
 	
 	private Color _color;
 	
+	private Player _player;
+	
 	/**
 	 * Class constructor.
 	 * 
@@ -56,5 +58,13 @@ public class Tile {
 	public Color getColor(){
 		return _color;
 		
+	}
+	
+	public void setPlayer(Player p){
+		_player = p;
+	}
+	
+	public Player getPlayer(){
+		return _player;
 	}
 }

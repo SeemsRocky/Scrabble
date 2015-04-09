@@ -92,10 +92,12 @@ public class Scrabble extends Observable{
 			stream.format(filePathOfDictionary);
 			for(int i = 0; i<_players.size(); i++){
 				String playerName = _players.get(i).getName();
+				String playerColor = _players.get(i).getColor().toString();
 				String playerScore = Integer.toString(_players.get(i).getScore());
 				String playerRack = _players.get(i).getTileRack().toString();
 				ArrayList<String> playerProperties = new ArrayList<String>();
 				playerProperties.add(playerName);
+				playerProperties.add(playerColor);
 				playerProperties.add(playerScore);
 				playerProperties.add(playerRack);
 				stream.format(playerProperties.toString());
@@ -104,6 +106,12 @@ public class Scrabble extends Observable{
 				}
 			}
 			stream.format("\n" + _inv.getInventory().toString());
+			String board = "";
+			for(int i = 0; i<20; i++){
+				for(int j = 0; j<20; j++){
+					if()
+				}
+			}
 
 		} catch (FileNotFoundException e) {
 			System.err.println("File not found and cannot be created: "+filename);

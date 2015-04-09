@@ -62,16 +62,10 @@ public class Board {
 	}
 
 	public boolean isEmpty(int xcoordinate, int ycoordinate) {
-		// TODO Auto-generated method stub
-		if(_board[xcoordinate][ycoordinate]==null){
-			return true;
-		}
-		return false;
+	
+		return _board[xcoordinate][ycoordinate]==null;
 	}
 
-	public void place(Tile tile, int xcoordinate, int ycoordinate) {
-		// TODO Auto-generated method stub
-		_board[xcoordinate][ycoordinate]=tile;
-	}
+	
 
 }
