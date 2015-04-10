@@ -366,6 +366,8 @@ public class Scrabble_055{
 	 * Gets all the lines in the file and stores them into an arraylist
 	 * @param filename name of file
 	 * @return string arraylist of each line in the file
+	 * @author    driver:
+     * @author navigator: 
 	 */
 	public ArrayList<String> getHighScoreFile(String filename)
 	{
