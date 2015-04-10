@@ -1,8 +1,9 @@
 package code.model;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class TileRack {
+public class TileRack extends Observable {
 	
 	/**
 	 * Inventory to draw tiles from
@@ -32,6 +33,8 @@ public class TileRack {
 		while (_rack.size() < 12){
 			_rack.add(_inv.removeRandomTile());
 		}
+		setChanged();
+		notifyObservers();
 	}
 	
 	/**
@@ -43,6 +46,8 @@ public class TileRack {
 	public Tile removeTile(Tile t){
 		Tile tileToRemove = t;
 		_rack.remove(t);
+		setChanged();
+		notifyObservers();
 		return tileToRemove;
 	}
 	
@@ -55,6 +60,8 @@ public class TileRack {
 	public Tile removeTile(int i){
 		Tile tileToRemove = _rack.get(i);
 		_rack.remove(i);
+		setChanged();
+		notifyObservers();
 		return tileToRemove;
 	}
 

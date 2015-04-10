@@ -124,7 +124,7 @@ public class Scrabble extends Observable{
 	 */
 	private void addNewPlayer(Inventory inv,String name, Dictionary wordChecker){
 
-		_players.add(new Player(inv, name, _arrayOfColor.get(0), wordChecker));
+		_players.add(new Player(inv, name, _arrayOfColor.get(0), wordChecker, _board));
 		_arrayOfColor.remove(0);
 	}
 

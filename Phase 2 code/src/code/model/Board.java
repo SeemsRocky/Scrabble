@@ -1,6 +1,8 @@
 package code.model;
 
-public class Board {
+import java.util.Observable;
+
+public class Board extends Observable {
 
 	/**
 	 * 2-D array of tiles to store tiles.
@@ -27,7 +29,12 @@ public class Board {
 	 * @param y the y-coordinate of the placement location
 	 */
 	public void addTile(Tile t, int x, int y){
-		_board[x][y] = t;
+		if(this.isEmpty(x, y)){
+			_board[x][y] = t;
+			setChanged();
+			notifyObservers();
+		}
+		
 	}
 
 	/**
