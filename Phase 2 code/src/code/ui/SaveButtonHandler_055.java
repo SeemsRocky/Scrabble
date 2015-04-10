@@ -9,9 +9,9 @@ import java.awt.event.ActionListener;
 
 import code.model.Scrabble_055;
 
-public class SaveButtonHandler implements ActionListener {
+public class SaveButtonHandler_055 implements ActionListener {
 	private Scrabble_055 _s;
-	public SaveButtonHandler(Scrabble_055 s){
+	public SaveButtonHandler_055(Scrabble_055 s){
 		_s = s;
 	}
 	/**
