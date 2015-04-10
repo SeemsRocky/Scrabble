@@ -58,7 +58,6 @@ public class Player {
 		_name = name;
 		_array= new ArrayList<Tile>();
 		_wordChecker = wordChecker;
-		
 	}
 	
 	/**
@@ -82,17 +81,37 @@ public class Player {
 		_score = _score + i;
 		return _score;
 	}
-	
+	/**
+	 * This method is made so that it can be called when the user needs the TileRack associated with the player
+	 * @return TileRack of the player
+	 */
 	public TileRack getTileRack(){
 		return _rack;
 	}
+	/**
+	 * 
+	 * @return The name of the Player
+	 */
 	public String getName(){
 		return _name;
 	}
-	
+	/**
+	 * 
+	 * @return The color associated with the Player
+	 */
 	public Color getColor(){
 		return _c;
 	}
+	/**
+	 * This method first checks if the Board is empty or not at a specified location.
+	 *  If it is empty, it places the tile at that location on the Board. After placing the Tile,
+	 *  it adds that Tile to an ArrayList that tells us the Tiles played by the player in a turn.
+	 *  At the end, it removes that Tile from the Players TileRack.
+	 * 
+	 * @param xcoordinate An int representing the x-coordinate of the Board
+	 * @param ycoordinate An int representing the y-coordinate of the Board
+	 * @param indexTileRack An int representing the index of a Tile in the TileRack
+	 */
 	
 	public void PlacingATile(int xcoordinate, int ycoordinate, int indexTileRack){
 		if(_board.isEmpty(xcoordinate, ycoordinate)){
@@ -102,7 +121,13 @@ public class Player {
 		}
 	}
 	
-	public int wordToScore(Player p){
+	public void getarray(){
+		ArrayList<Tile> array = new ArrayList<Tile>();
+		_rack.getTiles();
+	}
+	
+	public int score(Player p){
+		ArrayList<Tile> finalarray= new ArrayList<Tile>();
 		int finalscore=0;
 		ArrayList<Tile> arrayOfFinalWord = new ArrayList<Tile>();
 		for(int i=0; i<20;i++){
@@ -131,47 +156,75 @@ public class Player {
 				Tile down= _board.getTile(i, j+1);
 				Tile up= _board.getTile(i, j-1);
 				if(_board.getTile(i, j)== _array.get(0)){
-					if(left.getPlayer().equals(_board.getTile(i, j).getPlayer()) || right.getPlayer().equals(_board.getTile(i, j).getPlayer())){
+					if(left.getPlayer().getColor().equals(_board.getTile(i, j).getPlayer().getColor()) || right.getPlayer().getColor().equals(_board.getTile(i, j).getPlayer().getColor())){
 						for(int x=1;x==20;x++){
-							if(x==0){
-								x=20;
-							}
 							if(_board.getTile(x, j)!=null && _board.getTile(x-1, j)==null){
 								while(y<=20){
-									arrayOfTilesInLine.add(_board.getTile(y, j));
-								}
-								for(int checkingfornull=0;checkingfornull<arrayOfTilesInLine.size();checkingfornull++){
-									if(arrayOfTilesInLine.get(checkingfornull)!=null){
-										arrayOfFinalWord.add(arrayOfTilesInLine.get(checkingfornull));
-									} else {
-										
+									if(_board.getTile(y, j).getColor()==p.getColor()){
+										arrayOfTilesInLine.add(_board.getTile(y, j));
+										y=y+1;
+									}else {
+										y=y+1;
 									}
 								}
-								
+								}if(x==0){
+									x=20;
+								}	
 						}
+						for(int checkingfornull=0;checkingfornull<arrayOfTilesInLine.size();checkingfornull++){
+							if(arrayOfTilesInLine.get(checkingfornull)!=null){
+								arrayOfFinalWord.add(arrayOfTilesInLine.get(checkingfornull));
+							} else {
+								
+							}
 					}
-					if(up.getPlayer().equals(_board.getTile(j, j)) || down.getPlayer().equals(_board.getTile(i, j))){
+						if(_board.getTile(i, j).getColor().equals(_board.getTile(i, j-1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i-1, j).getColor()) || _board.getTile(i, j).getColor().equals(_board.getTile(i, j-1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i+1, j).getColor()) || _board.getTile(i, j).getColor().equals(_board.getTile(i, j+1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i-1, j).getColor()) || _board.getTile(i, j).getColor().equals(_board.getTile(i, j+1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i+1, j).getColor())){
+							if(arrayOfFinalWord.size()==_array.size()){
+								finalarray=arrayOfFinalWord;
+							}else {
+								
+							}
+						} else {
+							
+						}
+				
+			}
+					if(up.getPlayer().getColor().equals(_board.getTile(j, j).getPlayer().getColor()) || down.getPlayer().getColor().equals(_board.getTile(i, j).getColor())){
 						for(int x=1;x==20;x++){
+							if(_board.getTile(i, x)!=null && _board.getTile(i, x-1)==null){
+								while(y<=20){
+									if(_board.getTile(i, y).getColor()==p.getColor()){
+										arrayOfTilesInLine.add(_board.getTile(i, y));
+										y=y+1;
+									}else {
+										y=y+1;
+									}
+								}
+							}
 							if(x==0){
 								x=20;
 							}
-							if(_board.getTile(i, x)!=null && _board.getTile(i, x-1)==null){
-								while(y<=20){
-									arrayOfTilesInLine.add(_board.getTile(i, y));
-								}
-								for(int checkingfornull=0;checkingfornull<arrayOfTilesInLine.size();checkingfornull++){
-									if(arrayOfTilesInLine.get(checkingfornull)!=null){
-										arrayOfFinalWord.add(arrayOfTilesInLine.get(checkingfornull));
-									} else {
-										
-									}
+							
+						}
+						
+						for(int checkingfornull=0;checkingfornull<arrayOfTilesInLine.size();checkingfornull++){
+							if(arrayOfTilesInLine.get(checkingfornull)!=null){
+								arrayOfFinalWord.add(arrayOfTilesInLine.get(checkingfornull));
+							} else {
 								
 							}
-						}
 					}
+						if(_board.getTile(i, j).getColor().equals(_board.getTile(i, j-1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i-1, j).getColor()) || _board.getTile(i, j).getColor().equals(_board.getTile(i, j-1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i+1, j).getColor()) || _board.getTile(i, j).getColor().equals(_board.getTile(i, j+1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i-1, j).getColor()) || _board.getTile(i, j).getColor().equals(_board.getTile(i, j+1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i+1, j).getColor())){
+							if(arrayOfFinalWord.size()==_array.size()){
+								finalarray=arrayOfFinalWord;
+							}else {
+								
+							}
+						} else {
+							
+						}
+						
 				}
-				
-			}
 			
 		}
 		
@@ -187,7 +240,12 @@ public class Player {
 				finalscore = finalscore + arrayOfFinalWord.get(i).getValue();
 			}
 		}
-		
+		_score = finalscore;
 		return finalscore;
 }
+	
+	public int moveComplete(){
+		_rack.fillRack();
+		return _score;
+	}
 	}
