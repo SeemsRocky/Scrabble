@@ -82,7 +82,7 @@ public class Board_024_055 extends Observable {
  * @param xcoordinate An int representing the x-coordinate of the Board
  * @param ycoordinate An int representing the y-coordinate of the Board
  * @return True is the place is empty, false otherwise
- * @author    driver:
+ * @author    driver: dkumar2 (Dhruv Kumar)
  * @author navigator: 
  */
 	public boolean isEmpty(int xcoordinate, int ycoordinate) {
