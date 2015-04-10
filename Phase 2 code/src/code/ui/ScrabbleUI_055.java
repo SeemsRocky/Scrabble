@@ -96,7 +96,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 		JPanel playerInfo = new JPanel();
 		playerInfo.setLayout(new BoxLayout(playerInfo, BoxLayout.Y_AXIS));
 		JButton saveButton = new JButton("Save");
-		saveButton.addActionListener(new SaveButtonHandler(_scrabble));
+		saveButton.addActionListener(new SaveButtonHandler_055(_scrabble));
 		playerInfo.add(saveButton);
 		for(int i=0; i<_scrabble.getPlayers().size();i++){
 			JPanel playerPanel = new JPanel();
