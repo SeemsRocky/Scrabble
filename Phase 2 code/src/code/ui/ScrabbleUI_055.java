@@ -146,10 +146,22 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 //			System.out.println(_scrabble.getBoard().getTile(i, j).toString());
 			}
 		}
-//		for(int k = 0;k<12;k++){
-//			JButton newButton = new JButton(_currentPlayer.getTileRack().getTile(k).toString());
-//			_tileRackButtons[k] = newButton;
-//		}
+		for(int m =0; m<12; m++){
+			_tileRackButtons[m].setText(" ");
+		}
+		for(int k = 0;k<_currentPlayer.getTileRack().getSize();k++){
+//			System.out.println(_currentPlayer.getTileRack().getTile(k).toString());
+//			if(_currentPlayer.getTileRack().getTile(k)==null){
+//				JButton newButton = new JButton(" ");
+//				_tileRackButtons[k] = newButton;
+//			}
+//			else{
+//				JButton newButton = new JButton(_currentPlayer.getTileRack().getTile(k).toString());
+//				_tileRackButtons[k] = newButton;
+//			}
+			
+			
+		}
 	}
 	
 	public static void main(String[] args) {
