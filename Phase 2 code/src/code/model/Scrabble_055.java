@@ -140,23 +140,32 @@ public class Scrabble_055{
 			String filePathOfDictionary = _pathOfDictionary;
 			stream.format(lengthOfBoard);
 			stream.format(" " +widthOfBoard);
-			stream.format(filePathOfDictionary);
+			stream.format("\n" +filePathOfDictionary + "\n");
 			for(int i = 0; i<_players.size(); i++){
 				String playerName = _players.get(i).getName();
 				String playerColor = _players.get(i).getColor().toString();
 				String playerScore = Integer.toString(_players.get(i).getScore());
-				String playerRack = _players.get(i).getTileRack().toString();
+				String myPlayerRack = "[";
+				for(int l = 0;l<12;l++){
+					myPlayerRack = myPlayerRack + _players.get(i).getTileRack().getTile(l).toString();
+				}
+				myPlayerRack = myPlayerRack + "]";
+//				String playerRack = _players.get(i).getTileRack().getTiles().toString();
 				ArrayList<String> playerProperties = new ArrayList<String>();
 				playerProperties.add(playerName);
 				playerProperties.add(playerColor);
 				playerProperties.add(playerScore);
-				playerProperties.add(playerRack);
+				playerProperties.add(myPlayerRack);
 				stream.format(playerProperties.toString());
 				if(i!=_players.size()-1){
 					stream.format(",");
 				}
 			}
-			stream.format("\n" + _inv.getInventory().toString());
+			String myInv = "";
+			for(int k =0; k<_inv.getInventory().size(); k++){
+				myInv = myInv + _inv.getInventory().get(k).toString();
+			}
+			stream.format("\n" +"["+ myInv + "]");
 			String board = "";
 			for(int i = 0; i<20; i++){
 				for(int j = 0; j<20; j++){
