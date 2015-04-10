@@ -1,7 +1,5 @@
 package tests;
 
-import static org.junit.Assert.*;
-
 import java.awt.Color;
 
 import org.junit.Test;
@@ -22,12 +20,13 @@ public class ScoringTest {
 		Dictionary d = new Dictionary("src/code/model/Dictionary.txt");
 		Player p= new Player(inventory, "Dhruv", Color.RED, d);
 		Board board = new Board(20,20);
-		Tile tile1 = tilerack.getTile(1);
-		p.PlacingATile(5, 5, 1);
-		p.moveComplete();
-		Tile expected = tile1; 
-		Tile actual = board.getTile(5, 5);
-		assertTrue(" I expected "+expected+" But got "+actual, expected==actual);
+		tilerack.removeTile(tilerack.getTile(0));
+		tilerack.removeTile(tilerack.getTile(1));
+		tilerack.removeTile(tilerack.getTile(2));
+		tilerack.removeTile(tilerack.getTile(3));
+		tilerack.removeTile(tilerack.getTile(4));
+		tilerack.removeTile(tilerack.getTile(5));
+		System.out.println(tilerack.getTiles().toString());
 	}
 
 }

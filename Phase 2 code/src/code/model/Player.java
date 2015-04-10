@@ -24,14 +24,14 @@ public class Player {
 	/**
 	 * Instance Variable for the color of a player
 	 */
-	
+
 	private Color _c;
 
 	/**
 	 * Records the score.
 	 */
 	private int _score;
-	
+
 	/**
 	 * Allows the Player to access the Tiles on its own TileRack.
 	 */
@@ -39,7 +39,7 @@ public class Player {
 	//private Inventory _inv;
 	private String _name;
 	private Dictionary _wordChecker;
-	
+
 	/**
 	 * Class constructor.
 	 * 
@@ -59,7 +59,7 @@ public class Player {
 		_array= new ArrayList<Tile>();
 		_wordChecker = wordChecker;
 	}
-	
+
 	/**
 	 * Gets the int value of the Player's score.
 	 * 
@@ -112,20 +112,31 @@ public class Player {
 	 * @param ycoordinate An int representing the y-coordinate of the Board
 	 * @param indexTileRack An int representing the index of a Tile in the TileRack
 	 */
-	
+
 	public void PlacingATile(int xcoordinate, int ycoordinate, int indexTileRack){
 		if(_board.isEmpty(xcoordinate, ycoordinate)){
 			_board.addTile(_rack.getTile(indexTileRack), xcoordinate, ycoordinate);
-	    	_array.add(_rack.getTile(indexTileRack));
-	    	_rack.removeTile(_rack.getTile(indexTileRack));
+			_array.add(_rack.getTile(indexTileRack));
+			_rack.removeTile(_rack.getTile(indexTileRack));
 		}
 	}
-	
+
 	public void getarray(){
 		ArrayList<Tile> array = new ArrayList<Tile>();
 		_rack.getTiles();
 	}
-	
+	/**
+	 * This method loops through the Board and finds one of the character from the ArrayList of the tiles
+	 * that the player used in his/her turn. When that letter is found, positions surrounding are checked.
+	 * All the tiles of the row or column, in which the words were found, are then stored into an ArrayList.
+	 * All the empty Tiles are removed from the ArrayList giving us the ArrayList of the word played by 
+	 * the player. That word is then checked if it is in the Dictionary and if it is, and int representing 
+	 * score is returned consisting of all the added values of the tiles in that ArrayList.
+	 *
+	 * @param p player on which this method is called
+	 * @return An int representing the score a player after his/her turn
+	 */
+
 	public int score(Player p){
 		ArrayList<Tile> finalarray= new ArrayList<Tile>();
 		int finalscore=0;
@@ -142,7 +153,7 @@ public class Player {
 					if(_board.getTile(i, j).getColor() != _board.getTile(i, j+1).getColor()){
 						_board.getTile(i, j).setColor(_board.getTile(i, j+1).getColor());
 					} else {
-						
+
 					}
 				}
 			}
@@ -167,28 +178,28 @@ public class Player {
 										y=y+1;
 									}
 								}
-								}if(x==0){
-									x=20;
-								}	
+							}if(x==0){
+								x=20;
+							}	
 						}
 						for(int checkingfornull=0;checkingfornull<arrayOfTilesInLine.size();checkingfornull++){
 							if(arrayOfTilesInLine.get(checkingfornull)!=null){
 								arrayOfFinalWord.add(arrayOfTilesInLine.get(checkingfornull));
 							} else {
-								
+
 							}
-					}
+						}
 						if(_board.getTile(i, j).getColor().equals(_board.getTile(i, j-1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i-1, j).getColor()) || _board.getTile(i, j).getColor().equals(_board.getTile(i, j-1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i+1, j).getColor()) || _board.getTile(i, j).getColor().equals(_board.getTile(i, j+1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i-1, j).getColor()) || _board.getTile(i, j).getColor().equals(_board.getTile(i, j+1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i+1, j).getColor())){
 							if(arrayOfFinalWord.size()==_array.size()){
 								finalarray=arrayOfFinalWord;
 							}else {
-								
+
 							}
 						} else {
-							
+
 						}
-				
-			}
+
+					}
 					if(up.getPlayer().getColor().equals(_board.getTile(j, j).getPlayer().getColor()) || down.getPlayer().getColor().equals(_board.getTile(i, j).getColor())){
 						for(int x=1;x==20;x++){
 							if(_board.getTile(i, x)!=null && _board.getTile(i, x-1)==null){
@@ -204,32 +215,32 @@ public class Player {
 							if(x==0){
 								x=20;
 							}
-							
+
 						}
-						
+
 						for(int checkingfornull=0;checkingfornull<arrayOfTilesInLine.size();checkingfornull++){
 							if(arrayOfTilesInLine.get(checkingfornull)!=null){
 								arrayOfFinalWord.add(arrayOfTilesInLine.get(checkingfornull));
 							} else {
-								
+
 							}
-					}
+						}
 						if(_board.getTile(i, j).getColor().equals(_board.getTile(i, j-1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i-1, j).getColor()) || _board.getTile(i, j).getColor().equals(_board.getTile(i, j-1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i+1, j).getColor()) || _board.getTile(i, j).getColor().equals(_board.getTile(i, j+1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i-1, j).getColor()) || _board.getTile(i, j).getColor().equals(_board.getTile(i, j+1).getColor()) && _board.getTile(i, j).getColor().equals(_board.getTile(i+1, j).getColor())){
 							if(arrayOfFinalWord.size()==_array.size()){
 								finalarray=arrayOfFinalWord;
 							}else {
-								
+
 							}
 						} else {
-							
+
 						}
-						
+
+					}
+
 				}
-			
+
+			}
 		}
-		
-	}
-}
 		String s = "";
 		for(int i=0;i<arrayOfFinalWord.size();i++){
 			s=s+arrayOfFinalWord.get(i);
@@ -242,10 +253,15 @@ public class Player {
 		}
 		_score = finalscore;
 		return finalscore;
-}
-	
+	}
+/**
+ * This method marks the end of a turn for the player. This method returns the score 
+ * calculated in the method score. At last, if fills the empty spots of the TileRack
+ * @return an int representing the score of the player after the end of his/her turn
+ */
 	public int moveComplete(){
+		
 		_rack.fillRack();
 		return _score;
 	}
-	}
+}

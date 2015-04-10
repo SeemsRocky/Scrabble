@@ -72,7 +72,10 @@ public class Inventory {
 	public Tile getTile(int i){
 		return _tileBag.get(i);
 	}
-	
+	/**
+	 * 
+	 * @return ArrayList consisting of all the Tiles associated to a Character and its corresponding value
+	 */
 	public ArrayList<Tile> getInventory(){
 		return _tileBag;
 	}

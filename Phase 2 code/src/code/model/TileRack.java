@@ -80,4 +80,9 @@ public class TileRack {
 		// TODO Auto-generated method stub
 		return _rack.get(indexTileRack);
 	}
+	
+	public void addTile(Tile t){
+		_rack.add(t);
+		
+	}
 }

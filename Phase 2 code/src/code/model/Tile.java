@@ -12,9 +12,13 @@ public class Tile {
 	 * Stores the point value of the tile.
 	 */
 	private int _pointValue;
-	
+	/**
+	 * Stores the color to be associated to a Tile
+	 */
 	private Color _color;
-	
+	/**
+	 * Instance of Player for the methods getPlayer and setPlayer
+	 */
 	private Player _player;
 	
 	/**
@@ -47,27 +51,38 @@ public class Tile {
 	}
 	/**
 	 * This method sets the color of the Tile to the color passed in the argument of the method
-	 * @param c
+	 * @param c color that we are going to set of the tile
 	 * @return The color that has been associated to the tile
 	 */
 	
 	public void setColor(Color c){
 		_color = c;
 	}
+	/**
+	 *  This methods returns the values of the color of the tile on which it is called
+	 * @return The color of the tile
+	 */
 	
 	public Color getColor(){
 		return _color;
 		
 	}
+	/**
+	 * sets the player
+	 * @param p player to set
+	 */
 	
 	public void setPlayer(Player p){
 		_player = p;
 	}
-	
+	/**
+	 * 
+	 * @return player associated to a tile
+	 */
 	public Player getPlayer(){
 		return _player;
 	}
-
+	
 	@Override
 	public String toString() {
 		String s = "";
