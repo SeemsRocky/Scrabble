@@ -89,7 +89,8 @@ public class Player {
 		}
 	}
 	
-	public String wordToScore(Player p){
+	public int wordToScore(Player p){
+		ArrayList<Tile> ArrayOfFinalWord = new ArrayList<Tile>();
 		for(int i=0; i<20;i++){
 			for(int j=0;j<20;j++){
 				if(i==0){
@@ -109,7 +110,6 @@ public class Player {
 		}
 		int y=1;
 		ArrayList<Tile> arrayOfTilesInLine = new ArrayList<Tile>();
-		String yo="";
 		for(int i=0;i<20;i++){
 			for(int j=0;j<20;j++){
 				Tile left=_board.getTile(i-1, j);
@@ -126,7 +126,14 @@ public class Player {
 								while(y<=20){
 									arrayOfTilesInLine.add(_board.getTile(y, j));
 								}
-							}
+								for(int checkingfornull=0;checkingfornull<arrayOfTilesInLine.size();checkingfornull++){
+									if(arrayOfTilesInLine.get(checkingfornull)!=null){
+										ArrayOfFinalWord.add(arrayOfTilesInLine.get(checkingfornull));
+									} else {
+										
+									}
+								}
+								
 						}
 					}
 					if(up.getPlayer().equals(_board.getTile(j, j)) || down.getPlayer().equals(_board.getTile(i, j))){
@@ -138,6 +145,13 @@ public class Player {
 								while(y<=20){
 									arrayOfTilesInLine.add(_board.getTile(i, y));
 								}
+								for(int checkingfornull=0;checkingfornull<arrayOfTilesInLine.size();checkingfornull++){
+									if(arrayOfTilesInLine.get(checkingfornull)!=null){
+										ArrayOfFinalWord.add(arrayOfTilesInLine.get(checkingfornull));
+									} else {
+										
+									}
+								
 							}
 						}
 					}
@@ -146,7 +160,16 @@ public class Player {
 			}
 			
 		}
-		return null;
 		
 	}
 }
+		String s = "";
+		for(int i=0;i<ArrayOfFinalWord.size();i++){
+			s=s+ArrayOfFinalWord.get(i);
+			s=(String)s;
+			
+		}
+		
+		return y;
+}
+	}
