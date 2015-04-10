@@ -30,6 +30,7 @@ public class RackButtonHandler_055 implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		if(!(_tileRackPlayer.getColor().equals(_currentPlayer.getColor()))){
 			JDialog j = new JDialog();
 			j.getContentPane().add(new JLabel("You can't do that. That's not your TileRack"));

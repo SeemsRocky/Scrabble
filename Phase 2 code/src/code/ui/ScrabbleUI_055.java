@@ -25,7 +25,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	private Tile_024_055 _currentlyPressedTile;
 	private ArrayList<Player_024_055> _myPlayers;
 	private JButton[][] _dAOfButtons;
-	private JButton[] _tileRackButtons;
+	private JButton[][] _tileRackButtons;
 	private int _indexOfButton;
 	public ScrabbleUI_055(){
 		_scrabble = new Scrabble_055();
@@ -34,7 +34,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 		_currentPlayer = _myPlayers.get(0);
 
 		_dAOfButtons = new JButton[_scrabble.getBoard().getWidth()][_scrabble.getBoard().getLength()];
-		_tileRackButtons = new JButton[12];
+		_tileRackButtons = new JButton[_myPlayers.size()][12];
 		_currentPlayer.addObserver(this);
 	}
 	public ScrabbleUI_055(ArrayList<String> names){
@@ -43,7 +43,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 		_currentPlayer = _myPlayers.get(0);
 
 		_dAOfButtons = new JButton[_scrabble.getBoard().getWidth()][_scrabble.getBoard().getLength()];
-		_tileRackButtons = new JButton[12];
+		_tileRackButtons = new JButton[_myPlayers.size()][12];
 		_currentPlayer.addObserver(this);
 	}
 
@@ -109,8 +109,8 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 				myButton.setForeground(_scrabble.getPlayers().get(i).getColor());
 				myButton.setPreferredSize(new Dimension(25,25));
 				myButton.addActionListener(new RackButtonHandler_055(_scrabble, j, this,_scrabble.getPlayers().get(i),_currentPlayer));
-				_tileRackButtons[j] = myButton;
-				playerPanel.add(_tileRackButtons[j]);
+				_tileRackButtons[i][j] = myButton;
+				playerPanel.add(_tileRackButtons[i][j]);
 			}
 
 			playerInfo.add(playerPanel);
@@ -145,6 +145,16 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 				_dAOfButtons[i][j].setText(__v);
 
 			}
+		}
+		int sizeOfRack = _currentPlayer.getTileRack().getSize();
+		System.out.println(sizeOfRack);
+		for(int i=0; i<sizeOfRack; i++){
+			System.out.println(_currentPlayer.getTileRack().getTile(i).toString());
+			_tileRackButtons[0][i].setText(_currentPlayer.getTileRack().getTile(i).toString());
+		}
+		
+		for(int k =sizeOfRack; k<12;k++){
+			_tileRackButtons[0][k].setText(" ");
 		}
 	}
 

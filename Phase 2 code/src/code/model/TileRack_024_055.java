@@ -44,7 +44,8 @@ public class TileRack_024_055 extends Observable {
 	public Tile_024_055 removeTile(Tile_024_055 t){
 		Tile_024_055 tileToRemove = t;
 		_rack.remove(t);
-
+        setChanged();
+        notifyObservers();
 		return tileToRemove;
 	}
 	
