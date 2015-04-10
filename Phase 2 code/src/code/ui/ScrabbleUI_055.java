@@ -60,9 +60,10 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 					top.add(_dAOfButtons[i][j]);
 				}
 				else{
-					System.out.println(_scrabble.getBoard().getTile(i, j).toString());
+//					System.out.println(_scrabble.getBoard().getTile(i, j).toString());
 					JButton myButton = new JButton(_scrabble.getBoard().getTile(i, j).toString());
 					myButton.setPreferredSize(new Dimension(25,25));
+					myButton.addActionListener(new BoardButtonHandler_055(_scrabble, this, i, j));
 					_dAOfButtons[i][j]=myButton;
 					top.add(_dAOfButtons[i][j]);
 				}
@@ -115,8 +116,6 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 		
 		for(int i= 0;i<_scrabble.getBoard().getWidth(); i++){
 			for(int j=0; j<_scrabble.getBoard().getLength(); j++){
-			
-				System.out.println(_scrabble.getBoard().getTile(i, j).toString());
 			JButton newButton =	new JButton(_scrabble.getBoard().getTile(i, j).toString());
 			System.out.println(_scrabble.getBoard().getTile(i, j).toString());
 			_dAOfButtons[i][j] = newButton;
