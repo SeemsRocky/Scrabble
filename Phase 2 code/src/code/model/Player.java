@@ -5,14 +5,25 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Player {
-	
+	/**
+	 * ArrayList of all the tiles in the line which consists of the word whose score is being calculated
+	 */
 	private ArrayList<Integer> _arrayOfTilesInLine;
-	
+	/**
+	 * ArrayList of the tiles that a player has placed on the board from his/her TileRack
+	 */
 	private ArrayList<Tile> _array;
-	
+	/**
+	 *  Instance Variable of the Board
+	 */
 	private  Board _board;
-	
+	/**
+	 * Instance Variable of the Tile
+	 */
 	private Tile _tile;
+	/**
+	 * Instance Variable for the color of a player
+	 */
 	
 	private Color _c;
 
@@ -92,7 +103,8 @@ public class Player {
 	}
 	
 	public int wordToScore(Player p){
-		ArrayList<Tile> ArrayOfFinalWord = new ArrayList<Tile>();
+		int finalscore=0;
+		ArrayList<Tile> arrayOfFinalWord = new ArrayList<Tile>();
 		for(int i=0; i<20;i++){
 			for(int j=0;j<20;j++){
 				if(i==0){
@@ -130,7 +142,7 @@ public class Player {
 								}
 								for(int checkingfornull=0;checkingfornull<arrayOfTilesInLine.size();checkingfornull++){
 									if(arrayOfTilesInLine.get(checkingfornull)!=null){
-										ArrayOfFinalWord.add(arrayOfTilesInLine.get(checkingfornull));
+										arrayOfFinalWord.add(arrayOfTilesInLine.get(checkingfornull));
 									} else {
 										
 									}
@@ -149,7 +161,7 @@ public class Player {
 								}
 								for(int checkingfornull=0;checkingfornull<arrayOfTilesInLine.size();checkingfornull++){
 									if(arrayOfTilesInLine.get(checkingfornull)!=null){
-										ArrayOfFinalWord.add(arrayOfTilesInLine.get(checkingfornull));
+										arrayOfFinalWord.add(arrayOfTilesInLine.get(checkingfornull));
 									} else {
 										
 									}
@@ -166,12 +178,16 @@ public class Player {
 	}
 }
 		String s = "";
-		for(int i=0;i<ArrayOfFinalWord.size();i++){
-			s=s+ArrayOfFinalWord.get(i);
+		for(int i=0;i<arrayOfFinalWord.size();i++){
+			s=s+arrayOfFinalWord.get(i);
 			s=(String)s;
-			
+		}
+		if(_wordChecker.isAWord(s)==true){
+			for(int i=0;i<arrayOfFinalWord.size();i++){
+				finalscore = finalscore + arrayOfFinalWord.get(i).getValue();
+			}
 		}
 		
-		return y;
+		return finalscore;
 }
 	}
