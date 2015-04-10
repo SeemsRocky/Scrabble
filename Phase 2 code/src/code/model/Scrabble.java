@@ -100,6 +100,12 @@ public class Scrabble extends Observable{
 		_inv = new Inventory();
 		_board = new Board(20,20);
 		_players = new ArrayList<Player>();
+		_arrayOfColor = new ArrayList<Color>();
+		_arrayOfColor.add(Color.BLUE);
+		_arrayOfColor.add(Color.GREEN);
+		_arrayOfColor.add(Color.ORANGE);
+		_arrayOfColor.add(Color.YELLOW);
+		_arrayOfColor.add(Color.RED);
 		for(int i = 1; i<3; i++){
 			addNewPlayer(_inv, "Player " + i);
 		}
@@ -365,6 +371,10 @@ public class Scrabble extends Observable{
 	public void mark(Tile _til, int _row, int _col) {
 
 
+	}
+	
+	public Board getBoard(){
+		return _board;
 	}
 
 
