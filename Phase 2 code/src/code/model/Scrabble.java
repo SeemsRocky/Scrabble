@@ -14,7 +14,7 @@ public class Scrabble extends Observable{
 	/**
 	 * ArrayList of colors from which a color is picked for the player to be associated with
 	 */
-	
+
 	private ArrayList<Color> _arrayOfColor;
 
 	/**
@@ -29,11 +29,11 @@ public class Scrabble extends Observable{
 	 * tile board to be played on
 	 */
 	private Board _board;
-	
+
 
 	private String _pathOfDictionary;
 	private String _pathOfRestoreFile;
-	
+
 
 	/**
 	 * Class constructor
@@ -55,6 +55,47 @@ public class Scrabble extends Observable{
 		_arrayOfColor.add(Color.RED);
 	}
 	
+	public Scrabble(String restorePath){
+		ArrayList<String> restoreFile = new ArrayList<String>();
+		Scanner scanner = null;
+		try {
+
+			File dictionary = new File(restorePath);
+			scanner = new Scanner(dictionary);
+			while(scanner.hasNextLine()){
+				String next = scanner.nextLine().toUpperCase();
+				restoreFile.add(next);
+
+			}
+		}
+		catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.exit(0);
+		}
+		finally {
+			scanner.close();
+		}
+		String lengthAndWidth = restoreFile.get(0);
+		ArrayList<String> lw = new ArrayList<String>();
+		String dimensions = "";
+		for(int i = 0; i<lengthAndWidth.length(); i++){
+			char c = lengthAndWidth.charAt(i);
+			if(c==' '){
+				dimensions = "";
+				lw.add(dimensions);
+			}
+			else{
+				dimensions = dimensions + c;
+			}
+			
+		}
+		int boardLength = Integer.parseInt(lw.get(0));
+		int boardWidth = Integer.parseInt(lw.get(1));
+		String pathOfDictionary = restoreFile.get(1);
+		
+			
+	}
+
 	public Scrabble(){
 		_inv = new Inventory();
 		_board = new Board(20,20);
@@ -63,7 +104,7 @@ public class Scrabble extends Observable{
 			addNewPlayer(_inv, "Player " + i);
 		}
 
-		
+
 
 	}
 	public ArrayList<Player> getPlayers(){
@@ -73,9 +114,9 @@ public class Scrabble extends Observable{
 	 * Adds a new player to the game.
 	 */
 	private void addNewPlayer(Inventory inv,String name){
-		
+
 		_players.add(new Player(inv, name, _arrayOfColor.get(0)));
-	    _arrayOfColor.remove(0);
+		_arrayOfColor.remove(0);
 	}
 
 
@@ -136,14 +177,14 @@ public class Scrabble extends Observable{
 
 
 	public void restoreFromFile(String path){
-            // String[] strings = string.replace("[", "").replace("]", "").split(", ");
-		    // going to need to set up the tile rack
+		
+		
 	}
 
 	public void main(String[] args){
 		if(args.length==1){
 			_pathOfRestoreFile = args[0];
-			this.restoreFromFile(_pathOfRestoreFile);
+			new Scrabble(_pathOfRestoreFile);
 		}
 		else{
 			_pathOfDictionary = args[0];
@@ -163,70 +204,70 @@ public class Scrabble extends Observable{
 	 * @param s the current scrabble game
 	 */
 	public void fileWriteHighScore(String filename) {
-        PrintStream stream = null;
-        try
-        {
-            stream = new PrintStream(filename);
-            ArrayList<String> al = getHighScoreFile(filename);
-            ArrayList<Player> p = this.getPlayers();
-            sort1(p); //sorts order by score in current scrabble game
-            if(al.size()==0) //if empty file just print the in order of p
-            {
-            	for(int i=0; i<p.size();i++) //highest score on top
-            	{
-            		stream.format("%s:%d \n",p.get(i).getName(),p.get(i).getScore());
-            	}
-            }
-            else if(al.size()>=4 && al.size()<20) // if already has more than 4 but less than 20
-            	{
-            		for(int x=0;x<p.size();x++) // checks player score
-            		{
-            			for(int y=0;y<al.size();y++) // with current score so sorted properly
-            			{
-            				if(convertInt(al.get(y))<p.get(x).getScore())
-            				{
-            					al.add(y,p.get(x).getName()+":" +p.get(x).getScore());
-            				}
-            				else
-            				{
-            					al.add(p.get(x).getName()+":" +p.get(x).getScore());
-            				}
-	            		}
-            		}
-            		for(int i=0;i<al.size();i++) // print out everything added
-            		{
-            			stream.format("%s \n",p.get(i));
-            		}
-            	}
-            else // so more than 20 lines
-            {
-            	int num =0; // number of times a new score is added
-            	for(int x=0;x<p.size();x++) // checks player score
-            	{
-            		for(int y=0;y<al.size();y++) // with current score so sorted properly
-            		{
-            			if(convertInt(al.get(y))<p.get(x).getScore()) // if greater add
-            			{
-            				al.add(y,p.get(x).getName()+":" +p.get(x).getScore());
-            				++num;
-            			}
-	            	}
-            	}
-            	for(int i=0;i<al.size()-num;i++) // print out everything added only 20 lines
-            	{
-            		stream.format("%s \n",p.get(i));
-            	}
-           	}
-            
-        } catch (FileNotFoundException e)
-        {
-            System.err.println("File not found and cannot be created: "+ filename);
-        }
-        finally
-        {
-            stream.close();
-        }
-    }
+		PrintStream stream = null;
+		try
+		{
+			stream = new PrintStream(filename);
+			ArrayList<String> al = getHighScoreFile(filename);
+			ArrayList<Player> p = this.getPlayers();
+			sort1(p); //sorts order by score in current scrabble game
+			if(al.size()==0) //if empty file just print the in order of p
+			{
+				for(int i=0; i<p.size();i++) //highest score on top
+				{
+					stream.format("%s:%d \n",p.get(i).getName(),p.get(i).getScore());
+				}
+			}
+			else if(al.size()>=4 && al.size()<20) // if already has more than 4 but less than 20
+			{
+				for(int x=0;x<p.size();x++) // checks player score
+				{
+					for(int y=0;y<al.size();y++) // with current score so sorted properly
+					{
+						if(convertInt(al.get(y))<p.get(x).getScore())
+						{
+							al.add(y,p.get(x).getName()+":" +p.get(x).getScore());
+						}
+						else
+						{
+							al.add(p.get(x).getName()+":" +p.get(x).getScore());
+						}
+					}
+				}
+				for(int i=0;i<al.size();i++) // print out everything added
+				{
+					stream.format("%s \n",p.get(i));
+				}
+			}
+			else // so more than 20 lines
+			{
+				int num =0; // number of times a new score is added
+				for(int x=0;x<p.size();x++) // checks player score
+				{
+					for(int y=0;y<al.size();y++) // with current score so sorted properly
+					{
+						if(convertInt(al.get(y))<p.get(x).getScore()) // if greater add
+						{
+							al.add(y,p.get(x).getName()+":" +p.get(x).getScore());
+							++num;
+						}
+					}
+				}
+				for(int i=0;i<al.size()-num;i++) // print out everything added only 20 lines
+				{
+					stream.format("%s \n",p.get(i));
+				}
+			}
+
+		} catch (FileNotFoundException e)
+		{
+			System.err.println("File not found and cannot be created: "+ filename);
+		}
+		finally
+		{
+			stream.close();
+		}
+	}
 	/**
 	 * sorts the Arraylist of player according to their scores
 	 * Makes descending order of scores so highest score on top
@@ -280,51 +321,51 @@ public class Scrabble extends Observable{
 	 * @return how many lines in the file
 	 */
 	private static int getNumberOfLines(String filename)
-    {
-        Scanner scan = new Scanner(filename);
-        int lineNumber = 0;
-        try {
-            scan = new Scanner(new File(filename));
-            while (scan.hasNextLine()) 
-            {
-            	lineNumber++;
-            }
-         } catch (FileNotFoundException e) {
-            System.err.println("File not found: "+filename);
-        }
-        finally {
-            scan.close();
-        }
-        return lineNumber;
-    }
+	{
+		Scanner scan = new Scanner(filename);
+		int lineNumber = 0;
+		try {
+			scan = new Scanner(new File(filename));
+			while (scan.hasNextLine()) 
+			{
+				lineNumber++;
+			}
+		} catch (FileNotFoundException e) {
+			System.err.println("File not found: "+filename);
+		}
+		finally {
+			scan.close();
+		}
+		return lineNumber;
+	}
 	/**
 	 * Gets all the lines in the file and stores them into an arraylist
 	 * @param filename name of file
 	 * @return string arraylist of each line in the file
 	 */
 	public ArrayList<String> getHighScoreFile(String filename)
-    {
-        Scanner scan = null;
-        ArrayList<String> str = new ArrayList<String>();
-        try {
-            scan = new Scanner(new File(filename));
-            while (scan.hasNextLine()) {
-                String oneLineFromFile = scan.nextLine();
-                str.add(oneLineFromFile);
-            }
-         } catch (FileNotFoundException e) {
-            System.err.println("File not found: "+filename);
-        }
-        finally { 
-            scan.close();
-        }
-        return str;
-    }
+	{
+		Scanner scan = null;
+		ArrayList<String> str = new ArrayList<String>();
+		try {
+			scan = new Scanner(new File(filename));
+			while (scan.hasNextLine()) {
+				String oneLineFromFile = scan.nextLine();
+				str.add(oneLineFromFile);
+			}
+		} catch (FileNotFoundException e) {
+			System.err.println("File not found: "+filename);
+		}
+		finally { 
+			scan.close();
+		}
+		return str;
+	}
 
 	public void mark(Tile _til, int _row, int _col) {
-		
-		
+
+
 	}
-	
+
 
 }
