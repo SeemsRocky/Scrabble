@@ -167,18 +167,17 @@ public class Scrabble extends Observable{
         try
         {
             stream = new PrintStream(filename);
-            int numLines = getNumberOfLines(filename); 
             ArrayList<String> al = getHighScoreFile(filename);
-            ArrayList<Player> p = _players;
+            ArrayList<Player> p = this.getPlayers();
             sort1(p); //sorts order by score in current scrabble game
-            if(numLines==0) //if empty file just print the in order of p
+            if(al.size()==0) //if empty file just print the in order of p
             {
             	for(int i=0; i<p.size();i++) //highest score on top
             	{
-            		stream.format("<%s>:<%d> %n",p.get(i).getName(),p.get(i).getScore());
+            		stream.format("%s:%d \n",p.get(i).getName(),p.get(i).getScore());
             	}
             }
-            else if(numLines>=4 && numLines<20) // if already has more than 4 but less than 20
+            else if(al.size()>=4 && al.size()<20) // if already has more than 4 but less than 20
             	{
             		for(int x=0;x<p.size();x++) // checks player score
             		{
@@ -186,17 +185,17 @@ public class Scrabble extends Observable{
             			{
             				if(convertInt(al.get(y))<p.get(x).getScore())
             				{
-            					al.add(y,"<"+p.get(x).getName()+">:<" +p.get(x).getScore()+">");
+            					al.add(y,p.get(x).getName()+":" +p.get(x).getScore());
             				}
             				else
             				{
-            					al.add("<"+p.get(x).getName()+">:<" +p.get(x).getScore()+">");
+            					al.add(p.get(x).getName()+":" +p.get(x).getScore());
             				}
 	            		}
             		}
             		for(int i=0;i<al.size();i++) // print out everything added
             		{
-            			stream.format("%s %n",p.get(i));
+            			stream.format("%s \n",p.get(i));
             		}
             	}
             else // so more than 20 lines
@@ -208,14 +207,14 @@ public class Scrabble extends Observable{
             		{
             			if(convertInt(al.get(y))<p.get(x).getScore()) // if greater add
             			{
-            				al.add(y,"<"+p.get(x).getName()+">:<" +p.get(x).getScore()+">");
+            				al.add(y,p.get(x).getName()+":" +p.get(x).getScore());
             				++num;
             			}
 	            	}
             	}
             	for(int i=0;i<al.size()-num;i++) // print out everything added only 20 lines
             	{
-            		stream.format("%s %n",p.get(i));
+            		stream.format("%s \n",p.get(i));
             	}
            	}
             
@@ -259,21 +258,16 @@ public class Scrabble extends Observable{
 	private static int convertInt(String s)
 	{
 		int begin=0;
-		int end=0;
 		int score=0;
 		String scoreString ="";
 		for(int i=0;i<s.length();i++)
 		{
-			if (s.charAt(i)=='<')
+			if (s.charAt(i)==':')
 			{
 				begin=i;
 			}
-			if(s.charAt(i)=='>')
-			{
-				end=i;
-			}
 		}
-		for(int j=begin+1;j<end;j++)
+		for(int j=begin+1;j<s.length();j++)
 		{
 			scoreString = scoreString + s.charAt(j);
 		}
