@@ -31,6 +31,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	private JButton[][] _dAOfButtons;
 	private JButton[][] _tileRackButtons;
 	private int _indexOfButton;
+	private JLabel _currentPlayerLabel;
 	public ScrabbleUI_055(){
 		_scrabble = new Scrabble_055();
 
@@ -94,10 +95,14 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 		window.add(topPanel, BorderLayout.WEST);
 
 		JPanel playerInfo = new JPanel();
+		_currentPlayerLabel = new JLabel("Turn:"+_currentPlayer.getName());
 		playerInfo.setLayout(new BoxLayout(playerInfo, BoxLayout.Y_AXIS));
 		JButton saveButton = new JButton("Save");
 		saveButton.addActionListener(new SaveButtonHandler_055(_scrabble));
 		playerInfo.add(saveButton);
+		JButton submitButton = new JButton("Submit");
+		saveButton.addActionListener(new SubmitButtonHandler_055(this));
+		playerInfo.add(submitButton);
 		for(int i=0; i<_scrabble.getPlayers().size();i++){
 			JPanel playerPanel = new JPanel();
 			JLabel playerName = new JLabel(_scrabble.getPlayers().get(i).getName());
@@ -166,6 +171,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 		for(int k =sizeOfRack; k<12;k++){
 			_tileRackButtons[0][k].setText(" ");
 		}
+		_currentPlayerLabel.setText("Turn: "+_currentPlayer.getName());
 	}
 
 	public static void main(String[] args) {
@@ -186,5 +192,9 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	}
 	public int getIndexOfButton(){
 		return _indexOfButton;
+	}
+	public void moveComplete(){
+		_myPlayers.add(_myPlayers.remove(0));
+		_currentPlayer = _myPlayers.get(0);
 	}
 }
