@@ -12,10 +12,31 @@ import code.model.Scrabble_055;
  *
  */
 public class BoardButtonHandler_055 implements ActionListener {
+	/**
+	 * Scrabble game
+	 */
 	private Scrabble_055 _s;
+	/**
+	 * Scrabble game UI
+	 */
 	private ScrabbleUI_055 _sUI;
+	/**
+	 * X-coordinate on the board
+	 */
 	private int _x;
+	/**
+	 * y-coordinate on the board
+	 */
 	private int _y;
+	/**
+	 * class constructor
+	 * @param s scrabble game
+	 * @param sUI scrabble game UI
+	 * @param x x-coordinate on board
+	 * @param y y-coordinate on board
+	 * * @author    driver:
+     * @author navigator: 
+	 */
 	public BoardButtonHandler_055(Scrabble_055 s, ScrabbleUI_055 sUI, int x, int y){
 		_s =s;
 		_sUI = sUI;
@@ -23,6 +44,7 @@ public class BoardButtonHandler_055 implements ActionListener {
 		_y =y;
 	}
 	/**
+	 * 
 	 * @author    driver:
      * @author navigator: 
 	 */
