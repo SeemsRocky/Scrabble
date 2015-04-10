@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import code.model.Board_024_055;
 import code.model.Player_024_055;
 import code.model.Scrabble_055;
 import code.model.Tile_024_055;
@@ -24,6 +25,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	private Tile_024_055 _currentlyPressedTile;
 	private ArrayList<Player_024_055> _myPlayers;
 	private JButton[][] _dAOfButtons;
+	private JButton[] _tileRackButtons;
 	private int _indexOfButton;
 	public ScrabbleUI_055(){
 		_scrabble = new Scrabble_055();
@@ -32,6 +34,16 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 		_currentPlayer = _myPlayers.get(0);
 		
 		_dAOfButtons = new JButton[_scrabble.getBoard().getWidth()][_scrabble.getBoard().getLength()];
+		_tileRackButtons = new JButton[12];
+		_currentPlayer.addObserver(this);
+	}
+	public ScrabbleUI_055(ArrayList<String> names){
+		_scrabble = new Scrabble_055(names);
+		_myPlayers =_scrabble.getPlayers();
+		_currentPlayer = _myPlayers.get(0);
+		
+		_dAOfButtons = new JButton[_scrabble.getBoard().getWidth()][_scrabble.getBoard().getLength()];
+		_tileRackButtons = new JButton[12];
 		_currentPlayer.addObserver(this);
 	}
 
@@ -97,7 +109,8 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 				myButton.setForeground(_scrabble.getPlayers().get(i).getColor());
 				myButton.setPreferredSize(new Dimension(25,25));
 				myButton.addActionListener(new RackButtonHandler_055(_scrabble, j, this,_scrabble.getPlayers().get(i),_currentPlayer));
-				playerPanel.add(myButton);
+				_tileRackButtons[j] = myButton;
+				playerPanel.add(_tileRackButtons[j]);
 			}
 
 			playerInfo.add(playerPanel);
@@ -117,11 +130,26 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 		
 		for(int i= 0;i<_scrabble.getBoard().getWidth(); i++){
 			for(int j=0; j<_scrabble.getBoard().getLength(); j++){
-			JButton newButton =	new JButton(_scrabble.getBoard().getTile(i, j).toString());
-			System.out.println(_scrabble.getBoard().getTile(i, j).toString());
-			_dAOfButtons[i][j] = newButton;
+			Scrabble_055 __s = _scrabble;
+			Board_024_055 __b = __s.getBoard();
+			System.out.println("Trying to get Tile at location ("+i+","+j+")");
+			Tile_024_055 __t = __b.getTile(i, j);
+			System.out.println("__t has value "+__t);
+			String  __v = null;
+			if (__t == null) {
+				__v = " ";
+			}
+			else {
+				__v = __t.toString();
+			}
+			_dAOfButtons[i][j].setText(__v);
+//			System.out.println(_scrabble.getBoard().getTile(i, j).toString());
 			}
 		}
+//		for(int k = 0;k<12;k++){
+//			JButton newButton = new JButton(_currentPlayer.getTileRack().getTile(k).toString());
+//			_tileRackButtons[k] = newButton;
+//		}
 	}
 	
 	public static void main(String[] args) {

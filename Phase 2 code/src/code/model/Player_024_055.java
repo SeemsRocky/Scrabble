@@ -115,14 +115,17 @@ public class Player_024_055 extends Observable {
 	 * @param indexTileRack An int representing the index of a Tile in the TileRack
 	 */
 
-	 public void placeATileOnTheBoard(int indexTileRack, int ycoordinate, int xcoordinate){
-	    	if(_board.isEmpty(ycoordinate, xcoordinate)){
-	    	_board.addTile(_rack.getTile(indexTileRack), ycoordinate , xcoordinate);
+	 public void placeATileOnTheBoard(int xcoordinate, int ycoordinate, int indexTileRack){
+		 System.out.println("A");
+	    	if(_board.isEmpty(xcoordinate,ycoordinate)){
+	    	_board.addTile(_rack.getTile(indexTileRack), xcoordinate,ycoordinate);
 	    	_array.add(_rack.getTile(indexTileRack));
 	    	_rack.removeTile(_rack.getTile(indexTileRack));
 	    	}
 	   	 
+			 System.out.println("B");
 	    	setChanged();
+			 System.out.println("C");
 	    	notifyObservers();
 		}
 		

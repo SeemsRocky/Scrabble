@@ -10,6 +10,8 @@ import java.util.Observable;
 import java.util.Random;
 import java.util.Scanner;
 
+import code.ui.ScrabbleUI_055;
+
 public class Scrabble_055{
 	/**
 	 * ArrayList of colors from which a color is picked for the player to be associated with
@@ -210,7 +212,7 @@ public class Scrabble_055{
 			for(int i = 1; i<args.length;i++){
 				nameOfPlayers.add(args[i]);
 			}
-			new Scrabble_055(nameOfPlayers);
+			new ScrabbleUI_055(nameOfPlayers);
 
 		}
 

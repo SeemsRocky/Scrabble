@@ -32,7 +32,6 @@ public class Board_024_055 extends Observable {
 		if(this.isEmpty(x, y)){
 			_board[x][y] = t;
 		}
-		
 	}
 
 	/**
