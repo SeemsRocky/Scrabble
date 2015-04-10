@@ -36,6 +36,7 @@ public class BoardButtonHandler_055 implements ActionListener {
 		}
 		else{
 			_sUI.getCurrentPlayer().placeATileOnTheBoard(_x, _y, _sUI.getIndexOfButton());
+			_sUI.setCurrentlyPressedTile(null);
 		}
 		
 		

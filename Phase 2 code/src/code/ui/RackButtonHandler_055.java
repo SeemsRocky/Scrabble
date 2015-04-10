@@ -38,17 +38,21 @@ public class RackButtonHandler_055 implements ActionListener {
  */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-//		if(!(_tileRackPlayer.getColor().equals(_currentPlayer.getColor()))){
-//			JDialog j = new JDialog();
-//			j.getContentPane().add(new JLabel("You can't do that. That's not your TileRack"));
-//			j.setSize(400, 200);
-//			j.setLocation(300, 300);
-//			j.setVisible(true);
-//			j.isAlwaysOnTop();
-//		}
-		_scrabbleUI.setCurrentlyPressedTile(_currentPlayer.getTileRack().getTile(_tileRackIndex));
-		_scrabbleUI.setIndexOfButton(_tileRackIndex);
-		System.out.println(_scrabbleUI.getCurrentlyPressedTile());
+		
+		if(!(_tileRackPlayer.getColor().equals(_currentPlayer.getColor()))){
+			JDialog j = new JDialog();
+			j.getContentPane().add(new JLabel("You can't do that. That's not your TileRack"));
+			j.setSize(400, 200);
+			j.setLocation(300, 300);
+			j.setVisible(true);
+			j.isAlwaysOnTop();
+		}
+		else{
+			_scrabbleUI.setCurrentlyPressedTile(_currentPlayer.getTileRack().getTile(_tileRackIndex));
+			_scrabbleUI.setIndexOfButton(_tileRackIndex);
+			System.out.println(_scrabbleUI.getCurrentlyPressedTile());
+		}
+		
 		
 	}
 	/**
