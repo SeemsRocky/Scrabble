@@ -21,7 +21,7 @@ public class Dictionary {
 			while(scanner.hasNextLine()){
 				String next = scanner.nextLine().toUpperCase();
 				_knownWords.add(next);
-				break;
+				
 			}
 				
 			}
@@ -36,13 +36,15 @@ public class Dictionary {
 	
 	
 	public boolean isAWord(String word){
-		int index = Collections.binarySearch(_knownWords, word.toUpperCase());
-		if(index!=-1){
+		long index = Collections.binarySearch(_knownWords, word.toUpperCase());
+		
+		if(index>-1){
 			return true;
 		}
 		else{
 			return false;
 		}
+		
 		
 
 	}	
