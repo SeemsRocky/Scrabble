@@ -6,6 +6,8 @@ import java.util.Collections;
 
 public class Player {
 	
+	private ArrayList<Integer> _arrayOfTilesInLine;
+	
 	private ArrayList<Tile> _array;
 	
 	private  Board _board;
@@ -88,25 +90,57 @@ public class Player {
 	}
 	
 	public String wordToScore(Player p){
+		for(int i=0; i<20;i++){
+			for(int j=0;j<20;j++){
+				if(i==0){
+					i=20;
+				} else if(j==0){
+					j=20;
+				}
+				if(_board.getTile(i, j)!=null){
+					if(_board.getTile(i, j+1).getColor() == _board.getTile(i, j-1).getColor());
+					if(_board.getTile(i, j).getColor() != _board.getTile(i, j+1).getColor()){
+						_board.getTile(i, j).setColor(_board.getTile(i, j+1).getColor());
+					} else {
+						
+					}
+				}
+			}
+		}
+		int y=1;
+		ArrayList<Tile> arrayOfTilesInLine = new ArrayList<Tile>();
 		String yo="";
 		for(int i=0;i<20;i++){
 			for(int j=0;j<20;j++){
 				Tile left=_board.getTile(i-1, j);
 				Tile right= _board.getTile(i+1, j);
-				Tile bottom= _board.getTile(i, j+1);
+				Tile down= _board.getTile(i, j+1);
 				Tile up= _board.getTile(i, j-1);
-				
 				if(_board.getTile(i, j)== _array.get(0)){
-					int currentstate=0;
-			     switch(currentstate){
-			     case 0:
-			    	 if(left!=null || right!=null){
-			    		 currentstate=1;
-			    	 }else
-			    	 if(up!=null || bottom!=null){
-			    		 currentstate=1;
-			    	 }
-			     }
+					if(left.getPlayer().equals(_board.getTile(i, j).getPlayer()) || right.getPlayer().equals(_board.getTile(i, j).getPlayer())){
+						for(int x=1;x==20;x++){
+							if(x==0){
+								x=20;
+							}
+							if(_board.getTile(x, j)!=null && _board.getTile(x-1, j)==null){
+								while(y<=20){
+									arrayOfTilesInLine.add(_board.getTile(y, j));
+								}
+							}
+						}
+					}
+					if(up.getPlayer().equals(_board.getTile(j, j)) || down.getPlayer().equals(_board.getTile(i, j))){
+						for(int x=1;x==20;x++){
+							if(x==0){
+								x=20;
+							}
+							if(_board.getTile(i, x)!=null && _board.getTile(i, x-1)==null){
+								while(y<=20){
+									arrayOfTilesInLine.add(_board.getTile(i, y));
+								}
+							}
+						}
+					}
 				}
 				
 			}
