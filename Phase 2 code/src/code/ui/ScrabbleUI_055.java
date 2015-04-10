@@ -18,14 +18,14 @@ import code.model.Player_024_055;
 import code.model.Scrabble_055;
 import code.model.Tile_024_055;
 
-public class ScrabbleUI implements Observer, Runnable {
+public class ScrabbleUI_055 implements Observer, Runnable {
 	private Scrabble_055 _scrabble;
 	private Player_024_055 _currentPlayer;
 	private Tile_024_055 _currentlyPressedTile;
 	private ArrayList<Player_024_055> _myPlayers;
 	private JButton[][] _dAOfButtons;
 	private int _indexOfButton;
-	public ScrabbleUI(){
+	public ScrabbleUI_055(){
 		_scrabble = new Scrabble_055();
 		_myPlayers = new ArrayList<Player_024_055>();
 		_myPlayers =_scrabble.getPlayers();
@@ -52,7 +52,7 @@ public class ScrabbleUI implements Observer, Runnable {
 				if(_scrabble.getBoard().isEmpty(i, j)){
 					JButton myButton = new JButton();
 					myButton.setPreferredSize(new Dimension(25,25));
-					myButton.addActionListener(new BoardButtonHandler(_scrabble, this, i, j));
+					myButton.addActionListener(new BoardButtonHandler_055(_scrabble, this, i, j));
 					
 					_dAOfButtons[i][j]=myButton;
 					top.add(_dAOfButtons[i][j]);
@@ -91,7 +91,7 @@ public class ScrabbleUI implements Observer, Runnable {
 				JButton myButton = new JButton(_scrabble.getPlayers().get(i).getTileRack().getTile(j).toString());
 				myButton.setForeground(_scrabble.getPlayers().get(i).getColor());
 				myButton.setPreferredSize(new Dimension(25,25));
-				myButton.addActionListener(new RackButtonHandler(_scrabble, j, this,_scrabble.getPlayers().get(i),_currentPlayer));
+				myButton.addActionListener(new RackButtonHandler_055(_scrabble, j, this,_scrabble.getPlayers().get(i),_currentPlayer));
 				playerPanel.add(myButton);
 			}
 
@@ -119,7 +119,7 @@ public class ScrabbleUI implements Observer, Runnable {
 	}
 	
 	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new ScrabbleUI());
+		SwingUtilities.invokeLater(new ScrabbleUI_055());
 	}
 	
 	public void setCurrentlyPressedTile(Tile_024_055 b){

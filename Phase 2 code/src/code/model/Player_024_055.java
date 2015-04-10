@@ -250,8 +250,13 @@ public class Player_024_055 extends Observable {
 
 			}
 		}
-		String s = "";
 		for(int i=0;i<arrayOfFinalWord.size();i++){
+			finalscore = finalscore + arrayOfFinalWord.get(i).getValue();
+		}
+		
+
+  		String s = "";
+  for(int i=0;i<arrayOfFinalWord.size();i++){
 			s=s+arrayOfFinalWord.get(i);
 			s=(String)s;
 		}
@@ -262,6 +267,8 @@ public class Player_024_055 extends Observable {
 		}else {
 			return 0;
 		}
+ 
+		
 		_score = finalscore;
 		return finalscore;
 	}

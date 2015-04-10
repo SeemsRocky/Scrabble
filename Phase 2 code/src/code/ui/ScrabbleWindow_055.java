@@ -6,7 +6,7 @@ import javax.swing.*;
 
 import code.model.Scrabble_055;
 
-public class ScrabbleWindow implements Observer, Runnable {
+public class ScrabbleWindow_055 implements Observer, Runnable {
 
 	private Scrabble_055 _scrabble;
 	private ArrayList<JButton> _buttons;
@@ -87,8 +87,8 @@ public class ScrabbleWindow implements Observer, Runnable {
 			for (int y = 0; y < 20; y++) {
 				JButton b1 = new JButton("x");
 				p1.add(b1);
-				b1.addActionListener(new ButtonHandler(x, _scrabble));
-				b1.addActionListener(new ButtonHandler(y, _scrabble));
+				b1.addActionListener(new ButtonHandler_055(x, _scrabble));
+				b1.addActionListener(new ButtonHandler_055(y, _scrabble));
 			}
 
 			/*
@@ -99,27 +99,27 @@ public class ScrabbleWindow implements Observer, Runnable {
 			JButton tb1 = new JButton("y");
 			p2.add(tb1, BorderLayout.WEST);
 			p2.add(player1);
-			tb1.addActionListener(new ButtonHandler(i, _scrabble));
+			tb1.addActionListener(new ButtonHandler_055(i, _scrabble));
 		}
 		for (int i = 0; i < 12; i++) {
 			JButton tb2 = new JButton("y");
 			p2.add(tb2, BorderLayout.WEST);
 			p2.add(player2);
-			tb2.addActionListener(new ButtonHandler(i, _scrabble));
+			tb2.addActionListener(new ButtonHandler_055(i, _scrabble));
 		}
 
 		for (int i = 0; i < 12; i++) {
 			JButton tb3 = new JButton("y");
 			p2.add(tb3, BorderLayout.WEST);
 			p2.add(player3);
-			tb3.addActionListener(new ButtonHandler(i, _scrabble));
+			tb3.addActionListener(new ButtonHandler_055(i, _scrabble));
 		}
 
 		for (int i = 0; i < 12; i++) {
 			JButton tb4 = new JButton("y");
 			p2.add(tb4, BorderLayout.WEST);
 			p2.add(player4);
-			tb4.addActionListener(new ButtonHandler(i, _scrabble));
+			tb4.addActionListener(new ButtonHandler_055(i, _scrabble));
 		}
 
 		window.add(p1, BorderLayout.WEST);
@@ -143,7 +143,7 @@ public class ScrabbleWindow implements Observer, Runnable {
 	}
 
 	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new ScrabbleWindow());
+		SwingUtilities.invokeLater(new ScrabbleWindow_055());
 	}
 
 }

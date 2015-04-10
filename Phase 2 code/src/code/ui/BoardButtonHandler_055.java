@@ -7,12 +7,12 @@ import javax.swing.JButton;
 
 import code.model.Scrabble_055;
 
-public class BoardButtonHandler implements ActionListener {
+public class BoardButtonHandler_055 implements ActionListener {
 	private Scrabble_055 _s;
-	private ScrabbleUI _sUI;
+	private ScrabbleUI_055 _sUI;
 	private int _x;
 	private int _y;
-	public BoardButtonHandler(Scrabble_055 s, ScrabbleUI sUI, int x, int y){
+	public BoardButtonHandler_055(Scrabble_055 s, ScrabbleUI_055 sUI, int x, int y){
 		_s =s;
 		_sUI = sUI;
 		_x =x;

@@ -12,13 +12,13 @@ import code.model.Player_024_055;
 import code.model.Scrabble_055;
 import code.model.Tile_024_055;
 
-public class RackButtonHandler implements ActionListener {
+public class RackButtonHandler_055 implements ActionListener {
 	private Player_024_055 _tileRackPlayer;
 	private Player_024_055 _currentPlayer;
 	private Scrabble_055 _s;
 	private int _tileRackIndex;
-	private ScrabbleUI _scrabbleUI;
-	public RackButtonHandler(Scrabble_055 s, int tileRackIndex, ScrabbleUI scrabbleUI, Player_024_055 tileRackPlayer, Player_024_055 currentPlayer){
+	private ScrabbleUI_055 _scrabbleUI;
+	public RackButtonHandler_055(Scrabble_055 s, int tileRackIndex, ScrabbleUI_055 scrabbleUI, Player_024_055 tileRackPlayer, Player_024_055 currentPlayer){
 		
 	_s = s;
 	_tileRackIndex = tileRackIndex;
