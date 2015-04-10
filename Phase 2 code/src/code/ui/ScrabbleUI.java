@@ -2,8 +2,7 @@ package code.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -14,14 +13,23 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import code.model.Player;
 import code.model.Scrabble;
+import code.model.Tile;
 
 public class ScrabbleUI implements Observer, Runnable {
 	private Scrabble _scrabble;
-	
+	private Player _currentPlayer;
+	private Tile _currentlyPressedTile;
+	private ArrayList<Player> _myPlayers;
+	private JButton[][] _dAOfButtons;
+	private int _indexOfButton;
 	public ScrabbleUI(){
 		_scrabble = new Scrabble();
-		
+		_myPlayers = new ArrayList<Player>();
+		_myPlayers =_scrabble.getPlayers();
+		_currentPlayer = _myPlayers.get(0);
+		_dAOfButtons = new JButton[_scrabble.getBoard().getWidth()][_scrabble.getBoard().getLength()];
 	}
 
 	@Override
@@ -43,12 +51,16 @@ public class ScrabbleUI implements Observer, Runnable {
 				if(_scrabble.getBoard().isEmpty(i, j)){
 					JButton myButton = new JButton();
 					myButton.setPreferredSize(new Dimension(25,25));
-					top.add(myButton);
+					myButton.addActionListener(new BoardButtonHandler(_scrabble, this, i, j));
+					
+					_dAOfButtons[i][j]=myButton;
+					top.add(_dAOfButtons[i][j]);
 				}
 				else{
 					JButton myButton = new JButton(_scrabble.getBoard().getTile(i, j).toString());
 					myButton.setPreferredSize(new Dimension(25,25));
-					top.add(myButton);
+					_dAOfButtons[i][j]=myButton;
+					top.add(_dAOfButtons[i][j]);
 				}
 					
 			}
@@ -64,13 +76,20 @@ public class ScrabbleUI implements Observer, Runnable {
 		for(int i=0; i<_scrabble.getPlayers().size();i++){
 			JPanel playerPanel = new JPanel();
 			JLabel playerName = new JLabel(_scrabble.getPlayers().get(i).getName());
+			
 			playerName.setForeground(_scrabble.getPlayers().get(i).getColor());
 			playerPanel.add(playerName);
 			JLabel playerScore = new JLabel("Score: "+_scrabble.getPlayers().get(i).getScore());
 			playerPanel.add(playerScore);
 			for(int j=0; j<12; j++){
+				int value = _scrabble.getPlayers().get(i).getTileRack().getTile(j).getValue();
+				String myValue = "";
+				myValue = myValue + value;
+				myValue = "<html><sub>" + myValue + "</sub></html>";
+//				System.out.println(myValue);
 				JButton myButton = new JButton(_scrabble.getPlayers().get(i).getTileRack().getTile(j).toString());
 				myButton.setPreferredSize(new Dimension(25,25));
+				myButton.addActionListener(new RackButtonHandler(_scrabble, j, this,_scrabble.getPlayers().get(i),_currentPlayer));
 				playerPanel.add(myButton);
 			}
 
@@ -88,12 +107,32 @@ public class ScrabbleUI implements Observer, Runnable {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
+		for(int i= 0;i<_scrabble.getBoard().getWidth(); i++){
+			for(int j=0; j<_scrabble.getBoard().getLength(); j++){
+			JButton newButton =	new JButton(_scrabble.getBoard().getTile(i, j).toString());
+			System.out.println(_scrabble.getBoard().getTile(i, j).toString());
+			_dAOfButtons[i][j] = newButton;
+			}
+		}
 	}
 	
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new ScrabbleUI());
 	}
-
+	
+	public void setCurrentlyPressedTile(Tile b){
+		_currentlyPressedTile = b;
+	}
+	public Tile getCurrentlyPressedTile(){
+		return _currentlyPressedTile;
+	}
+   public Player getCurrentPlayer(){
+	   return _currentPlayer;
+   }
+   public void setIndexOfButton(int i){
+	   _indexOfButton = i;
+   }
+   public int getIndexOfButton(){
+	  return _indexOfButton;
+   }
 }

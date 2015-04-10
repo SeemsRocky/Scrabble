@@ -3,8 +3,9 @@ package code.model;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Observable;
 
-public class Player {
+public class Player extends Observable {
 	/**
 	 * ArrayList of all the tiles in the line which consists of the word whose score is being calculated
 	 */
@@ -45,11 +46,12 @@ public class Player {
 	 * 
 	 * @param inv can draw Tiles from the Inventory
 	 */
-	public Player(Inventory inv, String name, Color c, Dictionary wordChecker){
+	public Player(Inventory inv, String name, Color c, Dictionary wordChecker, Board b){
 		_score = 0;
 		//_inv = inv;
 		_rack = new TileRack(inv);
 		_c=c;
+		_board = b;
 		ArrayList<Tile> rack = _rack.getTiles();
 		for(int i =0; i<rack.size(); i++){
 			rack.get(i).setColor(_c);
@@ -119,6 +121,8 @@ public class Player {
 	    	_array.add(_rack.getTile(indexTileRack));
 	    	_rack.removeTile(_rack.getTile(indexTileRack));
 		}
+		setChanged();
+		notifyObservers();
 	}
 	
 	public void getarray(){
