@@ -155,13 +155,13 @@ public class Player_024_055 extends Observable {
 		ArrayList<Tile_024_055> finalarray= new ArrayList<Tile_024_055>();
 		int finalscore=0;
 		ArrayList<Tile_024_055> arrayOfFinalWord = new ArrayList<Tile_024_055>();
-		for(int i=0; i<20;i++){
+		for(int i=0; i<_board.getWidth();i++){
 			if(i-1==0){
-				i=20;
+				i=_board.getWidth();
 			} 
-			for(int j=0;j<20;j++){
+			for(int j=0;j<_board.getLength();j++){
 				if(j-1==0){
-					j=20;
+					j=_board.getLength();
 				}
 				if(_board.getTile(i, j)!=null){
 					if(_board.getTile(i, j+1).getColor() == _board.getTile(i, j-1).getColor()){
@@ -177,17 +177,17 @@ public class Player_024_055 extends Observable {
 		}
 		int y=1;
 		ArrayList<Tile_024_055> arrayOfTilesInLine = new ArrayList<Tile_024_055>();
-		for(int i=0;i<20;i++){
-			for(int j=0;j<20;j++){
+		for(int i=0;i<_board.getWidth();i++){
+			for(int j=0;j<_board.getLength();j++){
 				Tile_024_055 left=_board.getTile(i-1, j);
 				Tile_024_055 right= _board.getTile(i+1, j);
 				Tile_024_055 down= _board.getTile(i, j+1);
 				Tile_024_055 up= _board.getTile(i, j-1);
 				if(_board.getTile(i, j)== _array.get(0)){
 					if(left.getColor().equals(_board.getTile(i, j).getColor()) || right.getColor().equals(_board.getTile(i, j).getColor())){
-						for(int x=1;x==20;x++){
+						for(int x=1;x==_board.getWidth();x++){
 							if(x-1==0){
-								x=20;
+								x=_board.getWidth();
 							}
 							if(_board.getTile(x, j)!=null && _board.getTile(x-1, j)==null){
 								while(y<=20){
@@ -219,9 +219,12 @@ public class Player_024_055 extends Observable {
 
 					}
 					if(up.getPlayer().getColor().equals(_board.getTile(j, j).getPlayer().getColor()) || down.getPlayer().getColor().equals(_board.getTile(i, j).getColor())){
-						for(int x=1;x==20;x++){
+						for(int x=1;x==_board.getLength();x++){
+							if(x==0){
+								x=_board.getLength();
+							}
 							if(_board.getTile(i, x)!=null && _board.getTile(i, x-1)==null){
-								while(y<=20){
+								while(y<=_board.getLength()){
 									if(_board.getTile(i, y).getColor()==p.getColor()){
 										arrayOfTilesInLine.add(_board.getTile(i, y));
 										y=y+1;
@@ -229,9 +232,6 @@ public class Player_024_055 extends Observable {
 										y=y+1;
 									}
 								}
-							}
-							if(x==0){
-								x=20;
 							}
 
 						}
