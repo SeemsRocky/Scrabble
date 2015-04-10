@@ -5,14 +5,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import code.model.Scrabble;
+import code.model.Scrabble_055;
 
 public class BoardButtonHandler implements ActionListener {
-	private Scrabble _s;
+	private Scrabble_055 _s;
 	private ScrabbleUI _sUI;
 	private int _x;
 	private int _y;
-	public BoardButtonHandler(Scrabble s, ScrabbleUI sUI, int x, int y){
+	public BoardButtonHandler(Scrabble_055 s, ScrabbleUI sUI, int x, int y){
 		_s =s;
 		_sUI = sUI;
 		_x =x;

@@ -9,7 +9,7 @@ import org.junit.Test;
 public class DictionaryTests {
 	
 	private void commonTestCode(String input, Boolean expected) {
-		code.model.Dictionary su = new code.model.Dictionary("src/code/model/Dictionary.txt");
+		code.model.Dictionary_055 su = new code.model.Dictionary_055("src/code/model/Dictionary.txt");
 		Boolean actual = su.isAWord(input);
 		assertTrue("With input "+input
 				+ " I expected the answer to be " + expected

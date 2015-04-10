@@ -2,7 +2,7 @@ package code.model;
 
 import java.awt.Color;
 
-public class Tile {
+public class Tile_024_055 {
 
 	/**
 	 * Stores the character of the tile.
@@ -19,7 +19,7 @@ public class Tile {
 	/**
 	 * Instance of Player for the methods getPlayer and setPlayer
 	 */
-	private Player _player;
+	private Player_024_055 _player;
 	
 	/**
 	 * Class constructor.
@@ -27,7 +27,7 @@ public class Tile {
 	 * @param c character of the tile
 	 * @param i point value of the tile
 	 */
-	public Tile(char c, int i){
+	public Tile_024_055(char c, int i){
 		_letter = c;
 		_pointValue = i;
 	}
@@ -72,14 +72,14 @@ public class Tile {
 	 * @param p player to set
 	 */
 	
-	public void setPlayer(Player p){
+	public void setPlayer(Player_024_055 p){
 		_player = p;
 	}
 	/**
 	 * 
 	 * @return player associated to a tile
 	 */
-	public Player getPlayer(){
+	public Player_024_055 getPlayer(){
 		return _player;
 	}
 	

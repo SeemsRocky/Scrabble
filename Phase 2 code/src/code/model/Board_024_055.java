@@ -2,12 +2,12 @@ package code.model;
 
 import java.util.Observable;
 
-public class Board extends Observable {
+public class Board_024_055 extends Observable {
 
 	/**
 	 * 2-D array of tiles to store tiles.
 	 */
-	private Tile[][] _board;
+	private Tile_024_055[][] _board;
 	
 	private int _width; 
 	private int _length;
@@ -15,10 +15,10 @@ public class Board extends Observable {
 	/**
 	 * Class constructor.
 	 */
-	public Board(int width, int length){
+	public Board_024_055(int width, int length){
 		_width = width;
 		_length = length;
-		_board = new Tile[_length][_width];
+		_board = new Tile_024_055[_length][_width];
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class Board extends Observable {
 	 * @param x	the x-coordinate of the placement location
 	 * @param y the y-coordinate of the placement location
 	 */
-	public void addTile(Tile t, int x, int y){
+	public void addTile(Tile_024_055 t, int x, int y){
 		if(this.isEmpty(x, y)){
 			_board[x][y] = t;
 			setChanged();
@@ -44,8 +44,8 @@ public class Board extends Observable {
 	 * @param y the y-coordinate of the tile to be removed
 	 * @return
 	 */
-	public Tile removeTile(int x, int y){
-		Tile temp = _board[x][y];
+	public Tile_024_055 removeTile(int x, int y){
+		Tile_024_055 temp = _board[x][y];
 		_board[x][y] = null;
 		return temp;
 	}
@@ -57,7 +57,7 @@ public class Board extends Observable {
 	 * @param y the y-coordinate of the position
 	 * @return Tile from the coordinates x and y of the Board
 	 */
-	public Tile getTile(int x, int y){
+	public Tile_024_055 getTile(int x, int y){
 		return _board[x][y];
 	}
 	/**

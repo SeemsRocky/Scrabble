@@ -8,17 +8,17 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 
-import code.model.Player;
-import code.model.Scrabble;
-import code.model.Tile;
+import code.model.Player_024_055;
+import code.model.Scrabble_055;
+import code.model.Tile_024_055;
 
 public class RackButtonHandler implements ActionListener {
-	private Player _tileRackPlayer;
-	private Player _currentPlayer;
-	private Scrabble _s;
+	private Player_024_055 _tileRackPlayer;
+	private Player_024_055 _currentPlayer;
+	private Scrabble_055 _s;
 	private int _tileRackIndex;
 	private ScrabbleUI _scrabbleUI;
-	public RackButtonHandler(Scrabble s, int tileRackIndex, ScrabbleUI scrabbleUI, Player tileRackPlayer, Player currentPlayer){
+	public RackButtonHandler(Scrabble_055 s, int tileRackIndex, ScrabbleUI scrabbleUI, Player_024_055 tileRackPlayer, Player_024_055 currentPlayer){
 		
 	_s = s;
 	_tileRackIndex = tileRackIndex;

@@ -10,7 +10,7 @@ import java.util.Observable;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Scrabble extends Observable{
+public class Scrabble_055 extends Observable{
 	/**
 	 * ArrayList of colors from which a color is picked for the player to be associated with
 	 */
@@ -20,15 +20,15 @@ public class Scrabble extends Observable{
 	/**
 	 * Stores tiles.
 	 */
-	private Inventory _inv;
+	private Inventory_024_055 _inv;
 	/**
 	 * Stores players.
 	 */
-	private ArrayList<Player> _players;
+	private ArrayList<Player_024_055> _players;
 	/**
 	 * tile board to be played on
 	 */
-	private Board _board;
+	private Board_024_055 _board;
 
 
 	private String _pathOfDictionary;
@@ -38,12 +38,12 @@ public class Scrabble extends Observable{
 	/**
 	 * Class constructor
 	 */
-	public Scrabble(ArrayList<String> players){
-		_inv = new Inventory();
-		_board = new Board(20,20);
-		_players = new ArrayList<Player>();
+	public Scrabble_055(ArrayList<String> players){
+		_inv = new Inventory_024_055();
+		_board = new Board_024_055(20,20);
+		_players = new ArrayList<Player_024_055>();
 		_pathOfDictionary = "src/code/model/Dictionary.txt";
-		Dictionary wordChecker = new Dictionary(_pathOfDictionary);
+		Dictionary_055 wordChecker = new Dictionary_055(_pathOfDictionary);
 		for(int i = 0; i<_players.size(); i++){
 			addNewPlayer(_inv, players.get(i), wordChecker);
 		}
@@ -56,7 +56,7 @@ public class Scrabble extends Observable{
 		_arrayOfColor.add(Color.RED);
 	}
 	
-	public Scrabble(String restorePath){
+	public Scrabble_055(String restorePath){
 		ArrayList<String> restoreFile = new ArrayList<String>();
 		Scanner scanner = null;
 		try {
@@ -97,10 +97,10 @@ public class Scrabble extends Observable{
 			
 	}
 
-	public Scrabble(){
-		_inv = new Inventory();
-		_board = new Board(20,20);
-		_players = new ArrayList<Player>();
+	public Scrabble_055(){
+		_inv = new Inventory_024_055();
+		_board = new Board_024_055(20,20);
+		_players = new ArrayList<Player_024_055>();
 		_arrayOfColor = new ArrayList<Color>();
 		_arrayOfColor.add(Color.BLUE);
 		_arrayOfColor.add(Color.GREEN);
@@ -108,7 +108,7 @@ public class Scrabble extends Observable{
 		_arrayOfColor.add(Color.YELLOW);
 		_arrayOfColor.add(Color.RED);
 		_pathOfDictionary = "src/code/model/Dictionary.txt";
-		Dictionary wordChecker = new Dictionary(_pathOfDictionary);
+		Dictionary_055 wordChecker = new Dictionary_055(_pathOfDictionary);
 		for(int i = 1; i<3; i++){
 			addNewPlayer(_inv, "Player " + i, wordChecker);
 		}
@@ -116,15 +116,15 @@ public class Scrabble extends Observable{
 
 
 	}
-	public ArrayList<Player> getPlayers(){
+	public ArrayList<Player_024_055> getPlayers(){
 		return _players;
 	}
 	/**
 	 * Adds a new player to the game.
 	 */
-	private void addNewPlayer(Inventory inv,String name, Dictionary wordChecker){
+	private void addNewPlayer(Inventory_024_055 inv,String name, Dictionary_055 wordChecker){
 
-		_players.add(new Player(inv, name, _arrayOfColor.get(0), wordChecker, _board));
+		_players.add(new Player_024_055(inv, name, _arrayOfColor.get(0), wordChecker, _board));
 		_arrayOfColor.remove(0);
 	}
 
@@ -193,7 +193,7 @@ public class Scrabble extends Observable{
 	public void main(String[] args){
 		if(args.length==1){
 			_pathOfRestoreFile = args[0];
-			new Scrabble(_pathOfRestoreFile);
+			new Scrabble_055(_pathOfRestoreFile);
 		}
 		else{
 			_pathOfDictionary = args[0];
@@ -201,7 +201,7 @@ public class Scrabble extends Observable{
 			for(int i = 1; i<args.length;i++){
 				nameOfPlayers.add(args[i]);
 			}
-			new Scrabble(nameOfPlayers);
+			new Scrabble_055(nameOfPlayers);
 
 		}
 
@@ -218,7 +218,7 @@ public class Scrabble extends Observable{
 		{
 			stream = new PrintStream(filename);
 			ArrayList<String> al = getHighScoreFile(filename);
-			ArrayList<Player> p = this.getPlayers();
+			ArrayList<Player_024_055> p = this.getPlayers();
 			sort1(p); //sorts order by score in current scrabble game
 			if(al.size()==0) //if empty file just print the in order of p
 			{
@@ -282,7 +282,7 @@ public class Scrabble extends Observable{
 	 * Makes descending order of scores so highest score on top
 	 * @param al Arraylist of players of scrabble game
 	 */
-	private static void sort1(ArrayList<Player> al)
+	private static void sort1(ArrayList<Player_024_055> al)
 	{
 		int pos;
 		for(int i =0; i<al.size()-1;i++)
@@ -295,7 +295,7 @@ public class Scrabble extends Observable{
 					pos = j;
 				}
 			}
-			Player temp = al.get(i);
+			Player_024_055 temp = al.get(i);
 			al.set(i,al.get(pos));
 			al.set(pos, temp);
 		}	
@@ -371,12 +371,12 @@ public class Scrabble extends Observable{
 		return str;
 	}
 
-	public void mark(Tile _til, int _row, int _col) {
+	public void mark(Tile_024_055 _til, int _row, int _col) {
 
 
 	}
 	
-	public Board getBoard(){
+	public Board_024_055 getBoard(){
 		return _board;
 	}
 

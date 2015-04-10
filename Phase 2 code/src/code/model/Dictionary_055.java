@@ -7,10 +7,10 @@ import java.util.Collections;
 import java.util.Scanner;
 
 
-public class Dictionary {
+public class Dictionary_055 {
 	private String _path;
 	private ArrayList<String> _knownWords;
-	public Dictionary(String path){
+	public Dictionary_055(String path){
 		_path = path;
 		_knownWords = new ArrayList<String>();
 		Scanner scanner = null;

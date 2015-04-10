@@ -4,11 +4,11 @@ import java.awt.*;
 import java.util.*;
 import javax.swing.*;
 
-import code.model.Scrabble;
+import code.model.Scrabble_055;
 
 public class ScrabbleWindow implements Observer, Runnable {
 
-	private Scrabble _scrabble;
+	private Scrabble_055 _scrabble;
 	private ArrayList<JButton> _buttons;
 
 	// public ScrabbleWindow() {

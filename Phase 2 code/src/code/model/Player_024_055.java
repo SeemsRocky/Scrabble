@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Observable;
 
-public class Player extends Observable {
+public class Player_024_055 extends Observable {
 	/**
 	 * ArrayList of all the tiles in the line which consists of the word whose score is being calculated
 	 */
@@ -13,15 +13,15 @@ public class Player extends Observable {
 	/**
 	 * ArrayList of the tiles that a player has placed on the board from his/her TileRack
 	 */
-	private ArrayList<Tile> _array;
+	private ArrayList<Tile_024_055> _array;
 	/**
 	 *  Instance Variable of the Board
 	 */
-	private  Board _board;
+	private  Board_024_055 _board;
 	/**
 	 * Instance Variable of the Tile
 	 */
-	private Tile _tile;
+	private Tile_024_055 _tile;
 	/**
 	 * Instance Variable for the color of a player
 	 */
@@ -36,29 +36,29 @@ public class Player extends Observable {
 	/**
 	 * Allows the Player to access the Tiles on its own TileRack.
 	 */
-	private TileRack _rack;
+	private TileRack_024_055 _rack;
 	//private Inventory _inv;
 	private String _name;
-	private Dictionary _wordChecker;
+	private Dictionary_055 _wordChecker;
 
 	/**
 	 * Class constructor.
 	 * 
 	 * @param inv can draw Tiles from the Inventory
 	 */
-	public Player(Inventory inv, String name, Color c, Dictionary wordChecker, Board b){
+	public Player_024_055(Inventory_024_055 inv, String name, Color c, Dictionary_055 wordChecker, Board_024_055 b){
 		_score = 0;
 		//_inv = inv;
-		_rack = new TileRack(inv);
+		_rack = new TileRack_024_055(inv);
 		_c=c;
 		_board = b;
-		ArrayList<Tile> rack = _rack.getTiles();
+		ArrayList<Tile_024_055> rack = _rack.getTiles();
 		for(int i =0; i<rack.size(); i++){
 			rack.get(i).setColor(_c);
 			rack.get(i).setPlayer(this);
 		}
 		_name = name;
-		_array= new ArrayList<Tile>();
+		_array= new ArrayList<Tile_024_055>();
 		_wordChecker = wordChecker;
 	}
 
@@ -87,7 +87,7 @@ public class Player extends Observable {
 	 * This method is made so that it can be called when the user needs the TileRack associated with the player
 	 * @return TileRack of the player
 	 */
-	public TileRack getTileRack(){
+	public TileRack_024_055 getTileRack(){
 		return _rack;
 	}
 	/**
@@ -116,17 +116,18 @@ public class Player extends Observable {
 	 */
 
 	public void PlacingATile(int xcoordinate, int ycoordinate, int indexTileRack){
+		Tile_024_055 tiletoadd = _rack.getTile(indexTileRack);
 		if(_board.isEmpty(xcoordinate, ycoordinate)){
-			_board.addTile(_rack.getTile(indexTileRack), xcoordinate, ycoordinate);
-			_array.add(_rack.getTile(indexTileRack));
-			_rack.removeTile(_rack.getTile(indexTileRack));
+			_board.addTile(tiletoadd, xcoordinate, ycoordinate);
+			_array.add(tiletoadd);
+			_rack.removeTile(tiletoadd);
 		}
 		setChanged();
 		notifyObservers();
 	}
 
 	public void getarray(){
-		ArrayList<Tile> array = new ArrayList<Tile>();
+		ArrayList<Tile_024_055> array = new ArrayList<Tile_024_055>();
 		_rack.getTiles();
 	}
 	/**
@@ -141,38 +142,44 @@ public class Player extends Observable {
 	 * @return An int representing the score a player after his/her turn
 	 */
 
-	public int score(Player p){
-		ArrayList<Tile> finalarray= new ArrayList<Tile>();
+	public int score(Player_024_055 p){
+		ArrayList<Tile_024_055> finalarray= new ArrayList<Tile_024_055>();
 		int finalscore=0;
-		ArrayList<Tile> arrayOfFinalWord = new ArrayList<Tile>();
+		ArrayList<Tile_024_055> arrayOfFinalWord = new ArrayList<Tile_024_055>();
 		for(int i=0; i<20;i++){
+			if(i-1==0){
+				i=20;
+			} 
 			for(int j=0;j<20;j++){
-				if(i==0){
-					i=20;
-				} else if(j==0){
+				if(j-1==0){
 					j=20;
 				}
 				if(_board.getTile(i, j)!=null){
-					if(_board.getTile(i, j+1).getColor() == _board.getTile(i, j-1).getColor());
-					if(_board.getTile(i, j).getColor() != _board.getTile(i, j+1).getColor()){
-						_board.getTile(i, j).setColor(_board.getTile(i, j+1).getColor());
-					} else {
+					if(_board.getTile(i, j+1).getColor() == _board.getTile(i, j-1).getColor()){
+						if(_board.getTile(i, j).getColor() != _board.getTile(i, j+1).getColor()){
+							_board.getTile(i, j).setColor(_board.getTile(i, j+1).getColor());
+						} else {
 
+						}
 					}
+					
 				}
 			}
 		}
 		int y=1;
-		ArrayList<Tile> arrayOfTilesInLine = new ArrayList<Tile>();
+		ArrayList<Tile_024_055> arrayOfTilesInLine = new ArrayList<Tile_024_055>();
 		for(int i=0;i<20;i++){
 			for(int j=0;j<20;j++){
-				Tile left=_board.getTile(i-1, j);
-				Tile right= _board.getTile(i+1, j);
-				Tile down= _board.getTile(i, j+1);
-				Tile up= _board.getTile(i, j-1);
+				Tile_024_055 left=_board.getTile(i-1, j);
+				Tile_024_055 right= _board.getTile(i+1, j);
+				Tile_024_055 down= _board.getTile(i, j+1);
+				Tile_024_055 up= _board.getTile(i, j-1);
 				if(_board.getTile(i, j)== _array.get(0)){
-					if(left.getPlayer().getColor().equals(_board.getTile(i, j).getPlayer().getColor()) || right.getPlayer().getColor().equals(_board.getTile(i, j).getPlayer().getColor())){
+					if(left.getColor().equals(_board.getTile(i, j).getColor()) || right.getColor().equals(_board.getTile(i, j).getColor())){
 						for(int x=1;x==20;x++){
+							if(x-1==0){
+								x=20;
+							}
 							if(_board.getTile(x, j)!=null && _board.getTile(x-1, j)==null){
 								while(y<=20){
 									if(_board.getTile(y, j).getColor()==p.getColor()){
@@ -182,8 +189,6 @@ public class Player extends Observable {
 										y=y+1;
 									}
 								}
-							}if(x==0){
-								x=20;
 							}	
 						}
 						for(int checkingfornull=0;checkingfornull<arrayOfTilesInLine.size();checkingfornull++){
@@ -254,6 +259,8 @@ public class Player extends Observable {
 			for(int i=0;i<arrayOfFinalWord.size();i++){
 				finalscore = finalscore + arrayOfFinalWord.get(i).getValue();
 			}
+		}else {
+			return 0;
 		}
 		_score = finalscore;
 		return finalscore;

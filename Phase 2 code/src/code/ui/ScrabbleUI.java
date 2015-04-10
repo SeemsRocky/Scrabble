@@ -1,6 +1,7 @@
 package code.ui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Observable;
@@ -13,20 +14,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import code.model.Player;
-import code.model.Scrabble;
-import code.model.Tile;
+import code.model.Player_024_055;
+import code.model.Scrabble_055;
+import code.model.Tile_024_055;
 
 public class ScrabbleUI implements Observer, Runnable {
-	private Scrabble _scrabble;
-	private Player _currentPlayer;
-	private Tile _currentlyPressedTile;
-	private ArrayList<Player> _myPlayers;
+	private Scrabble_055 _scrabble;
+	private Player_024_055 _currentPlayer;
+	private Tile_024_055 _currentlyPressedTile;
+	private ArrayList<Player_024_055> _myPlayers;
 	private JButton[][] _dAOfButtons;
 	private int _indexOfButton;
 	public ScrabbleUI(){
-		_scrabble = new Scrabble();
-		_myPlayers = new ArrayList<Player>();
+		_scrabble = new Scrabble_055();
+		_myPlayers = new ArrayList<Player_024_055>();
 		_myPlayers =_scrabble.getPlayers();
 		_currentPlayer = _myPlayers.get(0);
 		_dAOfButtons = new JButton[_scrabble.getBoard().getWidth()][_scrabble.getBoard().getLength()];
@@ -88,6 +89,7 @@ public class ScrabbleUI implements Observer, Runnable {
 				myValue = "<html><sub>" + myValue + "</sub></html>";
 //				System.out.println(myValue);
 				JButton myButton = new JButton(_scrabble.getPlayers().get(i).getTileRack().getTile(j).toString());
+				myButton.setForeground(_scrabble.getPlayers().get(i).getColor());
 				myButton.setPreferredSize(new Dimension(25,25));
 				myButton.addActionListener(new RackButtonHandler(_scrabble, j, this,_scrabble.getPlayers().get(i),_currentPlayer));
 				playerPanel.add(myButton);
@@ -120,13 +122,13 @@ public class ScrabbleUI implements Observer, Runnable {
 		SwingUtilities.invokeLater(new ScrabbleUI());
 	}
 	
-	public void setCurrentlyPressedTile(Tile b){
+	public void setCurrentlyPressedTile(Tile_024_055 b){
 		_currentlyPressedTile = b;
 	}
-	public Tile getCurrentlyPressedTile(){
+	public Tile_024_055 getCurrentlyPressedTile(){
 		return _currentlyPressedTile;
 	}
-   public Player getCurrentPlayer(){
+   public Player_024_055 getCurrentPlayer(){
 	   return _currentPlayer;
    }
    public void setIndexOfButton(int i){

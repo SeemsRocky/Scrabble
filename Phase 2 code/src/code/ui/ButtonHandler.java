@@ -5,16 +5,17 @@ import java.awt.event.ActionListener;
  
  
  
-import code.model.Scrabble;
-import code.model.Tile;
+
+import code.model.Scrabble_055;
+import code.model.Tile_024_055;
  
 public class ButtonHandler implements ActionListener{
-        private Scrabble _model;
+        private Scrabble_055 _model;
         private int _col;
         private int _row;
-        private Tile _til;
+        private Tile_024_055 _til;
        
-        public ButtonHandler (int i, Scrabble model) {
+        public ButtonHandler (int i, Scrabble_055 model) {
                 _model = model;
                 _row = i/20;
                 _col = i%20;

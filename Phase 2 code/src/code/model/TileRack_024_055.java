@@ -3,26 +3,26 @@ package code.model;
 import java.util.ArrayList;
 import java.util.Observable;
 
-public class TileRack extends Observable {
+public class TileRack_024_055 extends Observable {
 	
 	/**
 	 * Inventory to draw tiles from
 	 */
-	private Inventory _inv;
+	private Inventory_024_055 _inv;
 	
 	/**
 	 * Stores the tiles that can be played.
 	 */
-	private ArrayList<Tile> _rack;
+	private ArrayList<Tile_024_055> _rack;
 	
 	/**
-	 * Class cosntructor.
+	 * Class constructor.
 	 * 
 	 * @param inv inventory to draw tiles from
 	 */
-	public TileRack(Inventory inv){
+	public TileRack_024_055(Inventory_024_055 inv){
 		_inv = inv;
-		_rack = new ArrayList<Tile>();
+		_rack = new ArrayList<Tile_024_055>();
 		fillRack();
 	}
 	
@@ -43,8 +43,8 @@ public class TileRack extends Observable {
 	 * @param t tile to be removed from the rack
 	 * @return tile removed from the rack
 	 */
-	public Tile removeTile(Tile t){
-		Tile tileToRemove = t;
+	public Tile_024_055 removeTile(Tile_024_055 t){
+		Tile_024_055 tileToRemove = t;
 		_rack.remove(t);
 		setChanged();
 		notifyObservers();
@@ -57,8 +57,8 @@ public class TileRack extends Observable {
 	 * @param i index of tile to be removed
 	 * @return tile removed from the rack
 	 */
-	public Tile removeTile(int i){
-		Tile tileToRemove = _rack.get(i);
+	public Tile_024_055 removeTile(int i){
+		Tile_024_055 tileToRemove = _rack.get(i);
 		_rack.remove(i);
 		setChanged();
 		notifyObservers();
@@ -78,17 +78,26 @@ public class TileRack extends Observable {
 	 * @return ArrayList of all the tiles in a TileRack
 	 */
 	
-	public ArrayList<Tile> getTiles(){
+	public ArrayList<Tile_024_055> getTiles(){
 		return _rack;
 		
 	}
+	/**
+	 * 
+	 * @param indexTileRack is the index at which the desired tile to get is
+	 * @return Tile at index indexTileRack
+	 */
 
-	public Tile getTile(int indexTileRack) {
+	public Tile_024_055 getTile(int indexTileRack) {
 		// TODO Auto-generated method stub
 		return _rack.get(indexTileRack);
 	}
+	/**
+	 * 
+	 * @param t is the Tile to be added
+	 */
 	
-	public void addTile(Tile t){
+	public void addTile(Tile_024_055 t){
 		_rack.add(t);
 		
 	}
