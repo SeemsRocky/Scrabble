@@ -16,9 +16,7 @@ public class Scrabble_055{
 	/**
 	 * ArrayList of colors from which a color is picked for the player to be associated with
 	 */
-
 	private ArrayList<Color> _arrayOfColor;
-
 	/**
 	 * Stores tiles.
 	 */
@@ -31,7 +29,6 @@ public class Scrabble_055{
 	 * tile board to be played on
 	 */
 	private Board_024_055 _board;
-
 	/**
 	 * The filepath for the dictionary
 	 */
@@ -40,12 +37,11 @@ public class Scrabble_055{
 	 * the filepath to the restore file
 	 */
 	private String _pathOfRestoreFile;
-
-
+	
 	/**
 	 * Class constructor
 	 * @param players List of player names in the game
-	 * @author    driver:
+	 * @author    driver: adhishch (Adhish Chugh)
      * @author navigator: 
 	 */
 	public Scrabble_055(ArrayList<String> players){
@@ -68,6 +64,8 @@ public class Scrabble_055{
 	/**
 	 * Constructor to restore a game that has been saved
 	 * @param restorePath the filepath for the game to be restored
+	 * * @author    driver: adhishch (Adhish Chugh)
+     * @author navigator: 
 	 */
 	public Scrabble_055(String restorePath){
 		ArrayList<String> restoreFile = new ArrayList<String>();
@@ -111,6 +109,8 @@ public class Scrabble_055{
 	}
 	/**
 	 * Class constructor with no parameters that start a game of scrabble for 2 players 
+	 * * @author    driver: adhishch (Adhish Chugh)
+     * @author navigator: 
 	 */
 	public Scrabble_055(){
 		_inv = new Inventory_024_055();
@@ -128,8 +128,6 @@ public class Scrabble_055{
 			addNewPlayer(_inv, "Player " + i, wordChecker);
 		}
 
-
-
 	}
 	/**
 	 * Gets the arraylist of players in the scrabble game
@@ -140,7 +138,7 @@ public class Scrabble_055{
 	}
 	/**
 	 * Adds a new player to the game.
-	 * @author    driver:
+	 * @author    driver: adhishch (Adish Chugh)
      * @author navigator: 
 	 */
 	private void addNewPlayer(Inventory_024_055 inv,String name, Dictionary_055 wordChecker){
@@ -154,6 +152,8 @@ public class Scrabble_055{
 	 * player's name,score,tilerack, and color and all the current tiles 
 	 * placed down onto the board.
 	 * @param filename name of file to save the current scrabble game
+	 * * @author    driver: adhishch (Adhish Chugh)
+     * @author navigator: 
 	 */
 	public void saveToFile(String filename) {
 		PrintStream stream = null;
@@ -224,7 +224,14 @@ public class Scrabble_055{
 		
 		
 	}
-	
+	/**
+	 * main method that takes in string array of args
+	 * if args length is 1, Restore file path is the string in args
+	 * if it has more than one, each player has their own different restore pathfile
+	 * @param args
+	 * * @author    driver: adhishch (Adhish Chugh)
+     * @author navigator: 
+	 */
 	public void main(String[] args){
 		if(args.length==1){
 			_pathOfRestoreFile = args[0];
@@ -246,7 +253,7 @@ public class Scrabble_055{
 	/**
 	 * It prints out the highscores and writes them onto a text file.
 	 * @param s the current scrabble game
-	 * @author    driver:
+	 * @author    driver: rockylia (Rocky Liao)
      * @author navigator: 
 	 */
 	public void fileWriteHighScore(String filename) {
@@ -310,7 +317,7 @@ public class Scrabble_055{
 	 * sorts the Arraylist of player according to their scores
 	 * Makes descending order of scores so highest score on top
 	 * @param al Arraylist of players of scrabble game
-	 * @author    driver:
+	 * @author    driver: rockylia (Rocky Liao)
      * @author navigator: 
 	 */
 	private static void sort1(ArrayList<Player_024_055> al)
@@ -335,7 +342,7 @@ public class Scrabble_055{
 	 * Takes the score from the string
 	 * @param s String with a number in it
 	 * @return The number as an int 
-	 * @author    driver:
+	 * @author    driver:rockylia (Rocky Liao)
      * @author navigator: 
 	 */
 	private static int convertInt(String s)
@@ -361,7 +368,7 @@ public class Scrabble_055{
 	 * Gets all the lines in the file and stores them into an arraylist
 	 * @param filename name of file
 	 * @return string arraylist of each line in the file
-	 * @author    driver:
+	 * @author    driver:rockylia (Rocky Liao)
      * @author navigator: 
 	 */
 	public ArrayList<String> getHighScoreFile(String filename)
@@ -390,6 +397,8 @@ public class Scrabble_055{
 	/**
 	 * gets the board of the current scrabble game
 	 * @return the board
+	 * @author    driver:
+     * @author navigator: 
 	 */
 	public Board_024_055 getBoard(){
 		return _board;
