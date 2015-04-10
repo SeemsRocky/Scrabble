@@ -38,13 +38,7 @@ public class Player_024_055 extends Observable {
 	 */
 	private TileRack_024_055 _rack;
 	//private Inventory _inv;
-	/**
-	 * The name of the player
-	 */
 	private String _name;
-	/**
-	 * Checks if it is a real word
-	 */
 	private Dictionary_055 _wordChecker;
 
 	/**
@@ -110,27 +104,26 @@ public class Player_024_055 extends Observable {
 	 * @param xcoordinate An int representing the x-coordinate of the Board
 	 * @param ycoordinate An int representing the y-coordinate of the Board
 	 * @param indexTileRack An int representing the index of a Tile in the TileRack
-	 * @author    driver: dkumar2 (Dhruv Kumar)
+	 * @author    driver:
      * @author navigator: 
 	 */
 
 	 public void placeATileOnTheBoard(int xcoordinate, int ycoordinate, int indexTileRack){
-		 System.out.println("A");
+//		 System.out.println("A");
 	    	if(_board.isEmpty(xcoordinate,ycoordinate)){
 	    	_board.addTile(_rack.getTile(indexTileRack), xcoordinate,ycoordinate);
 	    	_array.add(_rack.getTile(indexTileRack));
 	    	_rack.removeTile(_rack.getTile(indexTileRack));
 	    	}
 	   	 
-			 System.out.println("B");
+//			 System.out.println("B");
 	    	setChanged();
-			 System.out.println("C");
+//			 System.out.println("C");
 	    	notifyObservers();
 		}
 		
 /**
- * 
- * @author    driver: dkumar2 (Dhruv Kumar)
+ * @author    driver:
  * @author navigator: 
  */
 	public void getarray(){
@@ -147,7 +140,7 @@ public class Player_024_055 extends Observable {
 	 *
 	 * @param p player on which this method is called
 	 * @return An int representing the score a player after his/her turn
-	 * @author    driver: dkumar2 (Dhruv Kumar)
+	 * @author    driver:
      * @author navigator: 
 	 */
 
@@ -285,7 +278,7 @@ public class Player_024_055 extends Observable {
  * This method marks the end of a turn for the player. This method returns the score 
  * calculated in the method score. At last, if fills the empty spots of the TileRack
  * @return an int representing the score of the player after the end of his/her turn
- * @author    driver: dkumar2 (Dhruv Kumar)
+ * @author    driver:
  * @author navigator: 
  */
 	public int moveComplete(){
