@@ -238,7 +238,7 @@ public class Scrabble_055{
 					stream.format("%s:%d \n",p.get(i).getName(),p.get(i).getScore());
 				}
 			}
-			else if(al.size()>=4 && al.size()<20) // if already has more than 4 but less than 20
+			else
 			{
 				for(int x=0;x<p.size();x++) // checks player score
 				{
@@ -254,28 +254,20 @@ public class Scrabble_055{
 						}
 					}
 				}
-				for(int i=0;i<al.size();i++) // print out everything added
+				if(al.size()<=20)
 				{
-					stream.format("%s \n",p.get(i));
-				}
-			}
-			else // so more than 20 lines
-			{
-				int num =0; // number of times a new score is added
-				for(int x=0;x<p.size();x++) // checks player score
-				{
-					for(int y=0;y<al.size();y++) // with current score so sorted properly
+					for(int i=0;i<al.size();i++) // print out everything added
 					{
-						if(convertInt(al.get(y))<p.get(x).getScore()) // if greater add
-						{
-							al.add(y,p.get(x).getName()+":" +p.get(x).getScore());
-							++num;
-						}
+						stream.format("%s \n",p.get(i));
 					}
 				}
-				for(int i=0;i<al.size()-num;i++) // print out everything added only 20 lines
+				else
 				{
-					stream.format("%s \n",p.get(i));
+					int num = al.size()-20;
+					for(int i=0;i<al.size()-num;i++) // print out everything added
+					{
+						stream.format("%s \n",p.get(i));
+					}
 				}
 			}
 
