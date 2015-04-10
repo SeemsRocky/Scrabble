@@ -44,7 +44,7 @@ public class Board_024_055 extends Observable {
 	 * 
 	 * @param x the x-coordinate of the tile to be removed
 	 * @param y the y-coordinate of the tile to be removed
-	 * @return
+	 * @return the tile that has been removed
 	 */
 	public Tile_024_055 removeTile(int x, int y){
 		Tile_024_055 temp = _board[x][y];
