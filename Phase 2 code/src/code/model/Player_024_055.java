@@ -38,7 +38,13 @@ public class Player_024_055 extends Observable {
 	 */
 	private TileRack_024_055 _rack;
 	//private Inventory _inv;
+	/**
+	 * The name of the player
+	 */
 	private String _name;
+	/**
+	 * Checks if it is a real word
+	 */
 	private Dictionary_055 _wordChecker;
 
 	/**
@@ -123,6 +129,7 @@ public class Player_024_055 extends Observable {
 		}
 		
 /**
+ * 
  * @author    driver:
  * @author navigator: 
  */

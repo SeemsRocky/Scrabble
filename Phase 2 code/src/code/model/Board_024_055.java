@@ -8,8 +8,13 @@ public class Board_024_055 extends Observable {
 	 * 2-D array of tiles to store tiles.
 	 */
 	private Tile_024_055[][] _board;
-	
+	/**
+	 * width of the board
+	 */
 	private int _width; 
+	/** 
+	 * length of the board
+	 */
 	private int _length;
 
 	/**

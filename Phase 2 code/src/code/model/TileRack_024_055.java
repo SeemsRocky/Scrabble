@@ -79,7 +79,7 @@ public class TileRack_024_055 extends Observable {
 		
 	}
 	/**
-	 * 
+	 * Returns the tile at indexTileRack on the tilerack
 	 * @param indexTileRack is the index at which the desired tile to get is
 	 * @return Tile at index indexTileRack
 	 */
@@ -89,7 +89,7 @@ public class TileRack_024_055 extends Observable {
 		return _rack.get(indexTileRack);
 	}
 	/**
-	 * 
+	 * Adds tile t to the rack
 	 * @param t is the Tile to be added
 	 */
 	

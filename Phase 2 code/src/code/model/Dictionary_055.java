@@ -6,15 +6,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-/**
- * This returns an ArrayList of type string consisting of all the words in a Dictionary
- * @author    driver:
- * @author navigator: 
- *
- */
+
 public class Dictionary_055 {
+	/**
+	 * This returns the dictionary path
+	 */
 	private String _path;
+	/**
+	 * This returns an ArrayList of type string consisting of all the words in a Dictionary
+	 * @author    driver:
+	 * @author navigator: 
+ 	*
+ 	*/
 	private ArrayList<String> _knownWords;
+	/**
+	 * Constructor for a new dictionary
+	 * @param path The path for the dictionary
+	 */
 	public Dictionary_055(String path){
 		_path = path;
 		_knownWords = new ArrayList<String>();
@@ -39,7 +47,7 @@ public class Dictionary_055 {
 		}
 	}
 	/**
-	 * 
+	 * Checks if the word exists in the dictionary file
 	 * @param word the String that is to be checked if it is a word that exists in the dictionary or not
 	 * @return true if it exists, false otherwise
 	 * @author    driver:
@@ -60,7 +68,7 @@ public class Dictionary_055 {
 
 	}	
 	/**
-	 * 
+	 * gets the filepath of dictionary
 	 * @return the FilePath
 	 */
 	public String getFilePath(){

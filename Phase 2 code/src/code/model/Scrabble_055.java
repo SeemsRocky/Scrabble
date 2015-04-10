@@ -32,13 +32,19 @@ public class Scrabble_055{
 	 */
 	private Board_024_055 _board;
 
-
+	/**
+	 * The filepath for the dictionary
+	 */
 	private String _pathOfDictionary;
+	/**
+	 * the filepath to the restore file
+	 */
 	private String _pathOfRestoreFile;
 
 
 	/**
 	 * Class constructor
+	 * @param players List of player names in the game
 	 * @author    driver:
      * @author navigator: 
 	 */
@@ -59,7 +65,10 @@ public class Scrabble_055{
 		_arrayOfColor.add(Color.YELLOW);
 		_arrayOfColor.add(Color.RED);
 	}
-	
+	/**
+	 * Constructor to restore a game that has been saved
+	 * @param restorePath the filepath for the game to be restored
+	 */
 	public Scrabble_055(String restorePath){
 		ArrayList<String> restoreFile = new ArrayList<String>();
 		Scanner scanner = null;
@@ -100,7 +109,9 @@ public class Scrabble_055{
 		
 			
 	}
-
+	/**
+	 * Class constructor with no parameters that start a game of scrabble for 2 players 
+	 */
 	public Scrabble_055(){
 		_inv = new Inventory_024_055();
 		_board = new Board_024_055(20,20);
@@ -120,6 +131,10 @@ public class Scrabble_055{
 
 
 	}
+	/**
+	 * Gets the arraylist of players in the scrabble game
+	 * @return arraylist of players
+	 */
 	public ArrayList<Player_024_055> getPlayers(){
 		return _players;
 	}
@@ -134,7 +149,12 @@ public class Scrabble_055{
 		_arrayOfColor.remove(0);
 	}
 
-
+	/**
+	 * Saves the length and width of board, and filepath for the dictionary
+	 * player's name,score,tilerack, and color and all the current tiles 
+	 * placed down onto the board.
+	 * @param filename name of file to save the current scrabble game
+	 */
 	public void saveToFile(String filename) {
 		PrintStream stream = null;
 		try {
@@ -204,7 +224,7 @@ public class Scrabble_055{
 		
 		
 	}
-
+	
 	public void main(String[] args){
 		if(args.length==1){
 			_pathOfRestoreFile = args[0];
@@ -338,31 +358,6 @@ public class Scrabble_055{
 		return score;
 	}
 	/**
-	 * gets the number of lines of the file
-	 * @param filename name of file
-	 * @return how many lines in the file
-	 * @author    driver:
-     * @author navigator: 
-	 */
-	private static int getNumberOfLines(String filename)
-	{
-		Scanner scan = new Scanner(filename);
-		int lineNumber = 0;
-		try {
-			scan = new Scanner(new File(filename));
-			while (scan.hasNextLine()) 
-			{
-				lineNumber++;
-			}
-		} catch (FileNotFoundException e) {
-			System.err.println("File not found: "+filename);
-		}
-		finally {
-			scan.close();
-		}
-		return lineNumber;
-	}
-	/**
 	 * Gets all the lines in the file and stores them into an arraylist
 	 * @param filename name of file
 	 * @return string arraylist of each line in the file
@@ -390,7 +385,10 @@ public class Scrabble_055{
 
 
 	}
-	
+	/**
+	 * gets the board of the current scrabble game
+	 * @return the board
+	 */
 	public Board_024_055 getBoard(){
 		return _board;
 	}
