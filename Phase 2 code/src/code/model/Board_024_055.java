@@ -31,8 +31,6 @@ public class Board_024_055 extends Observable {
 	public void addTile(Tile_024_055 t, int x, int y){
 		if(this.isEmpty(x, y)){
 			_board[x][y] = t;
-			setChanged();
-			notifyObservers();
 		}
 		
 	}

@@ -33,8 +33,6 @@ public class TileRack_024_055 extends Observable {
 		while (_rack.size() < 12){
 			_rack.add(_inv.removeRandomTile());
 		}
-		setChanged();
-		notifyObservers();
 	}
 	
 	/**
@@ -46,8 +44,7 @@ public class TileRack_024_055 extends Observable {
 	public Tile_024_055 removeTile(Tile_024_055 t){
 		Tile_024_055 tileToRemove = t;
 		_rack.remove(t);
-		setChanged();
-		notifyObservers();
+
 		return tileToRemove;
 	}
 	
@@ -60,8 +57,6 @@ public class TileRack_024_055 extends Observable {
 	public Tile_024_055 removeTile(int i){
 		Tile_024_055 tileToRemove = _rack.get(i);
 		_rack.remove(i);
-		setChanged();
-		notifyObservers();
 		return tileToRemove;
 	}
 
