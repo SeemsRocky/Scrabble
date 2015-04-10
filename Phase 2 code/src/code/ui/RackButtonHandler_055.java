@@ -40,7 +40,7 @@ public class RackButtonHandler_055 implements ActionListener {
 //		}
 		_scrabbleUI.setCurrentlyPressedTile(_currentPlayer.getTileRack().getTile(_tileRackIndex));
 		_scrabbleUI.setIndexOfButton(_tileRackIndex);
-//		System.out.println(_scrabbleUI.getCurrentlyPressedTile());
+		System.out.println(_scrabbleUI.getCurrentlyPressedTile());
 		
 	}
 	public int tileRackIndex(){

@@ -22,11 +22,12 @@ public class BoardButtonHandler_055 implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 //		System.out.println(_s.getBoard().isEmpty(_x, _y));
+		System.out.println(_sUI.getCurrentlyPressedTile());
 		if(_sUI.getCurrentlyPressedTile()==null){
 			
 		}
 		else{
-			_sUI.getCurrentPlayer().placeATileOnTheBoard(_x, _y, _sUI.getIndexOfButton());;
+			_sUI.getCurrentPlayer().placeATileOnTheBoard(_x, _y, _sUI.getIndexOfButton());
 		}
 		
 		
