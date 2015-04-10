@@ -27,9 +27,10 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	private int _indexOfButton;
 	public ScrabbleUI_055(){
 		_scrabble = new Scrabble_055();
-		_myPlayers = new ArrayList<Player_024_055>();
+
 		_myPlayers =_scrabble.getPlayers();
 		_currentPlayer = _myPlayers.get(0);
+		
 		_dAOfButtons = new JButton[_scrabble.getBoard().getWidth()][_scrabble.getBoard().getLength()];
 		_currentPlayer.addObserver(this);
 	}
@@ -110,12 +111,13 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 
 	@Override
 	public void update(Observable o, Object arg) {
+		
 		for(int i= 0;i<_scrabble.getBoard().getWidth(); i++){
 			for(int j=0; j<_scrabble.getBoard().getLength(); j++){
-				System.out.println(_scrabble.getBoard().getTile(i, j).toString());
-			JButton newButton =	new JButton(_scrabble.getBoard().getTile(i, j).toString());
-			System.out.println(_scrabble.getBoard().getTile(i, j).toString());
-			_dAOfButtons[i][j] = newButton;
+//				System.out.println(_scrabble.getBoard().getTile(i, j).toString());
+//			JButton newButton =	new JButton(_scrabble.getBoard().getTile(i, j).toString());
+//			System.out.println(_scrabble.getBoard().getTile(i, j).toString());
+//			_dAOfButtons[i][j] = newButton;
 			}
 		}
 	}

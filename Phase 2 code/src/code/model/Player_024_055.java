@@ -122,7 +122,8 @@ public class Player_024_055 extends Observable {
 	    	_rack.removeTile(_rack.getTile(indexTileRack));
 	    	}
 	   	 
-	    	
+	    	setChanged();
+	    	notifyObservers();
 		}
 		
 
