@@ -39,6 +39,8 @@ public class Scrabble_055{
 
 	/**
 	 * Class constructor
+	 * @author    driver:
+     * @author navigator: 
 	 */
 	public Scrabble_055(ArrayList<String> players){
 		_inv = new Inventory_024_055();
@@ -123,6 +125,8 @@ public class Scrabble_055{
 	}
 	/**
 	 * Adds a new player to the game.
+	 * @author    driver:
+     * @author navigator: 
 	 */
 	private void addNewPlayer(Inventory_024_055 inv,String name, Dictionary_055 wordChecker){
 
@@ -222,6 +226,8 @@ public class Scrabble_055{
 	/**
 	 * It prints out the highscores and writes them onto a text file.
 	 * @param s the current scrabble game
+	 * @author    driver:
+     * @author navigator: 
 	 */
 	public void fileWriteHighScore(String filename) {
 		PrintStream stream = null;
@@ -292,6 +298,8 @@ public class Scrabble_055{
 	 * sorts the Arraylist of player according to their scores
 	 * Makes descending order of scores so highest score on top
 	 * @param al Arraylist of players of scrabble game
+	 * @author    driver:
+     * @author navigator: 
 	 */
 	private static void sort1(ArrayList<Player_024_055> al)
 	{
@@ -315,6 +323,8 @@ public class Scrabble_055{
 	 * Takes the score from the string
 	 * @param s String with a number in it
 	 * @return The number as an int 
+	 * @author    driver:
+     * @author navigator: 
 	 */
 	private static int convertInt(String s)
 	{
@@ -339,6 +349,8 @@ public class Scrabble_055{
 	 * gets the number of lines of the file
 	 * @param filename name of file
 	 * @return how many lines in the file
+	 * @author    driver:
+     * @author navigator: 
 	 */
 	private static int getNumberOfLines(String filename)
 	{

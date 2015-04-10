@@ -6,7 +6,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import code.model.Scrabble_055;
-
+/**
+ * @author    driver:
+ * @author navigator: 
+ *
+ */
 public class BoardButtonHandler_055 implements ActionListener {
 	private Scrabble_055 _s;
 	private ScrabbleUI_055 _sUI;
@@ -18,6 +22,10 @@ public class BoardButtonHandler_055 implements ActionListener {
 		_x =x;
 		_y =y;
 	}
+	/**
+	 * @author    driver:
+     * @author navigator: 
+	 */
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

@@ -11,7 +11,12 @@ import javax.swing.JLabel;
 import code.model.Player_024_055;
 import code.model.Scrabble_055;
 import code.model.Tile_024_055;
-
+/**
+ * 
+ * @author    driver:
+ * @author navigator: 
+ *
+ */
 public class RackButtonHandler_055 implements ActionListener {
 	private Player_024_055 _tileRackPlayer;
 	private Player_024_055 _currentPlayer;
@@ -27,7 +32,10 @@ public class RackButtonHandler_055 implements ActionListener {
 	_currentPlayer = currentPlayer;
 	
 	}
-
+/**
+ * @author    driver:
+ * @author navigator: 
+ */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 //		if(!(_tileRackPlayer.getColor().equals(_currentPlayer.getColor()))){
@@ -43,6 +51,11 @@ public class RackButtonHandler_055 implements ActionListener {
 		System.out.println(_scrabbleUI.getCurrentlyPressedTile());
 		
 	}
+	/**
+	 * @author    driver:
+     * @author navigator: 
+	 * @return An int representing the index of a tile rack
+	 */
 	public int tileRackIndex(){
 		return _tileRackIndex;
 	}

@@ -82,7 +82,11 @@ public class Tile_024_055 {
 	public Player_024_055 getPlayer(){
 		return _player;
 	}
-	
+	/**
+	 * returns the String of the variable on which its called
+	 * @author    driver:
+     * @author navigator: 
+	 */
 	@Override
 	public String toString() {
 		String s = "";

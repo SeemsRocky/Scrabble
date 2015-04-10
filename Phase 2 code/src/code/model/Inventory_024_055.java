@@ -75,6 +75,8 @@ public class Inventory_024_055 {
 	/**
 	 * 
 	 * @return ArrayList consisting of all the Tiles associated to a Character and its corresponding value
+	 * @author    driver:
+     * @author navigator: 
 	 */
 	public ArrayList<Tile_024_055> getInventory(){
 		return _tileBag;

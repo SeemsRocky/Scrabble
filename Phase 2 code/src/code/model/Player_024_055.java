@@ -63,15 +63,6 @@ public class Player_024_055 extends Observable {
 	}
 
 	/**
-	 * Gets the int value of the Player's score.
-	 * 
-	 * @return Player's score.
-	 */
-	public int getScore(){
-		return _score;
-	}
-
-	/**
 	 * Adds the new points to the original score
 	 * 
 	 * @param score Score to be added to
@@ -113,6 +104,8 @@ public class Player_024_055 extends Observable {
 	 * @param xcoordinate An int representing the x-coordinate of the Board
 	 * @param ycoordinate An int representing the y-coordinate of the Board
 	 * @param indexTileRack An int representing the index of a Tile in the TileRack
+	 * @author    driver:
+     * @author navigator: 
 	 */
 
 	 public void placeATileOnTheBoard(int xcoordinate, int ycoordinate, int indexTileRack){
@@ -129,7 +122,10 @@ public class Player_024_055 extends Observable {
 	    	notifyObservers();
 		}
 		
-
+/**
+ * @author    driver:
+ * @author navigator: 
+ */
 	public void getarray(){
 		ArrayList<Tile_024_055> array = new ArrayList<Tile_024_055>();
 		_rack.getTiles();
@@ -144,6 +140,8 @@ public class Player_024_055 extends Observable {
 	 *
 	 * @param p player on which this method is called
 	 * @return An int representing the score a player after his/her turn
+	 * @author    driver:
+     * @author navigator: 
 	 */
 
 	public int score(Player_024_055 p){
@@ -280,14 +278,28 @@ public class Player_024_055 extends Observable {
  * This method marks the end of a turn for the player. This method returns the score 
  * calculated in the method score. At last, if fills the empty spots of the TileRack
  * @return an int representing the score of the player after the end of his/her turn
+ * @author    driver:
+ * @author navigator: 
  */
 	public int moveComplete(){
 		
 		_rack.fillRack();
 		return _score;
 	}
-	
+	/**
+	 * associates the TileRack given in the argument with the player
+	 * @param t TileRack to be associated
+	 */
 	 public void setTileRack(TileRack_024_055 t){
 	    	_rack = t;
 	    }
+	 
+	 /**
+		 * Gets the int value of the Player's score.
+		 * 
+		 * @return Player's score.
+		 */
+		public int getScore(){
+			return _score;
+		}
 }

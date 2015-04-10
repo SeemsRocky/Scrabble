@@ -18,7 +18,11 @@ import code.model.Board_024_055;
 import code.model.Player_024_055;
 import code.model.Scrabble_055;
 import code.model.Tile_024_055;
-
+/**
+ * @author    driver:
+ * @author navigator: 
+ *
+ */
 public class ScrabbleUI_055 implements Observer, Runnable {
 	private Scrabble_055 _scrabble;
 	private Player_024_055 _currentPlayer;
@@ -46,7 +50,10 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 		_tileRackButtons = new JButton[12];
 		_currentPlayer.addObserver(this);
 	}
-
+/**
+ * @author    driver:
+ * @author navigator: 
+ */
 	@Override
 	public void run() {
 		JFrame window = new JFrame("Scrabble");
@@ -124,7 +131,10 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 		window.setVisible(true);
 		
 	}
-
+/**
+ * @author    driver:
+ * @author navigator: 
+ */
 	@Override
 	public void update(Observable o, Object arg) {
 		
