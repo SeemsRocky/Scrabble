@@ -1,5 +1,2 @@
 20 20
 src/code/model/Dictionary.txt
-[Player 1, java.awt.Color[r=0,g=0,b=255], 0, [VPRNYIAGOYAL]],[Player 2, java.awt.Color[r=0,g=255,b=0], 0, [IIEKRTAELDPV]]
-[AAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBCCCCCCCCCCCCDDDDDDDDDDDEEEEEEEEEEEEEEEEEEEEEEEEEEEFFFFFFFFFFFFGGGGGGGGGGGHHHHHHHHHHHHIIIIIIIIIIIIIIIIIIIIIIIIIIJJJJJJJJJJJJKKKKKKKKKKKLLLLLLLLLLMMMMMMMMMMMMNNNNNNNNNNNOOOOOOOOOOOOOOOOOOOOOOOOOOOOPPPPPPPPPPQQQQQQQQQQQQRRRRRRRRRRSSSSSSSSSSSSTTTTTTTTTTTUUUUUUUUUUUUUUUUUUUUUUUUUUUUUVVVVVVVVVVWWWWWWWWWWWWXXXXXXXXXXXXYYYYYYYYYYYYYZZZZZZZZZZZZ]
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
