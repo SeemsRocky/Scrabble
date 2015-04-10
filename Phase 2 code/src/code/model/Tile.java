@@ -67,4 +67,13 @@ public class Tile {
 	public Player getPlayer(){
 		return _player;
 	}
+
+	@Override
+	public String toString() {
+		String s = "";
+		 s = s + this.getChar();
+		return s;
+	}
+	
+	
 }

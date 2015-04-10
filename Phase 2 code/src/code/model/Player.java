@@ -27,13 +27,14 @@ public class Player {
 	private TileRack _rack;
 	//private Inventory _inv;
 	private String _name;
+	private Dictionary _wordChecker;
 	
 	/**
 	 * Class constructor.
 	 * 
 	 * @param inv can draw Tiles from the Inventory
 	 */
-	public Player(Inventory inv, String name, Color c){
+	public Player(Inventory inv, String name, Color c, Dictionary wordChecker){
 		_score = 0;
 		//_inv = inv;
 		_rack = new TileRack(inv);
@@ -45,6 +46,7 @@ public class Player {
 		}
 		_name = name;
 		_array= new ArrayList<Tile>();
+		_wordChecker = wordChecker;
 		
 	}
 	

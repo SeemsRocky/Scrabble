@@ -6,6 +6,7 @@ import java.util.Observer;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -23,6 +24,7 @@ public class ScrabbleUI implements Observer, Runnable {
 	public void run() {
 		JFrame window = new JFrame("Scrabble");
 		window.setSize(30*_scrabble.getBoard().getWidth()+20,30*_scrabble.getBoard().getLength()+200);
+		
 		window.setResizable(false);
 		JPanel top = new JPanel();
 		
@@ -43,9 +45,19 @@ public class ScrabbleUI implements Observer, Runnable {
 			}
 		}
 		JPanel bottom = new JPanel();
-		
+		for(int i=0; i<_scrabble.getPlayers().size();i++){
+			JLabel playerName = new JLabel(_scrabble.getPlayers().get(i).getName());
+			playerName.setForeground(_scrabble.getPlayers().get(i).getColor());
+			bottom.add(playerName);
+			for(int j=0; j<12; j++){
+				JButton myButton = new JButton(_scrabble.getPlayers().get(i).getTileRack().getTile(j).toString());
+				myButton.setPreferredSize(new Dimension(25,25));
+				bottom.add(myButton);
+			}
+		}
 		
 		window.add(top);
+		window.add(bottom);
 		
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setVisible(true);

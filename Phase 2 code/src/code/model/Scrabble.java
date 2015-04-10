@@ -42,11 +42,12 @@ public class Scrabble extends Observable{
 		_inv = new Inventory();
 		_board = new Board(20,20);
 		_players = new ArrayList<Player>();
-		for(int i = 0; i<_players.size(); i++){
-			addNewPlayer(_inv, players.get(i));
-		}
 		_pathOfDictionary = "src/code/model/Dictionary.txt";
 		Dictionary wordChecker = new Dictionary(_pathOfDictionary);
+		for(int i = 0; i<_players.size(); i++){
+			addNewPlayer(_inv, players.get(i), wordChecker);
+		}
+		
 		_arrayOfColor = new ArrayList<Color>();
 		_arrayOfColor.add(Color.BLUE);
 		_arrayOfColor.add(Color.GREEN);
@@ -106,8 +107,10 @@ public class Scrabble extends Observable{
 		_arrayOfColor.add(Color.ORANGE);
 		_arrayOfColor.add(Color.YELLOW);
 		_arrayOfColor.add(Color.RED);
+		_pathOfDictionary = "src/code/model/Dictionary.txt";
+		Dictionary wordChecker = new Dictionary(_pathOfDictionary);
 		for(int i = 1; i<3; i++){
-			addNewPlayer(_inv, "Player " + i);
+			addNewPlayer(_inv, "Player " + i, wordChecker);
 		}
 
 
@@ -119,9 +122,9 @@ public class Scrabble extends Observable{
 	/**
 	 * Adds a new player to the game.
 	 */
-	private void addNewPlayer(Inventory inv,String name){
+	private void addNewPlayer(Inventory inv,String name, Dictionary wordChecker){
 
-		_players.add(new Player(inv, name, _arrayOfColor.get(0)));
+		_players.add(new Player(inv, name, _arrayOfColor.get(0), wordChecker));
 		_arrayOfColor.remove(0);
 	}
 
