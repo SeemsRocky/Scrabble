@@ -115,16 +115,17 @@ public class Player_024_055 extends Observable {
 	 * @param indexTileRack An int representing the index of a Tile in the TileRack
 	 */
 
-	public void PlacingATile(int xcoordinate, int ycoordinate, int indexTileRack){
-		Tile_024_055 tiletoadd = _rack.getTile(indexTileRack);
-		if(_board.isEmpty(xcoordinate, ycoordinate)){
-			_board.addTile(tiletoadd, xcoordinate, ycoordinate);
-			_array.add(tiletoadd);
-			_rack.removeTile(tiletoadd);
+	 public void placeATileOnTheBoard(int indexTileRack, int ycoordinate, int xcoordinate){
+	    	if(_board.isEmpty(ycoordinate, xcoordinate)){
+	    	_board.addTile(_rack.getTile(indexTileRack), ycoordinate , xcoordinate);
+	    	_array.add(_rack.getTile(indexTileRack));
+	    	_rack.removeTile(_rack.getTile(indexTileRack));
+	    	}
+	   	 
+	    	setChanged();
+			notifyObservers();
 		}
-		setChanged();
-		notifyObservers();
-	}
+		
 
 	public void getarray(){
 		ArrayList<Tile_024_055> array = new ArrayList<Tile_024_055>();
@@ -282,4 +283,8 @@ public class Player_024_055 extends Observable {
 		_rack.fillRack();
 		return _score;
 	}
+	
+	 public void setTileRack(TileRack_024_055 t){
+	    	_rack = t;
+	    }
 }
