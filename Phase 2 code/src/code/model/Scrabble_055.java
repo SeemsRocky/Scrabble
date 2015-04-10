@@ -10,7 +10,7 @@ import java.util.Observable;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Scrabble_055 extends Observable{
+public class Scrabble_055{
 	/**
 	 * ArrayList of colors from which a color is picked for the player to be associated with
 	 */
