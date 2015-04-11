@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 public class SubmitButtonHandler_055 implements ActionListener {
 	/**
-	 *  scrabble game UI
+	 *  An Instance variable of the Scrabble game UI
 	 */
 	private ScrabbleUI_055 _s;
 	/**
