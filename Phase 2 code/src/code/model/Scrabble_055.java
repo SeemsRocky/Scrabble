@@ -152,8 +152,8 @@ public class Scrabble_055{
 	 * player's name,score,tilerack, and color and all the current tiles 
 	 * placed down onto the board.
 	 * @param filename name of file to save the current scrabble game
-	 * * @author    driver: adhishch (Adhish Chugh)
-     * @author navigator: 
+	 *  @author driver: adhishch (Adhish Chugh)
+     *  
 	 */
 	public void saveToFile(String filename) {
 		PrintStream stream = null;
@@ -228,9 +228,9 @@ public class Scrabble_055{
 	 * main method that takes in string array of args
 	 * if args length is 1, Restore file path is the string in args
 	 * if it has more than one, each player has their own different restore pathfile
-	 * @param args
-	 * * @author    driver: adhishch (Adhish Chugh)
-     * @author navigator: 
+	 * @param args Array of Strings
+	 *  @author driver: adhishch (Adhish Chugh)
+     *  
 	 */
 	public void main(String[] args){
 		if(args.length==1){
@@ -390,14 +390,11 @@ public class Scrabble_055{
 		return str;
 	}
 
-	public void mark(Tile_024_055 _til, int _row, int _col) {
-
-
-	}
+	
 	/**
 	 * gets the board of the current scrabble game
 	 * @return the board
-	 * @author    driver:
+	 * @author    driver: adhishch (Adhish Chugh)
      * @author navigator: 
 	 */
 	public Board_024_055 getBoard(){
