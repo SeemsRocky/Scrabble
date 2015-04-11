@@ -9,19 +9,18 @@ import java.util.Scanner;
 
 public class Dictionary_055 {
 	/**
-	 * This returns the dictionary path
+	 * Instance Variable of the path of the dictionary
 	 */
 	private String _path;
 	/**
-	 * This returns an ArrayList of type string consisting of all the words in a Dictionary
-	 * @author    driver:
-	 * @author navigator: 
- 	*
- 	*/
+	 * Instance Variable of all the words in the dictionary put into an ArrayList of Strings
+ 	 */
 	private ArrayList<String> _knownWords;
 	/**
 	 * Constructor for a new dictionary
-	 * @param path The path for the dictionary
+	 * @param path The path for the dictionary file
+	 * @author jhe8 (Jonathan He)
+	 * @navigator adhishch (Adhish Chugh)
 	 */
 	public Dictionary_055(String path){
 		_path = path;
@@ -48,10 +47,10 @@ public class Dictionary_055 {
 	}
 	/**
 	 * Checks if the word exists in the dictionary file
-	 * @param word the String that is to be checked if it is a word that exists in the dictionary or not
+	 * @param word String of the word that needs to be checked
 	 * @return true if it exists, false otherwise
-	 * @author    driver:
-     * @author navigator: 
+	 * @author driver: jhe8 (Jonathan He)
+     * @author navigator: adhishch (Adhish Chugh)
 	 */
 	
 	public boolean isAWord(String word){
@@ -69,7 +68,8 @@ public class Dictionary_055 {
 	}	
 	/**
 	 * gets the filepath of dictionary
-	 * @return the FilePath
+	 * @return a string which has the path to the dictionary file
+	 * @author adhishch (Adhish Chugh)
 	 */
 	public String getFilePath(){
 		return _path;
