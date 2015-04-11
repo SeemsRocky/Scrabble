@@ -70,13 +70,14 @@ public class Tile_024_055 {
 	/**
 	 * sets the player
 	 * @param p player to set
+	 * @author adhishch (Adhish Chugh)
 	 */
 	
 	public void setPlayer(Player_024_055 p){
 		_player = p;
 	}
 	/**
-	 * 
+	 * @author adhishch (Adhish Chugh)
 	 * @return player associated to a tile
 	 */
 	public Player_024_055 getPlayer(){
@@ -84,7 +85,7 @@ public class Tile_024_055 {
 	}
 	/**
 	 * returns the String of the variable on which its called
-	 * @author    driver:
+	 * @author    driver:adhishch (Adhish Chugh)
      * @author navigator: 
 	 */
 	@Override
