@@ -104,8 +104,8 @@ public class Player_024_055 extends Observable {
 	 * @param xcoordinate An int representing the x-coordinate of the Board
 	 * @param ycoordinate An int representing the y-coordinate of the Board
 	 * @param indexTileRack An int representing the index of a Tile in the TileRack
-	 * @author    driver:
-     * @author navigator: 
+	 * @author    driver: dkumar2 (Dhruv Kumar)
+     * @author navigator: adhishch (Adhish Chugh)
 	 */
 
 	 public void placeATileOnTheBoard(int xcoordinate, int ycoordinate, int indexTileRack){
@@ -123,7 +123,7 @@ public class Player_024_055 extends Observable {
 		}
 		
 /**
- * @author    driver:
+ * @author    driver: dkumar2 (Dhruv Kumar)
  * @author navigator: 
  */
 	public void getarray(){
@@ -140,7 +140,7 @@ public class Player_024_055 extends Observable {
 	 *
 	 * @param p player on which this method is called
 	 * @return An int representing the score a player after his/her turn
-	 * @author    driver:
+	 * @author    driver: dkumar2 (Dhruv Kumar)
      * @author navigator: 
 	 */
 
@@ -278,7 +278,7 @@ public class Player_024_055 extends Observable {
  * This method marks the end of a turn for the player. This method returns the score 
  * calculated in the method score. At last, if fills the empty spots of the TileRack
  * @return an int representing the score of the player after the end of his/her turn
- * @author    driver:
+ * @author    driver: dkumar2 (Dhruv Kumar)
  * @author navigator: 
  */
 	public int moveComplete(){
