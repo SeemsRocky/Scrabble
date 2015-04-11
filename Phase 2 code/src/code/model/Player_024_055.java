@@ -284,6 +284,8 @@ public class Player_024_055 extends Observable {
 	public int moveComplete(){
 		
 		_rack.fillRack();
+		setChanged();
+		notifyObservers();
 		return _score;
 	}
 	/**

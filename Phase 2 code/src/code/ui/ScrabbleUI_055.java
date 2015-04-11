@@ -96,6 +96,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 
 		JPanel playerInfo = new JPanel();
 		_currentPlayerLabel = new JLabel("Turn:"+_currentPlayer.getName());
+		playerInfo.add(_currentPlayerLabel);
 		playerInfo.setLayout(new BoxLayout(playerInfo, BoxLayout.Y_AXIS));
 		JButton saveButton = new JButton("Save");
 		saveButton.addActionListener(new SaveButtonHandler_055(_scrabble));
@@ -196,5 +197,6 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	public void moveComplete(){
 		_myPlayers.add(_myPlayers.remove(0));
 		_currentPlayer = _myPlayers.get(0);
+		update(null,null);
 	}
 }

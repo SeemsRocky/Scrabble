@@ -9,9 +9,9 @@ public class SubmitButtonHandler_055 implements ActionListener {
 	 */
 	private ScrabbleUI_055 _s;
 	/**
-	 * constructor for submitbuttonhandler
-	 * @param s scrabble game UI
-	 * * @author    driver:
+	 * constructor for SubmitButtonHandler
+	 * @param s Scrabble game UI
+	 * * @author    driver: adhishch (Adhish Chugh)
      * @author navigator: 
 	 */
 	public SubmitButtonHandler_055(ScrabbleUI_055 s){
@@ -23,7 +23,6 @@ public class SubmitButtonHandler_055 implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		_s.getCurrentPlayer().moveComplete();
 		_s.moveComplete();
 	}
