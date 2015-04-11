@@ -7,8 +7,8 @@ import javax.swing.JButton;
 
 import code.model.Scrabble_055;
 /**
- * @author    driver:
- * @author navigator: 
+ * @author    driver:adhishch (Adhish Chugh)
+ * 
  *
  */
 public class BoardButtonHandler_055 implements ActionListener {
@@ -34,8 +34,8 @@ public class BoardButtonHandler_055 implements ActionListener {
 	 * @param sUI scrabble game UI
 	 * @param x x-coordinate on board
 	 * @param y y-coordinate on board
-	 * * @author    driver:
-     * @author navigator: 
+	 * * @author    driver:adhishch (Adhish Chugh)
+     * 
 	 */
 	public BoardButtonHandler_055(Scrabble_055 s, ScrabbleUI_055 sUI, int x, int y){
 		_s =s;
@@ -45,8 +45,8 @@ public class BoardButtonHandler_055 implements ActionListener {
 	}
 	/**
 	 * 
-	 * @author    driver:
-     * @author navigator: 
+	 * @author    driver:adhishch (Adhish Chugh)
+     *  
 	 */
 
 	@Override

@@ -19,7 +19,7 @@ import code.model.Player_024_055;
 import code.model.Scrabble_055;
 import code.model.Tile_024_055;
 /**
- * @author    driver:
+ * @author    driver:adhishch (Adhish Chugh)
  * @author navigator: 
  *
  */
@@ -58,7 +58,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	private JLabel _currentPlayerLabel;
 	/**
 	 * Scrabble UI constructor with default scrabble game with 2 players
-	 * * @author    driver:
+	 * * @author    driver:adhishch (Adhish Chugh)
      * @author navigator: 
 	 */
 	public ScrabbleUI_055(){
@@ -74,7 +74,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	/**
 	 * Constructor for new Scrabble Game UI with a list with name of the players
 	 * @param names arraylist of string for player names
-	 * * @author    driver:
+	 * * @author    driver:adhishch (Adhish Chugh)
      * @author navigator: 
 	 */
 	public ScrabbleUI_055(ArrayList<String> names){
@@ -88,7 +88,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	}
 /**
  * runs a new scrabble game on a window with a board and player's name,tilerack,score
- * @author    driver:
+ * @author    driver:adhishch (Adhish Chugh)
  * @author navigator: 
  */
 	@Override
@@ -173,8 +173,8 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 
 	}
 /**
- * updates the board
- * @author    driver:
+ * updates the UI
+ * @author    driver:adhishch (Adhish Chugh)
  * @author navigator: 
  */
 	@Override
@@ -217,16 +217,16 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	/**
 	 * sets the currently pressed tile
 	 * @param b the tile pressed
-	 * * @author    driver:
+	 * * @author    driver:adhishch (Adhish Chugh)
      * @author navigator: 
 	 */
 	public void setCurrentlyPressedTile(Tile_024_055 b){
 		_currentlyPressedTile = b;
 	}
 	/**
-	 * gets the tile that is being pressed
+	 * gets the tile that was most recently pressed on the rack
 	 * @return the tile currently pressed
-	 * * @author    driver:
+	 * * @author    driver:adhishch (Adhish Chugh)
      * @author navigator: 
 	 */
 	public Tile_024_055 getCurrentlyPressedTile(){
@@ -235,7 +235,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	/**
 	 * gets the current player playing
 	 * @return the current player playing
-	 * * @author    driver:
+	 * * @author    driver:adhishch (Adhish Chugh)
      * @author navigator: 
 	 */
 	public Player_024_055 getCurrentPlayer(){
@@ -244,7 +244,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	/**
 	 * sets the index of button to i
 	 * @param i new index to change to
-	 * * @author    driver:
+	 * * @author    driver:adhishch (Adhish Chugh)
      * @author navigator: 
 	 */
 	public void setIndexOfButton(int i){
@@ -253,7 +253,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	/**
 	 * gets the index of the button
 	 * @return index of the button
-	 * * @author    driver:
+	 * * @author    driver:adhishch (Adhish Chugh)
      * @author navigator: 
 	 */
 	public int getIndexOfButton(){
@@ -261,7 +261,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	}
 	/**
 	 * ends the turn of the player
-	 * * @author    driver:
+	 * * @author    driver:adhishch (Adhish Chugh)
      * @author navigator: 
 	 */
 	public void moveComplete(){
