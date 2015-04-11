@@ -24,14 +24,41 @@ import code.model.Tile_024_055;
  *
  */
 public class ScrabbleUI_055 implements Observer, Runnable {
+	/**
+	 * Scrabble game
+	 */
 	private Scrabble_055 _scrabble;
+	/**
+	 * Current player's turn
+	 */
 	private Player_024_055 _currentPlayer;
+	/**
+	 * Tile that is currently pressed
+	 */
 	private Tile_024_055 _currentlyPressedTile;
+	/**
+	 * arraylist of players in scrabble game
+	 */
 	private ArrayList<Player_024_055> _myPlayers;
+	/**
+	 * Double array of Jbuttons for the board
+	 */
 	private JButton[][] _dAOfButtons;
+	/**
+	 * buttons for the tilerack
+	 */
 	private JButton[][] _tileRackButtons;
+	/**
+	 * index of button on the tilerack
+	 */
 	private int _indexOfButton;
+	/**
+	 * Current player's label
+	 */
 	private JLabel _currentPlayerLabel;
+	/**
+	 * Scrabble UI constructor with default scrabble game with 2 players
+	 */
 	public ScrabbleUI_055(){
 		_scrabble = new Scrabble_055();
 
@@ -52,6 +79,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 		_currentPlayer.addObserver(this);
 	}
 /**
+ * runs a new scrabble game on a window with a board and player's name,tilerack,score
  * @author    driver:
  * @author navigator: 
  */
@@ -96,7 +124,6 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 
 		JPanel playerInfo = new JPanel();
 		_currentPlayerLabel = new JLabel("Turn:"+_currentPlayer.getName());
-		playerInfo.add(_currentPlayerLabel);
 		playerInfo.setLayout(new BoxLayout(playerInfo, BoxLayout.Y_AXIS));
 		JButton saveButton = new JButton("Save");
 		saveButton.addActionListener(new SaveButtonHandler_055(_scrabble));
@@ -197,6 +224,5 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	public void moveComplete(){
 		_myPlayers.add(_myPlayers.remove(0));
 		_currentPlayer = _myPlayers.get(0);
-		update(null,null);
 	}
 }
