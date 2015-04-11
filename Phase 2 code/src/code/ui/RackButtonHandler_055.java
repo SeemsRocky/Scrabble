@@ -14,7 +14,7 @@ import code.model.Tile_024_055;
 /**
  * 
  * @author    driver: adhishch(Adhish Chugh)
- * @author navigator: 
+ * 
  *
  */
 public class RackButtonHandler_055 implements ActionListener {
