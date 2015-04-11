@@ -38,7 +38,13 @@ public class Player_024_055 extends Observable {
 	 */
 	private TileRack_024_055 _rack;
 	//private Inventory _inv;
+	/**
+	 * Player's name
+	 */
 	private String _name;
+	/**
+	 * Dictionary of real words
+	 */
 	private Dictionary_055 _wordChecker;
 
 	/**
