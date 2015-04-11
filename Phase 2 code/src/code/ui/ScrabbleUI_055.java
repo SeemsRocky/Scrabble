@@ -58,6 +58,8 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	private JLabel _currentPlayerLabel;
 	/**
 	 * Scrabble UI constructor with default scrabble game with 2 players
+	 * * @author    driver:
+     * @author navigator: 
 	 */
 	public ScrabbleUI_055(){
 		_scrabble = new Scrabble_055();
@@ -69,6 +71,12 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 		_tileRackButtons = new JButton[_myPlayers.size()][12];
 		_currentPlayer.addObserver(this);
 	}
+	/**
+	 * Constructor for new Scrabble Game UI with a list with name of the players
+	 * @param names arraylist of string for player names
+	 * * @author    driver:
+     * @author navigator: 
+	 */
 	public ScrabbleUI_055(ArrayList<String> names){
 		_scrabble = new Scrabble_055(names);
 		_myPlayers =_scrabble.getPlayers();
@@ -165,6 +173,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 
 	}
 /**
+ * updates the board
  * @author    driver:
  * @author navigator: 
  */
@@ -205,22 +214,56 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new ScrabbleUI_055());
 	}
-
+	/**
+	 * sets the currently pressed tile
+	 * @param b the tile pressed
+	 * * @author    driver:
+     * @author navigator: 
+	 */
 	public void setCurrentlyPressedTile(Tile_024_055 b){
 		_currentlyPressedTile = b;
 	}
+	/**
+	 * gets the tile that is being pressed
+	 * @return the tile currently pressed
+	 * * @author    driver:
+     * @author navigator: 
+	 */
 	public Tile_024_055 getCurrentlyPressedTile(){
 		return _currentlyPressedTile;
 	}
+	/**
+	 * gets the current player playing
+	 * @return the current player playing
+	 * * @author    driver:
+     * @author navigator: 
+	 */
 	public Player_024_055 getCurrentPlayer(){
 		return _currentPlayer;
 	}
+	/**
+	 * sets the index of button to i
+	 * @param i new index to change to
+	 * * @author    driver:
+     * @author navigator: 
+	 */
 	public void setIndexOfButton(int i){
 		_indexOfButton = i;
 	}
+	/**
+	 * gets the index of the button
+	 * @return index of the button
+	 * * @author    driver:
+     * @author navigator: 
+	 */
 	public int getIndexOfButton(){
 		return _indexOfButton;
 	}
+	/**
+	 * ends the turn of the player
+	 * * @author    driver:
+     * @author navigator: 
+	 */
 	public void moveComplete(){
 		_myPlayers.add(_myPlayers.remove(0));
 		_currentPlayer = _myPlayers.get(0);
