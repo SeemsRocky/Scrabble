@@ -19,8 +19,8 @@ public class Dictionary_055 {
 	/**
 	 * Constructor for a new dictionary
 	 * @param path The path for the dictionary file
-	 * @author jhe8 (Jonathan He)
-	 * @navigator adhishch (Adhish Chugh)
+	 * @author driver: jhe8 (Jonathan He)
+	 * @author navigator: adhishch (Adhish Chugh)
 	 */
 	public Dictionary_055(String path){
 		_path = path;
@@ -69,7 +69,7 @@ public class Dictionary_055 {
 	/**
 	 * gets the filepath of dictionary
 	 * @return a string which has the path to the dictionary file
-	 * @author adhishch (Adhish Chugh)
+	 * @author driver: adhishch (Adhish Chugh)
 	 */
 	public String getFilePath(){
 		return _path;

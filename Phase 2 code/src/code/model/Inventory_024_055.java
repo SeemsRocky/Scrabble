@@ -6,12 +6,13 @@ import java.util.Random;
 public class Inventory_024_055 {
 	
 	/**
-	 * Stores the tiles that have yet to be drawn.
+	 * An instance variable of type ArrayList<Tile> that stores the tiles in the Inventory
 	 */
 	private ArrayList<Tile_024_055> _tileBag;
 	
 	/**
-	 * Class constructor.
+	 * Constructor of the Inventory class which fills up the _tileBag ArrayList with 400 required tiles
+	 * by calling the fillBag() method
 	 */
 	public Inventory_024_055(){
 		_tileBag = new ArrayList<Tile_024_055>();
@@ -57,7 +58,7 @@ public class Inventory_024_055 {
 	/**
 	 * Returns number of tiles in the tile bag.
 	 * 
-	 * @return the size of the array list containing the tiles
+	 * @return the size of the ArrayList containing the tiles
 	 */
 	public int getSize(){
 		return _tileBag.size();
@@ -75,8 +76,7 @@ public class Inventory_024_055 {
 	/**
 	 * 
 	 * @return ArrayList consisting of all the Tiles associated to a Character and its corresponding value
-	 * @author    driver:
-     * @author navigator: 
+	 * @author    driver: adhishch (Adhish Chugh) 
 	 */
 	public ArrayList<Tile_024_055> getInventory(){
 		return _tileBag;
