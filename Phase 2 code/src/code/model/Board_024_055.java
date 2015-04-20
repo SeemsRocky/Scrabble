@@ -1,6 +1,4 @@
 package code.model;
-
-import java.util.ArrayList;
 import java.util.Observable;
 
 public class Board_024_055 extends Observable {
@@ -25,8 +23,6 @@ public class Board_024_055 extends Observable {
 		_width = width;
 		_length = length;
 		_board = new Tile_024_055[_length][_width];
-	    addLetterMultipliers();
-	    addWordMultipliers();
 	}
 	
 	/**
@@ -97,7 +93,7 @@ public class Board_024_055 extends Observable {
 	 *  @author    driver: rockylia (Rocky Liao)
 	 *  @author navigator: fzhao2 (Feng Zhao)
 	 */
-	private void addWordMultipliers()
+	public void addWordMultipliers()
 	{
 		int numberOfTwoMulti = 40;
 		int numberOfThreeMulti = 20;
@@ -132,7 +128,7 @@ public class Board_024_055 extends Observable {
 	 *  @author    driver: rockylia (Rocky Liao)
 	 *  @author navigator: fzhao2 (Feng Zhao)
 	 */
-	private void addLetterMultipliers()
+	public void addLetterMultipliers()
 	{
 		int numberOfTwoMulti = 60;
 		int numberOfThreeMulti = 40;
