@@ -17,6 +17,14 @@ public class Tile_024_055 {
 	 */
 	private Color _color;
 	/**
+	 * letter multiplier for tile
+	 */
+	private int _letterMultiplier;
+	/**
+	 * word multiplier for tile
+	 */
+	private int _wordMultiplier;
+	/**
 	 * Instance of Player for the methods getPlayer and setPlayer
 	 */
 	private Player_024_055 _player;
@@ -30,6 +38,8 @@ public class Tile_024_055 {
 	public Tile_024_055(char c, int i){
 		_letter = c;
 		_pointValue = i;
+		_wordMultiplier = 1;
+		_letterMultiplier = 1;
 	}
 	
 	/**
@@ -94,6 +104,20 @@ public class Tile_024_055 {
 		 s = s + this.getChar();
 		return s;
 	}
-	
-	
+	public int getWordMultiplier()
+	{
+		return _wordMultiplier;
+	}
+	public int getLetterMultiplier()
+	{
+		return _letterMultiplier;
+	}
+	public void setWordMultiplier(int i)
+	{
+		_wordMultiplier = i;
+	}
+	public void setLetterMultiplier(int i)
+	{
+		_letterMultiplier = i;
+	}
 }
