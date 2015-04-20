@@ -162,5 +162,24 @@ public class Board_024_055 extends Observable {
 			}
 		}
 	}
+	/**
+	 * Revert multipliers on board if tile is placed onto it
+	 *  @author    driver: rockylia (Rocky Liao)
+	 *  @author navigator: fzhao2 (Feng Zhao)
+	 */
+	public void revertMultipliers()
+	{
+		for(int y=0;y<_width;y++)
+		{
+			for(int x=0;x<_length;x++)
+			{
+				if(_board[y][x]!=null)
+				{
+					_board[y][x].setWordMultiplier(1);
+					_board[y][x].setLetterMultiplier(1);
+				}
+			}
+		}
+	}
 
 }
