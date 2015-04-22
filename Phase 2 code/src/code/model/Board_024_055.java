@@ -97,28 +97,34 @@ public class Board_024_055 extends Observable {
 	{
 		int numberOfTwoMulti = 40;
 		int numberOfThreeMulti = 20;
-		for(int y=0;y<_width;y++) // two word multiplier
+		while(numberOfTwoMulti>0)
 		{
-			for(int x=0;x<_length;x++)
+			for(int y=0;y<_width;y++) // two word multiplier
 			{
-				int num = (int)(Math.random()*10);
-				if(num>3 && numberOfTwoMulti>0 && _board[y][x].getLetterMultiplier()==1)
+				for(int x=0;x<_length;x++)
 				{
-					_board[y][x].setWordMultiplier(2);
-					--numberOfTwoMulti;
+					int num = (int)(Math.random()*10);
+					if(num>3 && numberOfTwoMulti>0 && _board[y][x].getLetterMultiplier()==1)
+					{
+						_board[y][x].setWordMultiplier(2);
+						--numberOfTwoMulti;
+					}
 				}
 			}
 		}
-		for(int y=_width-1;y>=0;y--) // three word multiplier
+		while(numberOfThreeMulti>0)
 		{
-			for(int x=_length-1;x>=0;x--)
+			for(int y=_width-1;y>=0;y--) // three word multiplier
 			{
-				int num = (int)(Math.random()*10);
-				if(num>3 && numberOfThreeMulti>0 && _board[y][x].getWordMultiplier()==1
-					&& _board[y][x].getLetterMultiplier()==1)
+				for(int x=_length-1;x>=0;x--)
 				{
-					_board[y][x].setWordMultiplier(3);
-					--numberOfThreeMulti;
+					int num = (int)(Math.random()*10);
+					if(num>3 && numberOfThreeMulti>0 && _board[y][x].getWordMultiplier()==1
+						&& _board[y][x].getLetterMultiplier()==1)
+					{
+						_board[y][x].setWordMultiplier(3);
+						--numberOfThreeMulti;
+					}
 				}
 			}
 		}
@@ -132,28 +138,34 @@ public class Board_024_055 extends Observable {
 	{
 		int numberOfTwoMulti = 60;
 		int numberOfThreeMulti = 40;
-		for(int y=0;y<_width;y++) // two letter multiplier
+		while(numberOfTwoMulti>0)
 		{
-			for(int x=0;x<_length;x++)
+			for(int y=0;y<_width;y++) // two letter multiplier
 			{
-				int num = (int)(Math.random()*10);
-				if(num>3 && numberOfTwoMulti>0 && _board[y][x].getWordMultiplier()==1)
+				for(int x=0;x<_length;x++)
 				{
-					_board[y][x].setLetterMultiplier(3);
-					--numberOfThreeMulti;
+					int num = (int)(Math.random()*10);
+					if(num>3 && numberOfTwoMulti>0 && _board[y][x].getWordMultiplier()==1)
+					{
+						_board[y][x].setLetterMultiplier(3);
+						--numberOfThreeMulti;
+					}
 				}
 			}
 		}
-		for(int y=_width-1;y>=0;y--) // three letter multiplier
+		while(numberOfThreeMulti>0)
 		{
-			for(int x=_length-1;x>=0;x--)
+			for(int y=_width-1;y>=0;y--) // three letter multiplier
 			{
-				int num = (int)(Math.random()*10);
-				if(num>3 && numberOfThreeMulti>0 && _board[y][x].getLetterMultiplier()==1
-					&& _board[y][x].getWordMultiplier()==1)
+				for(int x=_length-1;x>=0;x--)
 				{
-					_board[y][x].setLetterMultiplier(2);
-					--numberOfTwoMulti;
+					int num = (int)(Math.random()*10);
+					if(num>3 && numberOfThreeMulti>0 && _board[y][x].getLetterMultiplier()==1
+						&& _board[y][x].getWordMultiplier()==1)
+					{
+						_board[y][x].setLetterMultiplier(2);
+						--numberOfTwoMulti;
+					}
 				}
 			}
 		}
