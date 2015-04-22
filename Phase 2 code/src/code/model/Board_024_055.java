@@ -138,7 +138,7 @@ public class Board_024_055 extends Observable {
 	{
 		int numberOfTwoMulti = 60;
 		int numberOfThreeMulti = 40;
-		while(numberOfTwoMulti>0)
+		while(numberOfThreeMulti>0)
 		{
 			for(int y=0;y<_width;y++) // two letter multiplier
 			{
@@ -153,7 +153,7 @@ public class Board_024_055 extends Observable {
 				}
 			}
 		}
-		while(numberOfThreeMulti>0)
+		while(numberOfTwoMulti>0)
 		{
 			for(int y=_width-1;y>=0;y--) // three letter multiplier
 			{
