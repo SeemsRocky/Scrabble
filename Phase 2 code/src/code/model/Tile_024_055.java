@@ -94,17 +94,6 @@ public class Tile_024_055 {
 		return _player;
 	}
 	/**
-	 * returns the String of the variable on which its called
-	 * @author    driver:adhishch (Adhish Chugh)
-     * @author navigator: 
-	 */
-	@Override
-	public String toString() {
-		String s = "";
-		 s = s + this.getChar();
-		return s;
-	}
-	/**
 	 * Gets the  word multiplier associated with the tile
 	 * @return the wordmultiplier
 	 */
@@ -136,4 +125,16 @@ public class Tile_024_055 {
 	{
 		_letterMultiplier = i;
 	}
+	/**
+	 * returns the String of the variable on which its called
+	 * @author    driver:adhishch (Adhish Chugh)
+     * @author navigator: 
+	 */
+	@Override
+	public String toString() {
+		String s = "";
+		 s = s + this.getChar();
+		return s;
+	}
+	
 }
