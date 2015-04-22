@@ -23,6 +23,7 @@ public class Board_024_055 extends Observable {
 		_width = width;
 		_length = length;
 		_board = new Tile_024_055[_length][_width];
+		
 	}
 	
 	/**
@@ -104,7 +105,8 @@ public class Board_024_055 extends Observable {
 				for(int x=0;x<_length;x++)
 				{
 					int num = (int)(Math.random()*10);
-					if(num>3 && _board[y][x].getLetterMultiplier()==1)
+					if(num>3 && numberOfTwoMulti>0 &&
+							_board[y][x].getLetterMultiplier()==1)
 					{
 						_board[y][x].setWordMultiplier(2);
 						--numberOfTwoMulti;
@@ -119,7 +121,8 @@ public class Board_024_055 extends Observable {
 				for(int x=_length-1;x>=0;x--)
 				{
 					int num = (int)(Math.random()*10);
-					if(num>3 && _board[y][x].getWordMultiplier()==1
+					if(num>3 && numberOfThreeMulti>0 &&
+							_board[y][x].getWordMultiplier()==1
 						&& _board[y][x].getLetterMultiplier()==1)
 					{
 						_board[y][x].setWordMultiplier(3);
@@ -145,7 +148,8 @@ public class Board_024_055 extends Observable {
 				for(int x=0;x<_length;x++)
 				{
 					int num = (int)(Math.random()*10);
-					if(num>3 && _board[y][x].getWordMultiplier()==1)
+					if(num>3 && numberOfThreeMulti>0 &&
+							_board[y][x].getWordMultiplier()==1)
 					{
 						_board[y][x].setLetterMultiplier(3);
 						--numberOfThreeMulti;
@@ -160,7 +164,8 @@ public class Board_024_055 extends Observable {
 				for(int x=_length-1;x>=0;x--)
 				{
 					int num = (int)(Math.random()*10);
-					if(num>3 && _board[y][x].getLetterMultiplier()==1
+					if(num>3 && numberOfTwoMulti>0 &&
+							_board[y][x].getLetterMultiplier()==1
 						&& _board[y][x].getWordMultiplier()==1)
 					{
 						_board[y][x].setLetterMultiplier(2);
