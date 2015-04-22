@@ -104,18 +104,34 @@ public class Tile_024_055 {
 		 s = s + this.getChar();
 		return s;
 	}
+	/**
+	 * Gets the  word multiplier associated with the tile
+	 * @return the wordmultiplier
+	 */
 	public int getWordMultiplier()
 	{
 		return _wordMultiplier;
 	}
+	/**
+	 * Gets the letter multiplier associated with the tile
+	 * @return the letter multiplier
+	 */
 	public int getLetterMultiplier()
 	{
 		return _letterMultiplier;
 	}
+	/**
+	 * Sets the word multiplier associated with the tile to i
+	 * 
+	 */
 	public void setWordMultiplier(int i)
 	{
 		_wordMultiplier = i;
 	}
+	/**
+	 * Sets the letter multiplier associated with the tile to i
+	 * 
+	 */
 	public void setLetterMultiplier(int i)
 	{
 		_letterMultiplier = i;
