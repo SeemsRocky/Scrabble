@@ -1,5 +1,4 @@
 package code.model;
-
 import java.util.Observable;
 
 public class Board_024_055 extends Observable {
@@ -25,7 +24,7 @@ public class Board_024_055 extends Observable {
 		_length = length;
 		_board = new Tile_024_055[_length][_width];
 	}
-
+	
 	/**
 	 * Adds a tile to a position on the board.
 	 * 
@@ -89,7 +88,106 @@ public class Board_024_055 extends Observable {
 	
 		return _board[xcoordinate][ycoordinate]==null;
 	}
-
-	
+	/**
+	 * Adds Word multipliers on board
+	 *  @author    driver: rockylia (Rocky Liao)
+	 *  @author navigator: fzhao2 (Feng Zhao)
+	 */
+	public void addWordMultipliers()
+	{
+		int numberOfTwoMulti = 40;
+		int numberOfThreeMulti = 20;
+		while(numberOfTwoMulti>0)
+		{
+			for(int y=0;y<_width;y++) // two word multiplier
+			{
+				for(int x=0;x<_length;x++)
+				{
+					int num = (int)(Math.random()*10);
+					if(num>3 && numberOfTwoMulti>0 && _board[y][x].getLetterMultiplier()==1)
+					{
+						_board[y][x].setWordMultiplier(2);
+						--numberOfTwoMulti;
+					}
+				}
+			}
+		}
+		while(numberOfThreeMulti>0)
+		{
+			for(int y=_width-1;y>=0;y--) // three word multiplier
+			{
+				for(int x=_length-1;x>=0;x--)
+				{
+					int num = (int)(Math.random()*10);
+					if(num>3 && numberOfThreeMulti>0 && _board[y][x].getWordMultiplier()==1
+						&& _board[y][x].getLetterMultiplier()==1)
+					{
+						_board[y][x].setWordMultiplier(3);
+						--numberOfThreeMulti;
+					}
+				}
+			}
+		}
+	}
+	/**
+	 * Adds Letter multipliers on board
+	 *  @author    driver: rockylia (Rocky Liao)
+	 *  @author navigator: fzhao2 (Feng Zhao)
+	 */
+	public void addLetterMultipliers()
+	{
+		int numberOfTwoMulti = 60;
+		int numberOfThreeMulti = 40;
+		while(numberOfThreeMulti>0)
+		{
+			for(int y=0;y<_width;y++) // two letter multiplier
+			{
+				for(int x=0;x<_length;x++)
+				{
+					int num = (int)(Math.random()*10);
+					if(num>3 && numberOfTwoMulti>0 && _board[y][x].getWordMultiplier()==1)
+					{
+						_board[y][x].setLetterMultiplier(3);
+						--numberOfThreeMulti;
+					}
+				}
+			}
+		}
+		while(numberOfTwoMulti>0)
+		{
+			for(int y=_width-1;y>=0;y--) // three letter multiplier
+			{
+				for(int x=_length-1;x>=0;x--)
+				{
+					int num = (int)(Math.random()*10);
+					if(num>3 && numberOfThreeMulti>0 && _board[y][x].getLetterMultiplier()==1
+						&& _board[y][x].getWordMultiplier()==1)
+					{
+						_board[y][x].setLetterMultiplier(2);
+						--numberOfTwoMulti;
+					}
+				}
+			}
+		}
+	}
+	/**
+	 * Revert multipliers on board if tile is placed onto it
+	 *  @author    driver: rockylia (Rocky Liao)
+	 *  @author navigator: fzhao2 (Feng Zhao)
+	 */
+	public void revertMultipliers()
+	{
+		for(int y=0;y<_width;y++)
+		{
+			for(int x=0;x<_length;x++)
+			{
+				if(_board[y][x]!=null)
+				{
+					_board[y][x].setWordMultiplier(1);
+					_board[y][x].setLetterMultiplier(1);
+				}
+			}
+		}
+	}
 
 }
