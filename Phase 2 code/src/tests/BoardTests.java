@@ -57,12 +57,21 @@ public class BoardTests
 	public void checkTwoLetterMultipliers()
 	{
 		Board_024_055 b = new Board_024_055(20,20);
+		for(int x=0;x<20;x++)
+		{
+			for(int y=0;y<20;y++)
+			{
+				b.addTile(new Tile_024_055(' ',0),x,y);
+			}
+		}
+		b.addLetterMultipliers();
 		int actual =0;
 		for(int x=0;x<20;x++)
 		{
 			for(int y=0;y<20;y++)
 			{
-				if(b.getTile(x,y).getLetterMultiplier()==2)
+				Tile_024_055 t = b.getTile(x,y);
+				if(t.getLetterMultiplier()==2)
 				{
 					++actual;
 				}
@@ -76,12 +85,21 @@ public class BoardTests
 	public void checkThreeLetterMultipliers()
 	{
 		Board_024_055 b = new Board_024_055(20,20);
+		for(int x=0;x<20;x++)
+		{
+			for(int y=0;y<20;y++)
+			{
+				b.addTile(new Tile_024_055(' ',0),x,y);
+			}
+		}
+		b.addLetterMultipliers();
 		int actual =0;
 		for(int x=0;x<20;x++)
 		{
 			for(int y=0;y<20;y++)
 			{
-				if(b.getTile(x,y).getLetterMultiplier()==3)
+				Tile_024_055 t = b.getTile(x,y);
+				if(t.getLetterMultiplier()==3)
 				{
 					++actual;
 				}
@@ -89,18 +107,28 @@ public class BoardTests
 		}
 		int expected = 40;
 		assertTrue("The actual tile is " + actual+
-				"the expected tile was " +expected, actual == expected);
+				"the expected tile was " +expected
+				, actual == expected);
 	}
 	@Test
 	public void checkTwoWordMultipliers()
 	{
 		Board_024_055 b = new Board_024_055(20,20);
+		for(int x=0;x<20;x++)
+		{
+			for(int y=0;y<20;y++)
+			{
+				b.addTile(new Tile_024_055(' ',0),x,y);
+			}
+		}
+		b.addWordMultipliers();
 		int actual =0;
 		for(int x=0;x<20;x++)
 		{
 			for(int y=0;y<20;y++)
 			{
-				if(b.getTile(x,y).getWordMultiplier()==2)
+				Tile_024_055 t = b.getTile(x,y);
+				if(t.getWordMultiplier()==2)
 				{
 					++actual;
 				}
@@ -114,18 +142,57 @@ public class BoardTests
 	public void checkThreeWordMultipliers()
 	{
 		Board_024_055 b = new Board_024_055(20,20);
+		for(int x=0;x<20;x++)
+		{
+			for(int y=0;y<20;y++)
+			{
+				b.addTile(new Tile_024_055(' ',0),x,y);
+			}
+		}
+		b.addWordMultipliers();
 		int actual =0;
 		for(int x=0;x<20;x++)
 		{
 			for(int y=0;y<20;y++)
 			{
-				if(b.getTile(x,y).getWordMultiplier()==3)
+				Tile_024_055 t = b.getTile(x,y);
+				if(t.getWordMultiplier()==3)
 				{
 					++actual;
 				}
 			}
 		}
 		int expected = 20;
+		assertTrue("The actual tile is " + actual+
+				"the expected tile was " +expected, actual == expected);
+	}
+	@Test
+	public void checkRevert()
+	{
+		Board_024_055 b = new Board_024_055(20,20);
+		for(int x=0;x<20;x++)
+		{
+			for(int y=0;y<20;y++)
+			{
+				b.addTile(new Tile_024_055(' ',0),x,y);
+			}
+		}
+		b.addWordMultipliers();
+		b.addLetterMultipliers();
+		b.revertMultipliers();
+		int actual = 0;
+		int expected = 400;
+		for(int x=0;x<20;x++)
+		{
+			for(int y=0;y<20;y++)
+			{
+				Tile_024_055 t = b.getTile(x,y);
+				if(t.getWordMultiplier()==1 && t.getLetterMultiplier()==1)
+				{
+					++actual;
+				}
+			}
+		}
 		assertTrue("The actual tile is " + actual+
 				"the expected tile was " +expected, actual == expected);
 	}
