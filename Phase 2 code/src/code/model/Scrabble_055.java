@@ -421,14 +421,12 @@ public class Scrabble_055{
 					_locationList.add((x * 20) + y);
 				}
 			}
-		}
-		
+		}	
 		String s = direction(_locationList,num);
-		if(s.equals("thor"))
+		if(s.equals(""))
 		{
-			
+			return false;
 		}
-		
 		return true;
 	}
 	public String direction(ArrayList<Integer> a, int num)
@@ -458,8 +456,7 @@ public class Scrabble_055{
 				str="ver";
 				break;
 			}
+		}
 		return str;
 	}
-
-
 }
