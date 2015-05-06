@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Observable;
@@ -37,7 +38,10 @@ public class Scrabble_055{
 	 * the filepath to the restore file
 	 */
 	private String _pathOfRestoreFile;
-	
+	/**
+	 * locations of occupied spaces on board
+	 */
+	private ArrayList<Integer> _locationList;
 	/**
 	 * Class constructor
 	 * @param players List of player names in the game
@@ -49,6 +53,7 @@ public class Scrabble_055{
 		_board = new Board_024_055(20,20);
 		_players = new ArrayList<Player_024_055>();
 		_pathOfDictionary = "src/code/model/Dictionary.txt";
+		_locationList = new ArrayList<Integer>();
 		Dictionary_055 wordChecker = new Dictionary_055(_pathOfDictionary);
 		for(int i = 0; i<_players.size(); i++){
 			addNewPlayer(_inv, players.get(i), wordChecker);
@@ -116,6 +121,7 @@ public class Scrabble_055{
 		_inv = new Inventory_024_055();
 		_board = new Board_024_055(20,20);
 		_players = new ArrayList<Player_024_055>();
+		_locationList = new ArrayList<Integer>();
 		_arrayOfColor = new ArrayList<Color>();
 		_arrayOfColor.add(Color.BLUE);
 		_arrayOfColor.add(Color.GREEN);
@@ -399,6 +405,60 @@ public class Scrabble_055{
 	 */
 	public Board_024_055 getBoard(){
 		return _board;
+	}
+	/**
+	 * check the words
+	 * @return the array list of integer
+	 * @author driver: fzhao2 (Feng Zhao)
+	 * @author navigator: rockylia (Rocky Liao)
+	 */
+	public boolean checkVaild() {
+		int num =_locationList.size();
+		// Finds location of new tiles
+		for (int x = 0; x < 20; x++) {
+			for (int y = 0; y < 20; y++) {
+				if (!_board.getTile(x, y).equals(null)) {
+					_locationList.add((x * 20) + y);
+				}
+			}
+		}
+		
+		String s = direction(_locationList,num);
+		if(s.equals("thor"))
+		{
+			
+		}
+		
+		return true;
+	}
+	public String direction(ArrayList<Integer> a, int num)
+	{
+		String str ="";
+		int n=0;
+		for (int z = num; z < a.size() - 1; z++) {
+			while(n!=20)
+			{
+				if(a.contains(n * 20) && a.contains(19 + n * 20))
+				{
+					str="thor";
+					break;
+				}
+				if(a.contains(n) && a.contains(380 + n))
+				{
+					str="tver";
+					break;
+				}
+				
+			}
+			if (a.get(z + 1) - a.get(z) == 1 ) {
+				str="hor";
+				break;
+			}
+			if (a.get(z + 1) - a.get(z) == 20) {
+				str="ver";
+				break;
+			}
+		return str;
 	}
 
 
