@@ -23,7 +23,6 @@ public class EndTurnButtonHandler_055 implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		_s.getCurrentPlayer().moveComplete();
 		_s.moveComplete();
 	}
 
