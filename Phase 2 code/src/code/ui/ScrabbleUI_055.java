@@ -265,7 +265,15 @@ public class ScrabbleUI_055 implements Observer, Runnable {
      * @author navigator: 
 	 */
 	public void moveComplete(){
-		_myPlayers.add(_myPlayers.remove(0));
-		_currentPlayer = _myPlayers.get(0);
+		int pos = _myPlayers.indexOf(_currentPlayer);
+		if(_currentPlayer.equals(_myPlayers.get(_myPlayers.size()-1)))
+		{
+			_currentPlayer = _myPlayers.get(0);
+		}
+		else
+		{
+			_currentPlayer = _myPlayers.get(pos+1);
+		}
+		
 	}
 }
