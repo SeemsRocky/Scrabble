@@ -3,7 +3,7 @@ package code.ui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SubmitButtonHandler_055 implements ActionListener {
+public class EndTurnButtonHandler_055 implements ActionListener {
 	/**
 	 *  An Instance variable of the Scrabble game UI
 	 */
@@ -14,7 +14,7 @@ public class SubmitButtonHandler_055 implements ActionListener {
 	 * * @author    driver: adhishch (Adhish Chugh)
      * @author navigator: 
 	 */
-	public SubmitButtonHandler_055(ScrabbleUI_055 s){
+	public EndTurnButtonHandler_055(ScrabbleUI_055 s){
 		_s =s;
 	}
 	/**
