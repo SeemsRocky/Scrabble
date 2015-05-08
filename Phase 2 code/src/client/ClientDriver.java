@@ -8,6 +8,7 @@ import java.rmi.registry.Registry;
 
 import javax.swing.SwingUtilities;
 
+import code.ui.ScrabbleUI_055;
 import common.IServer;
 
 public class ClientDriver {
@@ -101,6 +102,6 @@ public class ClientDriver {
 		}
 		
 		// Connection ready - start up the client!
-		SwingUtilities.invokeLater(new ClientUI(server, hostName, portNumber));
+		SwingUtilities.invokeLater(new ScrabbleUI_055(server, hostName, portNumber));
 	}  
 }
