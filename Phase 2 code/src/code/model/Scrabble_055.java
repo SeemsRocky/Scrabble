@@ -429,6 +429,15 @@ public class Scrabble_055{
 		}
 		return true;
 	}
+	/**
+	 * gets the direction of the word to determine what the word is based on the tiles from
+	 * num to a.size()
+	 * @param a arraylist of integers on board
+	 * @param num when to start in arraylist a
+	 * @return direction of the word.
+	 *  @author driver: rockylia (Rocky Liao)
+	 * @author navigator: fzhao2 (Feng Zhao)
+	 */
 	public String direction(ArrayList<Integer> a, int num)
 	{
 		String str ="";
