@@ -11,30 +11,14 @@ import common.IServer;
  */
 public class Server implements IServer {
 	
-	private int _votes;
 	private ArrayList<IClient> _observers;    // A list of observers
+	
 
 	public Server() {
 	   System.out.println("...server running...");
-		_votes = 0;
 		_observers = new ArrayList<IClient>();
 	}
 	
-	/* (non-Javadoc)
-	 * @see common.IServer#vote()
-	 */
-	@Override public void vote() throws RemoteException {
-		_votes++;
-		notifyObservers();
-		System.out.println("[SERVER] votes: "+_votes);
-	}
-	
-	/* (non-Javadoc)
-	 * @see common.IServer#getVotes()
-	 */
-	@Override public int getVotes() throws RemoteException {
-		return _votes;
-	}
 	
 	/* (non-Javadoc)
 	 * Notify all observers that the state of the server has changed
@@ -60,5 +44,18 @@ public class Server implements IServer {
 	@Override public void addIClient(IClient c) throws RemoteException {
 		System.out.println("[SERVER] Adding client");
 		_observers.add(c);
+	}
+	
+	
+	@Override
+	public void endTurn() throws RemoteException {
+		notifyObservers();
+	}
+
+
+
+	@Override
+	public String getString(IClient c) throws RemoteException {
+		return c.tempSave();
 	}
 }

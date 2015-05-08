@@ -310,4 +310,11 @@ public class Player_024_055 extends Observable {
 		public int getScore(){
 			return _score;
 		}
+		/**
+		 * This method is responsible for setting player's score
+		 * @author czhang43(Cheng Zhang)
+		 */
+		public void setScore(int score){
+			_score = score;
+		}
 }

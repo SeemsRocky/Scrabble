@@ -47,7 +47,7 @@ public class ClientDriver {
 			System.exit(1);
 		}
 		String hostName = args[0];
-		int portNumber = 0;
+		int portNumber = 50055;
 		// Convert "50NNN" (a String) to 50NNN (an int)
 		try {
 			portNumber =  Integer.parseInt(args[1]);

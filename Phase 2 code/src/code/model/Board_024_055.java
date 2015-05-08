@@ -194,5 +194,12 @@ public class Board_024_055 extends Observable {
 			}
 		}
 	}
+	/**
+	 * This method is responsible for returning the board.
+	 * @author czhang43 (Cheng Zhang)
+	 */
+	public Tile_024_055[][] getBoard(){
+		return _board;
+	}
 
 }

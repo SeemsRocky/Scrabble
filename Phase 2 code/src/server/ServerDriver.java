@@ -30,7 +30,7 @@ public class ServerDriver {
 			System.err.println("usage: ServerDriver <portnumber>");
 			System.exit(1);
 		}
-		int portNumber = 0;
+		int portNumber = 50055;
 		// Convert "50NNN" (a String) to 50NNN (an int)
 		try {
 			portNumber =  Integer.parseInt(args[0]);

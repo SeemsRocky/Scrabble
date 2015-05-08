@@ -3,6 +3,9 @@ package code.ui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.rmi.RemoteException;
+import java.rmi.server.ExportException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
@@ -14,6 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import common.IClient;
+import common.IServer;
 import code.model.Board_024_055;
 import code.model.Player_024_055;
 import code.model.Scrabble_055;
@@ -23,7 +28,7 @@ import code.model.Tile_024_055;
  * @author navigator: 
  *
  */
-public class ScrabbleUI_055 implements Observer, Runnable {
+public class ScrabbleUI_055 implements Observer, Runnable, IClient {
 	/**
 	 * Scrabble game
 	 */
@@ -56,12 +61,14 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 	 * Current player's label
 	 */
 	private JLabel _currentPlayerLabel;
+	
+	private IServer _server;
 	/**
 	 * Scrabble UI constructor with default scrabble game with 2 players
 	 * * @author    driver:adhishch (Adhish Chugh)
      * @author navigator: 
 	 */
-	public ScrabbleUI_055(){
+	public ScrabbleUI_055(IServer s, String hostName, int portNumber){
 		_scrabble = new Scrabble_055();
 
 		_myPlayers =_scrabble.getPlayers();
@@ -70,6 +77,43 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 		_dAOfButtons = new JButton[_scrabble.getBoard().getWidth()][_scrabble.getBoard().getLength()];
 		_tileRackButtons = new JButton[_myPlayers.size()][12];
 		_currentPlayer.addObserver(this);
+		
+		_server = s;
+		IClient me = null;
+		try {
+			boolean retry = false;
+			do {
+				try {
+					me = (IClient) UnicastRemoteObject.exportObject(this,portNumber);
+					retry = false;
+				}
+				catch (ExportException e) {
+					if (hostName.equals("localhost")) {
+						System.out.print("Port "+portNumber+" is unavailable, trying ");
+						portNumber++;
+						System.out.println(portNumber);
+						retry = true;
+					}
+					else {
+						System.out.print("Port "+portNumber+" is unavailable.");
+						e.printStackTrace();
+						System.exit(1);
+					}
+				}
+			} while (retry);
+
+		} catch (RemoteException e) {
+			System.err.println("[CLIENT] Could not export self.");
+			e.printStackTrace();
+			System.exit(1);
+		}
+		try {
+			_server.addIClient(me);
+		} catch (RemoteException e) {
+			System.err.println("[CLIENT] Could not register with remote server.");
+			e.printStackTrace();
+			System.exit(1);
+		}
 	}
 	/**
 	 * Constructor for new Scrabble Game UI with a list with name of the players
@@ -137,7 +181,7 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 		saveButton.addActionListener(new SaveButtonHandler_055(_scrabble));
 		playerInfo.add(saveButton);
 		JButton endTurnButton = new JButton("End Turn");
-		saveButton.addActionListener(new EndTurnButtonHandler_055(this));
+		saveButton.addActionListener(new EndTurnButtonHandler_055(this, _server));
 		playerInfo.add(endTurnButton);
 		for(int i=0; i<_scrabble.getPlayers().size();i++){
 			JPanel playerPanel = new JPanel();
@@ -211,9 +255,9 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 		_currentPlayerLabel.setText("Turn: "+_currentPlayer.getName());
 	}
 
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new ScrabbleUI_055());
-	}
+//	public static void main(String[] args) {
+//		SwingUtilities.invokeLater(new ScrabbleUI_055(null));
+//	}
 	/**
 	 * sets the currently pressed tile
 	 * @param b the tile pressed
@@ -275,5 +319,27 @@ public class ScrabbleUI_055 implements Observer, Runnable {
 			_currentPlayer = _myPlayers.get(pos+1);
 		}
 		
+	}
+	/**
+	 * This method is responsible for a player to update the game state.
+	 * @author czhang43(Cheng Zhang)
+	 */
+	@Override
+	public void update() throws RemoteException {
+		try {
+			_scrabble.restore(_server.getString(this));
+		} catch (RemoteException exc) {
+			System.err.println("Couldn't connect to server.");
+			exc.printStackTrace();
+		}
+		
+	}
+	/**
+	 * This method just call a method in _Scrabble to save the game state.
+	 * @author czhang43(Cheng Zhang)
+	 */
+	@Override
+	public String tempSave() throws RemoteException {
+		return _scrabble.tempSave();
 	}
 }

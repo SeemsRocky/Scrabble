@@ -13,4 +13,6 @@ import java.rmi.RemoteException;
  */
 public interface IClient extends Remote {
 	public void update() throws RemoteException;
+	
+	public String tempSave() throws RemoteException;
 }

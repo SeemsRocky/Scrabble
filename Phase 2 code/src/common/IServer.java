@@ -13,7 +13,7 @@ import java.rmi.RemoteException;
  */
 public interface IServer extends Remote {
 	
-	public static final String SERVER_REGISTRY_KEY = "Vote";
+	public static final String SERVER_REGISTRY_KEY = "Player";
 
 	/**
 	 * Registers IClient c as an observer of changes on the server.
@@ -22,18 +22,23 @@ public interface IServer extends Remote {
 	 */
 	public void addIClient(IClient c) throws RemoteException;
 	
+
 	/**
-	 * The server keeps track of votes cast.  A client can cast
-	 * a vote by calling the vote() method. 
+	 *  This method is responsible for a player to update the game state
+	 *  when he finishes his turn.
+	 *  @author czhang43(Cheng Zhang)
 	 * @throws RemoteException
 	 */
-	public void vote() throws RemoteException;
-	
+
+
+	public void endTurn() throws RemoteException;
 	/**
-	 * An accessor method that a client can call to retrieve the
-	 * number of votes cast in total.
-	 * @return the total number of votes cast (by all clients)
+	 * A accsssor method returns the game state that saved as a string.
+	 * @author czhang43(Cheng Zhang) 
+	 * @param c
+	 * @return The game state that saved as a string
 	 * @throws RemoteException
 	 */
-	public int getVotes() throws RemoteException;
+
+	public String getString(IClient c) throws RemoteException;
 }

@@ -46,7 +46,7 @@ public class Scrabble_055{
 	 * Class constructor
 	 * @param players List of player names in the game
 	 * @author    driver: adhishch (Adhish Chugh)
-     * @author navigator: 
+	 * @author navigator: 
 	 */
 	public Scrabble_055(ArrayList<String> players){
 		_inv = new Inventory_024_055();
@@ -58,7 +58,7 @@ public class Scrabble_055{
 		for(int i = 0; i<_players.size(); i++){
 			addNewPlayer(_inv, players.get(i), wordChecker);
 		}
-		
+
 		_arrayOfColor = new ArrayList<Color>();
 		_arrayOfColor.add(Color.BLUE);
 		_arrayOfColor.add(Color.GREEN);
@@ -70,7 +70,7 @@ public class Scrabble_055{
 	 * Constructor to restore a game that has been saved
 	 * @param restorePath the filepath for the game to be restored
 	 * * @author    driver: adhishch (Adhish Chugh)
-     * @author navigator: 
+	 * @author navigator: 
 	 */
 	public Scrabble_055(String restorePath){
 		ArrayList<String> restoreFile = new ArrayList<String>();
@@ -104,18 +104,18 @@ public class Scrabble_055{
 			else{
 				dimensions = dimensions + c;
 			}
-			
+
 		}
 		int boardLength = Integer.parseInt(lw.get(0));
 		int boardWidth = Integer.parseInt(lw.get(1));
 		String pathOfDictionary = restoreFile.get(1);
-		
-			
+
+
 	}
 	/**
 	 * Class constructor with no parameters that start a game of scrabble for 2 players 
 	 * * @author    driver: adhishch (Adhish Chugh)
-     * @author navigator: 
+	 * @author navigator: 
 	 */
 	public Scrabble_055(){
 		_inv = new Inventory_024_055();
@@ -145,7 +145,7 @@ public class Scrabble_055{
 	/**
 	 * Adds a new player to the game.
 	 * @author    driver: adhishch (Adish Chugh)
-     * @author navigator: 
+	 * @author navigator: 
 	 */
 	private void addNewPlayer(Inventory_024_055 inv,String name, Dictionary_055 wordChecker){
 
@@ -159,7 +159,7 @@ public class Scrabble_055{
 	 * placed down onto the board.
 	 * @param filename name of file to save the current scrabble game
 	 *  @author driver: adhishch (Adhish Chugh)
-     *  
+	 *  
 	 */
 	public void saveToFile(String filename) {
 		PrintStream stream = null;
@@ -182,7 +182,7 @@ public class Scrabble_055{
 					myPlayerRack = myPlayerRack + _players.get(i).getTileRack().getTile(l).toString();
 				}
 				myPlayerRack = myPlayerRack + "]";
-//				String playerRack = _players.get(i).getTileRack().getTiles().toString();
+				//				String playerRack = _players.get(i).getTileRack().getTiles().toString();
 				ArrayList<String> playerProperties = new ArrayList<String>();
 				playerProperties.add(playerName);
 				playerProperties.add(playerColor);
@@ -227,8 +227,8 @@ public class Scrabble_055{
 
 
 	public void restoreFromFile(String path){
-		
-		
+
+
 	}
 	/**
 	 * main method that takes in string array of args
@@ -236,7 +236,7 @@ public class Scrabble_055{
 	 * if it has more than one, each player has their own different restore pathfile
 	 * @param args Array of Strings
 	 *  @author driver: adhishch (Adhish Chugh)
-     *  
+	 *  
 	 */
 	public void main(String[] args){
 		if(args.length==1){
@@ -260,7 +260,7 @@ public class Scrabble_055{
 	 * It prints out the highscores and writes them onto a text file.
 	 * @param s the current scrabble game
 	 * @author    driver: rockylia (Rocky Liao)
-     * @author navigator: 
+	 * @author navigator: 
 	 */
 	public void fileWriteHighScore(String filename) {
 		PrintStream stream = null;
@@ -324,7 +324,7 @@ public class Scrabble_055{
 	 * Makes descending order of scores so highest score on top
 	 * @param al Arraylist of players of scrabble game
 	 * @author    driver: rockylia (Rocky Liao)
-     * @author navigator: 
+	 * @author navigator: 
 	 */
 	private static void sort1(ArrayList<Player_024_055> al)
 	{
@@ -349,7 +349,7 @@ public class Scrabble_055{
 	 * @param s String with a number in it
 	 * @return The number as an int 
 	 * @author    driver:rockylia (Rocky Liao)
-     * @author navigator: 
+	 * @author navigator: 
 	 */
 	private static int convertInt(String s)
 	{
@@ -375,7 +375,7 @@ public class Scrabble_055{
 	 * @param filename name of file
 	 * @return string arraylist of each line in the file
 	 * @author    driver:rockylia (Rocky Liao)
-     * @author navigator: 
+	 * @author navigator: 
 	 */
 	public ArrayList<String> getHighScoreFile(String filename)
 	{
@@ -396,12 +396,12 @@ public class Scrabble_055{
 		return str;
 	}
 
-	
+
 	/**
 	 * gets the board of the current scrabble game
 	 * @return the board
 	 * @author    driver: adhishch (Adhish Chugh)
-     * @author navigator: 
+	 * @author navigator: 
 	 */
 	public Board_024_055 getBoard(){
 		return _board;
@@ -446,7 +446,7 @@ public class Scrabble_055{
 					str="tver";
 					break;
 				}
-				
+
 			}
 			if (a.get(z + 1) - a.get(z) == 1 ) {
 				str="hor";
@@ -458,5 +458,152 @@ public class Scrabble_055{
 			}
 		}
 		return str;
+	}
+	/**
+	 * Every time one player ends his turn, this method saves the data to a string
+	 * that contains players' name, score and tilerack, inventory and board.
+	 * @author czhang43(Cheng Zhang)
+	 * @return A string that contains players' name, score and tilerack, inventory and board.
+	 */
+	public String tempSave() {
+		String s = "";
+		for(int i = 0; i < _players.size();i++){
+			s += _players.get(i).getName() + ",";
+			s += Integer.toString(_players.get(i).getScore()) + ",";
+			for(int j = 0; j < 12; j++){
+				s += _players.get(i).getTileRack().getTile(j).getChar();
+			}
+			s += ",";
+		}
+		s += "\n";
+		for(int i = 0; i < _inv.getSize(); i++){
+			s += _inv.getInventory().get(i).getChar();
+		}
+		s += "\n";
+		for(int i = 0; i<20; i++){
+			for(int j = 0; j<20; j++){
+				if(_board.isEmpty(i, j)){
+					s += "-";
+				}
+				else{ 
+					s += "(" + _board.getTile(i, j).getChar() + ",";
+					s +=_board.getTile(i, j).getPlayer().getName() + ")";
+				}
+			}
+			s += "\n";
+		}
+
+		return s;
+	}
+	/**
+	 * This method is responsible for players to load the game.
+	 * @author czhang43(Cheng Zhang)
+	 * @param s
+	 */
+	
+	public void restore(String s) {
+		ArrayList<String> players = new ArrayList<String>();
+		String str = "";
+		for(int i = 0; i < s.length(); i++){
+			if(s.charAt(i) == ','){
+				players.add(str);
+				str = "";
+			}
+			str += s.charAt(i);
+			
+			if(s.charAt(i) == '\n'){
+				s = s.substring(i+1);
+				break;
+			}
+		}
+		// All players' score and tileRack are reseted.
+		TileRack_024_055 tileRack = new TileRack_024_055(_inv);
+		for(int i = 0; i < players.size(); i+= 3){
+			for(int j = 0; j < this.getPlayers().size(); j++){
+				if(players.get(i).equals(this.getPlayers().get(j))){
+					this.getPlayers().get(j).setScore(Integer.getInteger(players.get(i+1)));
+					for(int k = 0; k < 12; k++){
+						tileRack.addTile(new Tile_024_055(players.get(i+2).charAt(k), getValue(players.get(i+2).charAt(k))));
+					}
+					this.getPlayers().get(j).setTileRack(tileRack);
+					tileRack = new TileRack_024_055(_inv);
+				}
+			}
+		}
+		// Reset the inventory.
+		String inventory = "";
+		for(int i = 0; i < s.length(); i++){
+			if(s.charAt(i) == '\n'){
+				s = s.substring(i+1);
+				break;
+			}
+			inventory += s.charAt(i);
+		}
+		Inventory_024_055 inv = new Inventory_024_055();
+		for(int i = 0; i < inventory.length(); i++){
+			inv.addTile(new Tile_024_055(s.charAt(i),getValue(s.charAt(i))));
+		}
+		this.setInventory(inv);
+		
+		//Reset the board.
+		int oldIndex = 0;
+		int newIndex = 0;
+		int row = 0;
+		ArrayList<String> oneRow = new ArrayList<String>();
+		for(int i = 0; i < s.length(); i++){
+			if(s.charAt(i) == '-'){
+				oneRow.add(""+s.charAt(i));
+			}
+			if(s.charAt(i) == '('){
+				oldIndex = i+1;
+			}
+			if(s.charAt(i) == ')'){
+				newIndex = i-1;
+				oneRow.add(s.substring(oldIndex, newIndex));
+			}
+			if(s.charAt(i) == '\n'){
+				for(int j = 0; j < 20; j++){
+					if(!oneRow.get(i).equals("-") && this.getBoard().getBoard()[row][j].getValue() != 0){
+						this.getBoard().getBoard()[row][j] = new Tile_024_055(oneRow.get(j).charAt(1),getValue(oneRow.get(j).charAt(1)));
+						for(int k = 0; k < _players.size(); k++){
+							if(oneRow.get(j).substring(2).equals(_players.get(k))){
+							this.getBoard().getBoard()[row][j].setColor(_players.get(k).getColor());
+							}
+						}
+					}
+				}
+				oneRow.clear();
+				row += 1;
+			}
+		}
+		
+		
+	}
+	/**
+	 * This method is responsible for get the value of the letter based on the letter.
+	 * @author czhang43(Cheng Zhang)
+	 * @param c
+	 * @return the value
+	 */
+	private int getValue(char c) {
+		int value = 0;
+		if ((c == 'A')||(c == 'E')||(c == 'I')||(c == 'O')||(c =='U')){
+			value = 1;
+		}
+		else if (c == 'Y'){
+			value = 2;
+		}
+		else{
+			value = 5;
+		}
+		return value;
+	}
+	/**
+	 * This method is responsible for setting the inventory.
+	 * @author czhang43(Cheng Zhang)
+	 * @param inventory
+	 */
+	public void setInventory(Inventory_024_055 inventory){
+		_inv = inventory;
 	}
 }

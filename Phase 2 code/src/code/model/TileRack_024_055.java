@@ -94,7 +94,6 @@ public class TileRack_024_055 extends Observable {
 	 */
 	
 	public void addTile(Tile_024_055 t){
-		_rack.add(t);
-		
+		_rack.add(t);	
 	}
 }

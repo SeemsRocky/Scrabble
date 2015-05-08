@@ -81,4 +81,11 @@ public class Inventory_024_055 {
 	public ArrayList<Tile_024_055> getInventory(){
 		return _tileBag;
 	}
+	/**
+	 * This method is responsible for adding tiles to the inventory.
+	 * @author czhang43(Cheng Zhang)
+	 */
+	public void addTile(Tile_024_055 tile){
+		_tileBag.add(tile);
+	}
 }
