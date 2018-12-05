@@ -442,7 +442,8 @@ public class Scrabble_055{
 	{
 		String str ="";
 		int n=0;
-		for (int z = num; z < a.size() - 1; z++) {
+		for (int z = num; z < a.size() - 1; z++)
+		{
 			while(n!=20)
 			{
 				if(a.contains(n * 20) && a.contains(19 + n * 20))
